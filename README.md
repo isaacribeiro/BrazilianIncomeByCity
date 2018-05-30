@@ -1,17 +1,14 @@
-# Renda per Capita dos Brasileiros por Cidade
-## __Brazilian Income by City__
-UNISINOS - Estatística Aplicada / 2018
+# Brazilian Income by City
+## UNISINOS - Estatística Aplicada / 2018
 
 Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/download/)
 
-**Atividades do trabalho:**
+**Tasks:**
 
-1. Baixar os dados municipais do Atlas do desenvolvimento humano no Brasil referentes aos Censos 2000 e 2010 em [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/download/)
+1. Download the _dataset_ from Brazilian Human Development Index (_HDI_) regarding the censuses of 2000 and 2010 available in [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/download/)
 
-2. Escolher 5 variáveis que possam ser consideradas explicativas para a renda per capita dos municípios. Pode-se optar por utilizar os municípios de uma UF apenas, ou de uma Região ou do Brasil todo.
+2. Choose 5 variables which can be considered as explanatory to predict the income per capta by City. It can be selected by State, Region, or taking the entire Country into account.
 
-3. Fazer uma análise descritiva destas variáveis e da renda per capita.
+3. Create a descriptive analysis regarding the variable set selected in previous step and the income per capta, as well.
 
-4. Aplicar a análise de regressão linear múltipla onde a VR é a renda per capita e as variáveis explicativas são as 5 escolhidas no passo _2._
-
-5. Entregar na forma de relatório que contenha introdução, procedimentos para a coleta, cálculos e análise estatística, resultados das análises com interpretações e conclusões finais.
+4. Apply a Multiple Linear Regression analysis considering **Income _per capita_** as the dependent variable and the five variables selected previously.
