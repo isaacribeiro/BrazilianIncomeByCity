@@ -1,5 +1,6 @@
 # Brazilian Income _per capita_ by Region
-## UNISINOS - Estatística Aplicada / 2018
+## Especialização em Big Data, Data Science e Data Analytics - UNISINOS / 2018
+### Estatística Aplicada
 
 Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/download/)
 
