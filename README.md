@@ -14,6 +14,31 @@ Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/downloa
 4. Apply a Multiple Linear Regression analysis considering **Income _per capita_** as the dependent variable and the five variables selected previously.
 
 
-**Regions under Evaluation in Censuses of 2000 and 2010**
+## Metropolitan Regions Included in 2000 and 2010's Censuses
 
 ![Map](/images/finalMap.png)
+
+* Baixada Santista
+* Belem
+* Belo Horizonte
+* Campinas
+* Cuiaba
+* Curitiba
+* Distrito Federal
+* Florianópolis
+* Fortaleza
+* Goiania
+* Maceio
+* Manaus
+* Natal
+* Paraíba
+* Petrolina / Juazeiro
+* Porto Alegre
+* Recife
+* Rio de Janeiro
+* Salvador
+* São Luis
+* São Paulo
+* Sorocaba
+* Teresina
+* Vitória
