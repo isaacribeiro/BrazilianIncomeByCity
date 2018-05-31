@@ -1,11 +1,15 @@
 #Mandatory Packages
-download.packages(maptools)
-download.packages(RColorBrewer)
-download.packages(ggmap)
+require(maptools)
+require(RColorBrewer)
+require(ggmap)
+require(readxl)
+
+#read RM Base
+RM_porto_alegre <- read_xlsx("data/porto_alegre/base final RM Porto Alegre/RM 64300 Porto Alegre - Base UDH 2000_2010.xlsx")
 
 #load shapeFile from data repository
 library(maptools)
-porto_alegre <- readShapePoly("./data/porto_alegre/SH RM_Porto_Alegre/RM_PortoAlegre_Regional_region.shp")
+porto_alegre <- readShapePoly("./data/porto_alegre/SH RM_Porto_Alegre/RM_PortoAlegre_UDH_region.shp")
 
 #load color palette for map integration
 library(RColorBrewer)
@@ -17,7 +21,7 @@ mapImage <- get_map(location = c(lon = -51.16, lat = -30.09),
                     color = "color",
                     source = "google",
                     maptype = "satellite",
-                    zoom = 11)
+                    zoom = 9)
 
 #convert shape file into a data frame format for integration with GIS
 porto_alegre.points <- fortify(porto_alegre)
