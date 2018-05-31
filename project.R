@@ -28,4 +28,4 @@ geom_polygon(aes(x = long, y = lat, group = group),
                      color = colors[9],
                      fill = colors[6],
                      alpha = 0.5) + 
-slabs(x = "Latitude", y = "Longitude")
+labs(x = "Latitude", y = "Longitude")
