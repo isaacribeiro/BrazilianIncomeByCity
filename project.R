@@ -10,78 +10,103 @@ NO_FILL <- NA
 
 # Brazil
 brazil <- readOGR("data/brasil/UFEBRASIL.shp")
+brazil.area <- calculate_CRS_area(brazil)
 
 # Baixada Santista
 baixada_santista <- readOGR("data/baixada_santista/SH RM_Baixada_Santista/RM_Baixada_Santista_UDH_region.shp")
+baixada_santista.area <- calculate_CRS_area(baixada_santista)
 
 # Belem
 belem <- readOGR("data/belem/SH RM_Belem/RM_Belem_UDH_region.shp")
+belem.area <- calculate_CRS_area(belem)
 
 # Belo Horizonte
 belo_horizonte <- readOGR("data/belo_horizonte/SH RM_Belo_Horizonte/RM_BeloHorizonte_UDH_region.shp")
+belo_horizonte.area <- calculate_CRS_area(belo_horizonte)
 
 # Campinas
 campinas <- readOGR("data/campinas/SH RM_Campinas/RM_Campinas_UDH_Atlas_novo_region.shp")
+campinas.area <- calculate_CRS_area(campinas)
 
-# Cuaiaba
+# Cuiaba
 cuiaba <- readOGR("data/cuiaba/SH RM_Cuiaba/RM_Cuiaba_UDH_region.shp")
+cuiaba.area <- calculate_CRS_area(cuiaba)
 
 # Curibita
 curitiba <- readOGR("data/curitiba/SH RM_Curitiba/RM_Curitiba_UDH_region.shp")
+curitiba.area <- calculate_CRS_area(curitiba)
 
 # Distrito Federal
 distrito_federal <- readOGR("data/distrito_federal/SH RIDE_DF/RM_RIDE_UDH_region.shp")
+distrito_federal.area <- calculate_CRS_area(distrito_federal)
 
 # Florianópolis
 florianopolis <- readOGR("data/florianopolis/SH RM Florianópolis/RM_Florianopolis_por_UDH_region.shp")
+florianopolis.area <- calculate_CRS_area(florianopolis)
 
 # Fortaleza
 fortaleza <- readOGR("data/fortaleza/SH RM_Fortaleza/RM_Fortaleza_UDH_3_region.shp")
+fortaleza.area <- calculate_CRS_area(fortaleza)
 
 # Goiania
 goiania <- readOGR("data/goiania/SH RM_Goiania/RM_Goiania_UDH_region.shp")
+goiania.area <- calculate_CRS_area(goiania)
 
 # Maceio
 maceio <- readOGR("data/maceio/SH RM_Maceio/RM_Maceio_UDH_region.shp")
+maceio.area <- calculate_CRS_area(maceio)
 
 # Manaus
 manaus <- readOGR("data/manaus/SH RM_Manaus/RM_Manaus_UDH_2_region.shp")
+manaus.area <- calculate_CRS_area(manaus)
 
 # Natal
 natal <- readOGR("data/natal/SH RM_Natal/RM_Natal_UDH_2_region.shp")
+natal.area <- calculate_CRS_area(natal)
 
 # Paraíba
 paraiba <- readOGR("data/paraiba/SH RM_Vale_Paraiba/RM_Vale_Paraiba_UDH_region.shp")
+paraiba.area <- calculate_CRS_area(paraiba)
 
 # Petrolina_Juazeiro
 petrolina_juazeiro <- readOGR("data/petrolina_juazeiro/SH RIDE Petrolina_Juazeiro/RIDE_Petrolina_por_UDH_region.shp")
+petrolina_juazeiro.area <- calculate_CRS_area(petrolina_juazeiro)
 
 # Porto Alegre
 porto_alegre <- readOGR("data/porto_alegre/SH RM_Porto_Alegre/RM_PortoAlegre_UDH_region.shp")
+porto_alegre.area <- calculate_CRS_area(porto_alegre)
 
 # Recife
 recife <- readOGR("data/recife/SH RM_Recife/RM_Recife_UDH_region.shp")
+recife.area <- calculate_CRS_area(recife)
 
 # Rio de Janeiro
 rio_de_janeiro <- readOGR("data/rio_de_janeiro/SH RM_Rio_de_Janeiro/RM_RiodeJaneiro_UDH_3_region.shp")
+rio_de_janeiro.area <- calculate_CRS_area(rio_de_janeiro)
 
 # Salvador
 salvador <- readOGR("data/salvador/SH RM_Salvador/RM_Salvador_UDH_4_region.shp")
+salvador.area <- calculate_CRS_area(salvador)
 
 # São Luis
 sao_luis <- readOGR("data/sao_luis/SH RM_Sao_Luis/RM_SaoLuis_UDH_region.shp")
+sao_luis.area <- calculate_CRS_area(sao_luis)
 
 # São Paulo
 sao_paulo <- readOGR("data/sao_paulo/SH RM São Paulo/RM_SaoPaulo_UDH_region.shp")
+sao_paulo.area <- calculate_CRS_area(sao_paulo)
 
 # Sorocaba
 sorocaba <- readOGR("data/sorocaba/SH RM Sorocaba/RM_Sorocaba_por_UDH_region.shp")
+sorocaba.area <- calculate_CRS_area(sorocaba)
 
 # Teresina
 teresina <- readOGR("data/teresina/SH RIDE Teresina_Timon/RIDE_Teresina_por_UDH_region.shp")
+teresina.area <- calculate_CRS_area(teresina)
 
 # Vitória
 vitoria <- readOGR("data/vitoria/SH RM_Vitoria/RM_Vitoria_UDH_2_region.shp")
+vitoria.area <- calculate_CRS_area(vitoria)
 
 # Download the Brazilian Map using Google Maps API
 mapImage <- get_googlemap(center = c(lon = -51.7, lat = -13.5),
@@ -174,3 +199,18 @@ ggmap(mapImage, darken = c(0.3, "white")) +
 
 # Save as a PNG file the final map
 # ggsave(filename = "images/finalMap.png", device = "png")
+
+# Function to Calculate Area based on Coordinate Reference System
+calculate_CRS_area <- function(region){
+  
+  # Load required Library
+  library(raster)
+  
+  # Kilometer Square Division Factor
+  KM_SQUARE <- 1000000
+  
+  crs(region)
+  region$area_sqkm <- area(region) / KM_SQUARE
+  totalArea <- sum(region$area_sqkm)
+  return(totalArea)
+}
