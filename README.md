@@ -12,3 +12,8 @@ Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/downloa
 3. Create a descriptive analysis regarding the variable set selected in previous step and the income per capta, as well.
 
 4. Apply a Multiple Linear Regression analysis considering **Income _per capita_** as the dependent variable and the five variables selected previously.
+
+
+**Regions under Evaluation in Censuses of 2000 and 2010**
+
+![Map](/images/finalMap.png)
