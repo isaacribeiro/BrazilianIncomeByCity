@@ -1,6 +1,7 @@
 #### Required Libraries
 library(ggplot2)
 library(ggmap)
+library(rgdal)
 
 # Useful Constants
 AESTHETIC_MAPPING <- aes(x = long, y = lat, group = group)
@@ -86,11 +87,10 @@ vitoria <- readOGR("data/vitoria/SH RM_Vitoria/RM_Vitoria_UDH_2_region.shp")
 mapImage <- get_googlemap(center = c(lon = -51.7, lat = -13.5),
                           zoom = 4,
                           maptype = "satellite",
-                          color = "color",
-                          filename = "images/map")
+                          color = "color")
 
-  # Map Image from Google with 30% of transparency
-  ggmap(mapImage, darken = c(0.3, "white")) +
+# Map Image from Google with 30% of transparency
+ggmap(mapImage, darken = c(0.3, "white")) +
   
   # Brazil  
   geom_polygon(data = brazil, AESTHETIC_MAPPING, fill = NO_FILL, color = BLACK) + 
@@ -167,5 +167,10 @@ mapImage <- get_googlemap(center = c(lon = -51.7, lat = -13.5),
   # Vitória
   geom_polygon(data = vitoria, AESTHETIC_MAPPING, fill = BLACK, color = BLACK) +
   
-  # Chart Labels and Titles
-  labs(title = "Brazilian HDI - Geographic Distribution from Censuses of 2000 and 2010", x = "Latitude", y = "Longitude")
+  # Chart Labels and Titles, central alignment for Title
+  ggtitle(title = "Brazilian HDI - Geographic Distribution from Censuses of 2000 and 2010") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x = "Latitude", y = "Longitude")
+
+# Save as a PNG file the final map
+ggsave(filename = "images/finalMap.png", device = "png")
