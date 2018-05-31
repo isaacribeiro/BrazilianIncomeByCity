@@ -1,4 +1,4 @@
-# Brazilian Income _per capita_ by City
+# Brazilian Income _per capita_ by Region
 ## UNISINOS - Estatística Aplicada / 2018
 
 Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/download/)

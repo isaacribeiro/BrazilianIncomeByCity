@@ -3,6 +3,21 @@ library(ggplot2)
 library(ggmap)
 library(rgdal)
 
+# Function to Calculate Area based on Coordinate Reference System
+calculate_CRS_area <- function(region){
+  
+  # Load required Library
+  library(raster)
+  
+  # Kilometer Square Division Factor
+  KM_SQUARE <- 1000000
+  
+  crs(region)
+  region$area_sqkm <- area(region) / KM_SQUARE
+  totalArea <- sum(region$area_sqkm)
+  return(totalArea)
+}
+
 # Useful Constants
 AESTHETIC_MAPPING <- aes(x = long, y = lat, group = group)
 BLACK <- "black"
@@ -108,6 +123,34 @@ teresina.area <- calculate_CRS_area(teresina)
 vitoria <- readOGR("data/vitoria/SH RM_Vitoria/RM_Vitoria_UDH_2_region.shp")
 vitoria.area <- calculate_CRS_area(vitoria)
 
+# Aggregate area of census (Km square)
+census.area = baixada_santista.area +
+              belem.area +
+              belo_horizonte.area + 
+              campinas.area +
+              cuiaba.area +
+              curitiba.area +
+              distrito_federal.area + 
+              florianopolis.area + 
+              fortaleza.area + 
+              goiania.area + 
+              maceio.area +
+              manaus.area + 
+              natal.area + 
+              paraiba.area +
+              petrolina_juazeiro.area + 
+              porto_alegre.area +
+              recife.area +
+              rio_de_janeiro.area + 
+              salvador.area + 
+              sao_paulo.area + 
+              sao_luis.area + 
+              sorocaba.area + 
+              teresina.area + 
+              vitoria.area
+  
+areaDensity <- census.area / brazil.area
+
 # Download the Brazilian Map using Google Maps API
 mapImage <- get_googlemap(center = c(lon = -51.7, lat = -13.5),
                           zoom = 4,
@@ -199,18 +242,3 @@ ggmap(mapImage, darken = c(0.3, "white")) +
 
 # Save as a PNG file the final map
 # ggsave(filename = "images/finalMap.png", device = "png")
-
-# Function to Calculate Area based on Coordinate Reference System
-calculate_CRS_area <- function(region){
-  
-  # Load required Library
-  library(raster)
-  
-  # Kilometer Square Division Factor
-  KM_SQUARE <- 1000000
-  
-  crs(region)
-  region$area_sqkm <- area(region) / KM_SQUARE
-  totalArea <- sum(region$area_sqkm)
-  return(totalArea)
-}
