@@ -168,9 +168,9 @@ ggmap(mapImage, darken = c(0.3, "white")) +
   geom_polygon(data = vitoria, AESTHETIC_MAPPING, fill = BLACK, color = BLACK) +
   
   # Chart Labels and Titles, central alignment for Title
-  ggtitle(title = "Brazilian HDI - Geographic Distribution from Censuses of 2000 and 2010") +
+  ggtitle("Brazilian HDI - Geographic Distribution from Censuses of 2000 and 2010") +
   theme(plot.title = element_text(hjust = 0.5)) +
   labs(x = "Latitude", y = "Longitude")
 
 # Save as a PNG file the final map
-ggsave(filename = "images/finalMap.png", device = "png")
+# ggsave(filename = "images/finalMap.png", device = "png")
