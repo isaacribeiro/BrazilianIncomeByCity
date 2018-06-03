@@ -4,6 +4,10 @@ library(readxl)
 # Brazil - Raw Data
 # brazil_raw <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "BR 91-00-10")
 
+# Useful Constants
+c_regions <- c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
+
+# Variables
 census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas")
 
 # ESPVIDA - Esperança de vida ao nascer
@@ -66,8 +70,6 @@ census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas"
 # IDHM_R - IDHM Renda
 # Índice de Desenvolvimento Humano Municipal - Dimensão Renda
 
-
-
 # State - Raw Data
 state_raw <- read_excel("./data/atlas2013_dadosbrutos_pt.xlsx", sheet = "UF 91-00-10")
 state.2000 <- state_raw[state_raw$ANO == "2000", ]
@@ -78,15 +80,28 @@ state.2000.SUDESTE <- state.2000[state.2000$UF >= 30 & state.2000$UF < 40, ]
 state.2000.SUL <- state.2000[state.2000$UF >= 40 & state.2000$UF < 50, ]
 state.2000.CENTRO_OESTE <- state.2000[state.2000$UF >= 50, ]
 
+###########################################################
+# Expectativa de Vida
 state.2000.NORTE.ESPVIDA <- state.2000.NORTE$ESPVIDA
 state.2000.NORDESTE.ESPVIDA <- state.2000.NORDESTE$ESPVIDA
 state.2000.SUDESTE.ESPVIDA <- state.2000.SUDESTE$ESPVIDA
 state.2000.SUL.ESPVIDA <- state.2000.SUL$ESPVIDA
 state.2000.CENTRO_OESTE.ESPVIDA <- state.2000.CENTRO_OESTE$ESPVIDA
 
-boxplot(state.2000.NORTE.ESPVIDA, state.2000.NORDESTE.ESPVIDA, state.2000.SUDESTE.ESPVIDA, state.2000.SUL.ESPVIDA, state.2000.CENTRO_OESTE.ESPVIDA,
-        names = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"),
-        main = "Expectativa de Vida por Região")
+# boxplot(state.2000.NORTE.ESPVIDA, state.2000.NORDESTE.ESPVIDA, state.2000.SUDESTE.ESPVIDA, state.2000.SUL.ESPVIDA, state.2000.CENTRO_OESTE.ESPVIDA,
+        # names = c_regions,
+        # main = "Expectativa de Vida por Região")
 
-state.2010 <- state_raw[state_raw$ANO == "2010", ]
-state.2010.ESPVIDA <- state.2010$ESPVIDA
+# Renda per Capita Média
+state.2000.NORTE.RDPC <- state.2000.NORTE$RDPC
+state.2000.NORDESTE.RDPC <- state.2000.NORDESTE$RDPC
+state.2000.SUDESTE.RDPC <- state.2000.SUDESTE$RDPC
+state.2000.SUL.RDPC <- state.2000.SUL$RDPC
+state.2000.CENTRO_OESTE.RDPC <- state.2000.CENTRO_OESTE$RDPC
+
+boxplot(state.2000.NORTE.RDPC, state.2000.NORDESTE.RDPC, state.2000.SUDESTE.RDPC, state.2000.SUL.RDPC, state.2000.CENTRO_OESTE.RDPC,
+names = c_regions,
+main = "Renda per capita Média por Região")
+
+# state.2010 <- state_raw[state_raw$ANO == "2010", ]
+# state.2010.ESPVIDA <- state.2010$ESPVIDA
