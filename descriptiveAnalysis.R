@@ -61,7 +61,7 @@ census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas"
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # Média geométrica dos índices das dimensões Renda, Educação e Longevidade, com pesos iguais.
 
-# IDHM_E  - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
+# IDHM_E- Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # Índice sintético da dimensão Educação que é um dos 3 componentes do IDHM. É obtido através da média geométrica do subíndice de frequência de crianças e jovens à escola, com peso de 2/3, e do subíndice de escolaridade da população adulta, com peso de 1/3.
 
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
@@ -92,6 +92,7 @@ state.2000.CENTRO_OESTE.ESPVIDA <- state.2000.CENTRO_OESTE$ESPVIDA
         # names = c_regions,
         # main = "Expectativa de Vida por Região")
 
+###########################################################
 # Renda per Capita Média
 state.2000.NORTE.RDPC <- state.2000.NORTE$RDPC
 state.2000.NORDESTE.RDPC <- state.2000.NORDESTE$RDPC
@@ -99,9 +100,40 @@ state.2000.SUDESTE.RDPC <- state.2000.SUDESTE$RDPC
 state.2000.SUL.RDPC <- state.2000.SUL$RDPC
 state.2000.CENTRO_OESTE.RDPC <- state.2000.CENTRO_OESTE$RDPC
 
-boxplot(state.2000.NORTE.RDPC, state.2000.NORDESTE.RDPC, state.2000.SUDESTE.RDPC, state.2000.SUL.RDPC, state.2000.CENTRO_OESTE.RDPC,
-names = c_regions,
-main = "Renda per capita Média por Região")
+# boxplot(state.2000.NORTE.RDPC, state.2000.NORDESTE.RDPC, state.2000.SUDESTE.RDPC, state.2000.SUL.RDPC, state.2000.CENTRO_OESTE.RDPC,
+# names = c_regions,
+# main = "Renda per capita Média por Região")
 
-# state.2010 <- state_raw[state_raw$ANO == "2010", ]
-# state.2010.ESPVIDA <- state.2010$ESPVIDA
+###########################################################
+# IDHM -Índice de Desenvolvimento Humano Municipal
+# IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
+# IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
+# IDHM_R - IDHM Renda
+state.2000.NORTE.IDHM <- state.2000.NORTE$IDHM
+state.2000.NORTE.IDHM_E <- state.2000.NORTE$IDHM_E
+state.2000.NORTE.IDHM_L <- state.2000.NORTE$IDHM_L
+state.2000.NORTE.IDHM_R <- state.2000.NORTE$IDHM_R
+
+state.2000.NORDESTE.IDHM <- state.2000.NORDESTE$IDHM
+state.2000.NORDESTE.IDHM_E <- state.2000.NORDESTE$IDHM_E
+state.2000.NORDESTE.IDHM_L <- state.2000.NORDESTE$IDHM_L
+state.2000.NORDESTE.IDHM_R <- state.2000.NORDESTE$IDHM_R
+
+state.2000.SUDESTE.IDHM <- state.2000.SUDESTE$IDHM
+state.2000.SUDESTE.IDHM_E <- state.2000.SUDESTE$IDHM_E
+state.2000.SUDESTE.IDHM_L <- state.2000.SUDESTE$IDHM_L
+state.2000.SUDESTE.IDHM_R <- state.2000.SUDESTE$IDHM_R
+
+state.2000.SUL.IDHM <- state.2000.SUL$IDHM
+state.2000.SUL.IDHM_E <- state.2000.SUL$IDHM_E
+state.2000.SUL.IDHM_L <- state.2000.SUL$IDHM_L
+state.2000.SUL.IDHM_R <- state.2000.SUL$IDHM_R
+
+state.2000.CENTRO_OESTE.IDHM <- state.2000.CENTRO_OESTE$IDHM
+state.2000.CENTRO_OESTE.IDHM_E <- state.2000.CENTRO_OESTE$IDHM_E
+state.2000.CENTRO_OESTE.IDHM_L <- state.2000.CENTRO_OESTE$IDHM_L
+state.2000.CENTRO_OESTE.IDHM_R <- state.2000.CENTRO_OESTE$IDHM_R
+
+boxplot(state.2000.NORTE.IDHM, state.2000.NORDESTE.IDHM, state.2000.SUDESTE.IDHM, state.2000.SUL.IDHM, state.2000.CENTRO_OESTE.IDHM,
+  names = c_regions,
+  main = "Índice de Desenvolvimento Humano Municipal por Região ")
