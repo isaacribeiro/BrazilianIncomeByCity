@@ -105,6 +105,18 @@ state.2000.CENTRO_OESTE.RDPC <- state.2000.CENTRO_OESTE$RDPC
 # main = "Renda per capita Média por Região")
 
 ###########################################################
+# E_ANOSESTUDO - Expectativa de anos de estudo
+state.2000.NORTE.E_ANOSESTUDO <- state.2000.NORTE$E_ANOSESTUDO
+state.2000.NORDESTE.E_ANOSESTUDO <- state.2000.NORDESTE$E_ANOSESTUDO
+state.2000.SUDESTE.E_ANOSESTUDO <- state.2000.SUDESTE$E_ANOSESTUDO
+state.2000.SUL.E_ANOSESTUDO <- state.2000.SUL$E_ANOSESTUDO
+state.2000.CENTRO_OESTE.E_ANOSESTUDO <- state.2000.CENTRO_OESTE$E_ANOSESTUDO
+
+boxplot(state.2000.NORTE.E_ANOSESTUDO, state.2000.NORDESTE.E_ANOSESTUDO, state.2000.SUDESTE.E_ANOSESTUDO, state.2000.SUL.E_ANOSESTUDO, state.2000.CENTRO_OESTE.E_ANOSESTUDO,
+  names = c_regions,
+  main = "Expectativa de Anos de Estudo ao Atingir 18 Anos por Região ")
+
+###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
