@@ -35,177 +35,177 @@ AREA_PROPERTIES_FILE_PATH <- "./data/regions.properties"
 # Brazil
 brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 brazil.area <- calculate_CRS_area(brazil)
-write(x = create_string_to_file("Brazil", brazil.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Brazil", brazil.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Baixada Santista
 baixada_santista <- readOGR("data/baixada_santista/SH RM_Baixada_Santista/RM_Baixada_Santista_UDH_region.shp")
 baixada_santista.area <- calculate_CRS_area(baixada_santista)
-write(x = create_string_to_file("Baixada Santista", baixada_santista.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Baixada Santista", baixada_santista.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Belem
 belem <- readOGR("data/belem/SH RM_Belem/RM_Belem_UDH_region.shp")
 belem.area <- calculate_CRS_area(belem)
-write(x = create_string_to_file("Belem", belem.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Belem", belem.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Belo Horizonte
 belo_horizonte <- readOGR("data/belo_horizonte/SH RM_Belo_Horizonte/RM_BeloHorizonte_UDH_region.shp")
 belo_horizonte.area <- calculate_CRS_area(belo_horizonte)
-write(x = create_string_to_file("Belo Horizonte", belo_horizonte.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Belo Horizonte", belo_horizonte.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Campinas
 campinas <- readOGR("data/campinas/SH RM_Campinas/RM_Campinas_UDH_Atlas_novo_region.shp")
 campinas.area <- calculate_CRS_area(campinas)
-write(x = create_string_to_file("Campinas", campinas.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Campinas", campinas.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Cuiaba
 cuiaba <- readOGR("data/cuiaba/SH RM_Cuiaba/RM_Cuiaba_UDH_region.shp")
 cuiaba.area <- calculate_CRS_area(cuiaba)
-write(x = create_string_to_file("Cuiaba", cuiaba.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Cuiaba", cuiaba.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Curibita
 curitiba <- readOGR("data/curitiba/SH RM_Curitiba/RM_Curitiba_UDH_region.shp")
 curitiba.area <- calculate_CRS_area(curitiba)
-write(x = create_string_to_file("Curitiba", curitiba.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Curitiba", curitiba.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Distrito Federal
 distrito_federal <- readOGR("data/distrito_federal/SH RIDE_DF/RM_RIDE_UDH_region.shp")
 distrito_federal.area <- calculate_CRS_area(distrito_federal)
-write(x = create_string_to_file("Distrito Federal", distrito_federal.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Distrito Federal", distrito_federal.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Florianópolis
 florianopolis <- readOGR("data/florianopolis/SH RM Florianópolis/RM_Florianopolis_por_UDH_region.shp")
 florianopolis.area <- calculate_CRS_area(florianopolis)
-write(x = create_string_to_file("Florianopolis", florianopolis.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Florianopolis", florianopolis.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Fortaleza
 fortaleza <- readOGR("data/fortaleza/SH RM_Fortaleza/RM_Fortaleza_UDH_3_region.shp")
 fortaleza.area <- calculate_CRS_area(fortaleza)
-write(x = create_string_to_file("Fortaleza", fortaleza.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Fortaleza", fortaleza.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Goiania
 goiania <- readOGR("data/goiania/SH RM_Goiania/RM_Goiania_UDH_region.shp")
 goiania.area <- calculate_CRS_area(goiania)
-write(x = create_string_to_file("Goiania", goiania.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Goiania", goiania.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Maceio
 maceio <- readOGR("data/maceio/SH RM_Maceio/RM_Maceio_UDH_region.shp")
 maceio.area <- calculate_CRS_area(maceio)
-write(x = create_string_to_file("Maceio", maceio.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Maceio", maceio.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Manaus
 manaus <- readOGR("data/manaus/SH RM_Manaus/RM_Manaus_UDH_2_region.shp")
 manaus.area <- calculate_CRS_area(manaus)
-write(x = create_string_to_file("Manaus", manaus.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Manaus", manaus.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Natal
 natal <- readOGR("data/natal/SH RM_Natal/RM_Natal_UDH_2_region.shp")
 natal.area <- calculate_CRS_area(natal)
-write(x = create_string_to_file("Natal", natal.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Natal", natal.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Paraíba
 paraiba <- readOGR("data/paraiba/SH RM_Vale_Paraiba/RM_Vale_Paraiba_UDH_region.shp")
 paraiba.area <- calculate_CRS_area(paraiba)
-write(x = create_string_to_file("Paraíba", paraíba.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Paraíba", paraiba.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Petrolina_Juazeiro
 petrolina_juazeiro <- readOGR("data/petrolina_juazeiro/SH RIDE Petrolina_Juazeiro/RIDE_Petrolina_por_UDH_region.shp")
 petrolina_juazeiro.area <- calculate_CRS_area(petrolina_juazeiro)
-write(x = create_string_to_file("Petrolina / Juazeiro", petrolina_juazeiro.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Petrolina / Juazeiro", petrolina_juazeiro.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Porto Alegre
 porto_alegre <- readOGR("data/porto_alegre/SH RM_Porto_Alegre/RM_PortoAlegre_UDH_region.shp")
 porto_alegre.area <- calculate_CRS_area(porto_alegre)
-write(x = create_string_to_file("Porto Alegre", porto_alegre.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Porto Alegre", porto_alegre.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Recife
 recife <- readOGR("data/recife/SH RM_Recife/RM_Recife_UDH_region.shp")
 recife.area <- calculate_CRS_area(recife)
-write(x = create_string_to_file("Recife", recife.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Recife", recife.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Rio de Janeiro
 rio_de_janeiro <- readOGR("data/rio_de_janeiro/SH RM_Rio_de_Janeiro/RM_RiodeJaneiro_UDH_3_region.shp")
 rio_de_janeiro.area <- calculate_CRS_area(rio_de_janeiro)
-write(x = create_string_to_file("Rio de Janeiro", rio_de_janeiro.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Rio de Janeiro", rio_de_janeiro.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Salvador
 salvador <- readOGR("data/salvador/SH RM_Salvador/RM_Salvador_UDH_4_region.shp")
 salvador.area <- calculate_CRS_area(salvador)
-write(x = create_string_to_file("Salvador", salvador.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Salvador", salvador.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # São Luis
 sao_luis <- readOGR("data/sao_luis/SH RM_Sao_Luis/RM_SaoLuis_UDH_region.shp")
 sao_luis.area <- calculate_CRS_area(sao_luis)
-write(x = create_string_to_file("São Luis", sao_luis.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("São Luis", sao_luis.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # São Paulo
 sao_paulo <- readOGR("data/sao_paulo/SH RM São Paulo/RM_SaoPaulo_UDH_region.shp")
 sao_paulo.area <- calculate_CRS_area(sao_paulo)
-write(x = create_string_to_file("São Paulo", sao_paulo.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("São Paulo", sao_paulo.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Sorocaba
 sorocaba <- readOGR("data/sorocaba/SH RM Sorocaba/RM_Sorocaba_por_UDH_region.shp")
 sorocaba.area <- calculate_CRS_area(sorocaba)
-write(x = create_string_to_file("Sorocaba", sorocaba.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Sorocaba", sorocaba.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Teresina
 teresina <- readOGR("data/teresina/SH RIDE Teresina_Timon/RIDE_Teresina_por_UDH_region.shp")
 teresina.area <- calculate_CRS_area(teresina)
-write(x = create_string_to_file("Teresina", teresina.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
-
+# write(x = create_string_to_file("Teresina", teresina.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
+rm
 # Vitória
 vitoria <- readOGR("data/vitoria/SH RM_Vitoria/RM_Vitoria_UDH_2_region.shp")
 vitoria.area <- calculate_CRS_area(vitoria)
-write(x = create_string_to_file("Vitória", vitoria.area),
-      file = AREA_PROPERTIES_FILE_PATH,
-      append = TRUE)
+# write(x = create_string_to_file("Vitória", vitoria.area),
+#       file = AREA_PROPERTIES_FILE_PATH,
+#       append = TRUE)
 
 # Aggregates area of census (Km square)
 census.area = baixada_santista.area +
