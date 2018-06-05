@@ -71,81 +71,121 @@ census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas"
 # Índice de Desenvolvimento Humano Municipal - Dimensão Renda
 
 # State - Raw Data
-state_raw <- read_excel("./data/atlas2013_dadosbrutos_pt.xlsx", sheet = "UF 91-00-10")
-state.2000 <- state_raw[state_raw$ANO == "2000", ]
+raw_data <- read_excel("./data/atlas2013_dadosbrutos_pt.xlsx", sheet = "MUN 91-00-10")
 
-state.2000.NORTE <- state.2000[state.2000$UF < 20, ]
-state.2000.NORDESTE <- state.2000[state.2000$UF >= 20 & state.2000$UF < 30, ]
-state.2000.SUDESTE <- state.2000[state.2000$UF >= 30 & state.2000$UF < 40, ]
-state.2000.SUL <- state.2000[state.2000$UF >= 40 & state.2000$UF < 50, ]
-state.2000.CENTRO_OESTE <- state.2000[state.2000$UF >= 50, ]
+# 1991's Census
+counties.1991 <- raw_data[raw_data$ANO == "1991", ]
+
+counties.1991.NORTE <- counties.1991[counties.1991$UF < 20, ]
+counties.1991.NORDESTE <- counties.1991[counties.1991$UF >= 20 & counties.1991$UF < 30, ]
+counties.1991.SUDESTE <- counties.1991[counties.1991$UF >= 30 & counties.1991$UF < 40, ]
+counties.1991.SUL <- counties.1991[counties.1991$UF >= 40 & counties.1991$UF < 50, ]
+counties.1991.CENTRO_OESTE <- counties.1991[counties.1991$UF >= 50, ]
+
+# 2000's Census
+counties.2000 <- raw_data[raw_data$ANO == "2000", ]
+
+counties.2000.NORTE <- counties.2000[counties.2000$UF < 20, ]
+counties.2000.NORDESTE <- counties.2000[counties.2000$UF >= 20 & counties.2000$UF < 30, ]
+counties.2000.SUDESTE <- counties.2000[counties.2000$UF >= 30 & counties.2000$UF < 40, ]
+counties.2000.SUL <- counties.2000[counties.2000$UF >= 40 & counties.2000$UF < 50, ]
+counties.2000.CENTRO_OESTE <- counties.2000[counties.2000$UF >= 50, ]
+
+# 2010's Census
+
+counties.2010 <- raw_data[raw_data$ANO == "2010", ]
+
+counties.2010.NORTE <- counties.2010[counties.2010$UF < 20, ]
+counties.2010.NORDESTE <- counties.2010[counties.2010$UF >= 20 & counties.2010$UF < 30, ]
+counties.2010.SUDESTE <- counties.2010[counties.2010$UF >= 30 & counties.2010$UF < 40, ]
+counties.2010.SUL <- counties.2010[counties.2010$UF >= 40 & counties.2010$UF < 50, ]
+counties.2010.CENTRO_OESTE <- counties.2010[counties.2000$UF >= 50, ]
 
 ###########################################################
-# Expectativa de Vida
-state.2000.NORTE.ESPVIDA <- state.2000.NORTE$ESPVIDA
-state.2000.NORDESTE.ESPVIDA <- state.2000.NORDESTE$ESPVIDA
-state.2000.SUDESTE.ESPVIDA <- state.2000.SUDESTE$ESPVIDA
-state.2000.SUL.ESPVIDA <- state.2000.SUL$ESPVIDA
-state.2000.CENTRO_OESTE.ESPVIDA <- state.2000.CENTRO_OESTE$ESPVIDA
+############### ESPVIDA - Expectativa de Vida
+##########################################################
 
-boxplot(state.2000.NORTE.ESPVIDA, state.2000.NORDESTE.ESPVIDA, state.2000.SUDESTE.ESPVIDA, state.2000.SUL.ESPVIDA, state.2000.CENTRO_OESTE.ESPVIDA,
-        names = c_regions,
-        main = "Expectativa de Vida por Região")
+counties.1991.NORTE.ESPVIDA <- counties.1991.NORTE$ESPVIDA
+counties.1991.NORDESTE.ESPVIDA <- counties.1991.NORDESTE$ESPVIDA
+counties.1991.SUDESTE.ESPVIDA <- counties.1991.SUDESTE$ESPVIDA
+counties.1991.SUL.ESPVIDA <- counties.1991.SUL$ESPVIDA
+counties.1991.CENTRO_OESTE.ESPVIDA <- counties.1991.CENTRO_OESTE$ESPVIDA
+
+counties.2000.NORTE.ESPVIDA <- counties.2000.NORTE$ESPVIDA
+counties.2000.NORDESTE.ESPVIDA <- counties.2000.NORDESTE$ESPVIDA
+counties.2000.SUDESTE.ESPVIDA <- counties.2000.SUDESTE$ESPVIDA
+counties.2000.SUL.ESPVIDA <- counties.2000.SUL$ESPVIDA
+counties.2000.CENTRO_OESTE.ESPVIDA <- counties.2000.CENTRO_OESTE$ESPVIDA
+
+counties.2010.NORTE.ESPVIDA <- counties.2010.NORTE$ESPVIDA
+counties.2010.NORDESTE.ESPVIDA <- counties.2010.NORDESTE$ESPVIDA
+counties.2010.SUDESTE.ESPVIDA <- counties.2010.SUDESTE$ESPVIDA
+counties.2010.SUL.ESPVIDA <- counties.2010.SUL$ESPVIDA
+counties.2010.CENTRO_OESTE.ESPVIDA <- counties.2010.CENTRO_OESTE$ESPVIDA
+
+# boxplot(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
+#         counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
+#         counties.1991.SUDESTE.ESPVIDA, counties.2000.SUDESTE.ESPVIDA, counties.2010.SUDESTE.ESPVIDA,
+#         counties.1991.SUL.ESPVIDA, counties.2000.SUL.ESPVIDA, counties.2010.SUL.ESPVIDA,
+#         counties.1991.CENTRO_OESTE.ESPVIDA, counties.2000.CENTRO_OESTE.ESPVIDA, counties.2010.CENTRO_OESTE.ESPVIDA,
+# names = c_regions,
+# col = c("red", "blue", "yellow"),
+# main = "Expectativa de Vida por Região")
 
 ###########################################################
 # Renda per Capita Média
-state.2000.NORTE.RDPC <- state.2000.NORTE$RDPC
-state.2000.NORDESTE.RDPC <- state.2000.NORDESTE$RDPC
-state.2000.SUDESTE.RDPC <- state.2000.SUDESTE$RDPC
-state.2000.SUL.RDPC <- state.2000.SUL$RDPC
-state.2000.CENTRO_OESTE.RDPC <- state.2000.CENTRO_OESTE$RDPC
+counties.2000.NORTE.RDPC <- counties.2000.NORTE$RDPC
+counties.2000.NORDESTE.RDPC <- counties.2000.NORDESTE$RDPC
+counties.2000.SUDESTE.RDPC <- counties.2000.SUDESTE$RDPC
+counties.2000.SUL.RDPC <- counties.2000.SUL$RDPC
+counties.2000.CENTRO_OESTE.RDPC <- counties.2000.CENTRO_OESTE$RDPC
 
-# boxplot(state.2000.NORTE.RDPC, state.2000.NORDESTE.RDPC, state.2000.SUDESTE.RDPC, state.2000.SUL.RDPC, state.2000.CENTRO_OESTE.RDPC,
+# boxplot(counties.2000.NORTE.RDPC, counties.2000.NORDESTE.RDPC, counties.2000.SUDESTE.RDPC, counties.2000.SUL.RDPC, counties.2000.CENTRO_OESTE.RDPC,
 # names = c_regions,
 # main = "Renda per capita Média por Região")
 
 ###########################################################
 # E_ANOSESTUDO - Expectativa de anos de estudo
-state.2000.NORTE.E_ANOSESTUDO <- state.2000.NORTE$E_ANOSESTUDO
-state.2000.NORDESTE.E_ANOSESTUDO <- state.2000.NORDESTE$E_ANOSESTUDO
-state.2000.SUDESTE.E_ANOSESTUDO <- state.2000.SUDESTE$E_ANOSESTUDO
-state.2000.SUL.E_ANOSESTUDO <- state.2000.SUL$E_ANOSESTUDO
-state.2000.CENTRO_OESTE.E_ANOSESTUDO <- state.2000.CENTRO_OESTE$E_ANOSESTUDO
+counties.2000.NORTE.E_ANOSESTUDO <- counties.2000.NORTE$E_ANOSESTUDO
+counties.2000.NORDESTE.E_ANOSESTUDO <- counties.2000.NORDESTE$E_ANOSESTUDO
+counties.2000.SUDESTE.E_ANOSESTUDO <- counties.2000.SUDESTE$E_ANOSESTUDO
+counties.2000.SUL.E_ANOSESTUDO <- counties.2000.SUL$E_ANOSESTUDO
+counties.2000.CENTRO_OESTE.E_ANOSESTUDO <- counties.2000.CENTRO_OESTE$E_ANOSESTUDO
 
-boxplot(state.2000.NORTE.E_ANOSESTUDO, state.2000.NORDESTE.E_ANOSESTUDO, state.2000.SUDESTE.E_ANOSESTUDO, state.2000.SUL.E_ANOSESTUDO, state.2000.CENTRO_OESTE.E_ANOSESTUDO,
-  names = c_regions,
-  main = "Expectativa de Anos de Estudo ao Atingir 18 Anos por Região ")
+boxplot(counties.2000.NORTE.E_ANOSESTUDO, counties.2000.NORDESTE.E_ANOSESTUDO, counties.2000.SUDESTE.E_ANOSESTUDO, counties.2000.SUL.E_ANOSESTUDO, counties.2000.CENTRO_OESTE.E_ANOSESTUDO,
+        names = c_regions,
+        main = "Expectativa de Anos de Estudo ao Atingir 18 Anos por Região ")
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
 # IDHM_R - IDHM Renda
-state.2000.NORTE.IDHM <- state.2000.NORTE$IDHM
-state.2000.NORTE.IDHM_E <- state.2000.NORTE$IDHM_E
-state.2000.NORTE.IDHM_L <- state.2000.NORTE$IDHM_L
-state.2000.NORTE.IDHM_R <- state.2000.NORTE$IDHM_R
+counties.2000.NORTE.IDHM <- counties.2000.NORTE$IDHM
+counties.2000.NORTE.IDHM_E <- counties.2000.NORTE$IDHM_E
+counties.2000.NORTE.IDHM_L <- counties.2000.NORTE$IDHM_L
+counties.2000.NORTE.IDHM_R <- counties.2000.NORTE$IDHM_R
 
-state.2000.NORDESTE.IDHM <- state.2000.NORDESTE$IDHM
-state.2000.NORDESTE.IDHM_E <- state.2000.NORDESTE$IDHM_E
-state.2000.NORDESTE.IDHM_L <- state.2000.NORDESTE$IDHM_L
-state.2000.NORDESTE.IDHM_R <- state.2000.NORDESTE$IDHM_R
+counties.2000.NORDESTE.IDHM <- counties.2000.NORDESTE$IDHM
+counties.2000.NORDESTE.IDHM_E <- counties.2000.NORDESTE$IDHM_E
+counties.2000.NORDESTE.IDHM_L <- counties.2000.NORDESTE$IDHM_L
+counties.2000.NORDESTE.IDHM_R <- counties.2000.NORDESTE$IDHM_R
 
-state.2000.SUDESTE.IDHM <- state.2000.SUDESTE$IDHM
-state.2000.SUDESTE.IDHM_E <- state.2000.SUDESTE$IDHM_E
-state.2000.SUDESTE.IDHM_L <- state.2000.SUDESTE$IDHM_L
-state.2000.SUDESTE.IDHM_R <- state.2000.SUDESTE$IDHM_R
+counties.2000.SUDESTE.IDHM <- counties.2000.SUDESTE$IDHM
+counties.2000.SUDESTE.IDHM_E <- counties.2000.SUDESTE$IDHM_E
+counties.2000.SUDESTE.IDHM_L <- counties.2000.SUDESTE$IDHM_L
+counties.2000.SUDESTE.IDHM_R <- counties.2000.SUDESTE$IDHM_R
 
-state.2000.SUL.IDHM <- state.2000.SUL$IDHM
-state.2000.SUL.IDHM_E <- state.2000.SUL$IDHM_E
-state.2000.SUL.IDHM_L <- state.2000.SUL$IDHM_L
-state.2000.SUL.IDHM_R <- state.2000.SUL$IDHM_R
+counties.2000.SUL.IDHM <- counties.2000.SUL$IDHM
+counties.2000.SUL.IDHM_E <- counties.2000.SUL$IDHM_E
+counties.2000.SUL.IDHM_L <- counties.2000.SUL$IDHM_L
+counties.2000.SUL.IDHM_R <- counties.2000.SUL$IDHM_R
 
-state.2000.CENTRO_OESTE.IDHM <- state.2000.CENTRO_OESTE$IDHM
-state.2000.CENTRO_OESTE.IDHM_E <- state.2000.CENTRO_OESTE$IDHM_E
-state.2000.CENTRO_OESTE.IDHM_L <- state.2000.CENTRO_OESTE$IDHM_L
-state.2000.CENTRO_OESTE.IDHM_R <- state.2000.CENTRO_OESTE$IDHM_R
+counties.2000.CENTRO_OESTE.IDHM <- counties.2000.CENTRO_OESTE$IDHM
+counties.2000.CENTRO_OESTE.IDHM_E <- counties.2000.CENTRO_OESTE$IDHM_E
+counties.2000.CENTRO_OESTE.IDHM_L <- counties.2000.CENTRO_OESTE$IDHM_L
+counties.2000.CENTRO_OESTE.IDHM_R <- counties.2000.CENTRO_OESTE$IDHM_R
 
-boxplot(state.2000.NORTE.IDHM, state.2000.NORDESTE.IDHM, state.2000.SUDESTE.IDHM, state.2000.SUL.IDHM, state.2000.CENTRO_OESTE.IDHM,
-  names = c_regions,
-  main = "Índice de Desenvolvimento Humano Municipal por Região ")
+boxplot(counties.2000.NORTE.IDHM, counties.2000.NORDESTE.IDHM, counties.2000.SUDESTE.IDHM, counties.2000.SUL.IDHM, counties.2000.CENTRO_OESTE.IDHM,
+        names = c_regions,
+        main = "Índice de Desenvolvimento Humano Municipal por Região ")
