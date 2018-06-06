@@ -2,6 +2,7 @@
 library(ggplot2)
 library(ggmap)
 library(rgdal)
+library(raster)
 
 # Function to Calculate Area based on Coordinate Reference System
 calculate_CRS_area <- function(region){
@@ -30,7 +31,6 @@ create_string_to_file <- function(region_name, area){
 AESTHETIC_MAPPING <- aes(x = long, y = lat, group = group)
 BLACK <- "black"
 NO_FILL <- NA
-AREA_PROPERTIES_FILE_PATH <- "./data/regions.properties"
 
 # Brazil
 brazil <- readOGR("data/brasil/UFEBRASIL.shp")
@@ -318,7 +318,7 @@ ggmap(mapImage, darken = c(0.3, "white")) +
 
   # Vitória
   geom_polygon(data = vitoria, AESTHETIC_MAPPING, fill = BLACK, color = BLACK) +
-
+  
   # Chart Labels and Titles, central alignment for Title
   ggtitle("Brazilian HDI - Geographic Distribution from Censuses of 2000 and 2010") +
   theme(plot.title = element_text(hjust = 0.5)) +

@@ -1,5 +1,6 @@
 # Required Libraries
 library(readxl)
+library(rgdal)
 
 # Brazil - Raw Data
 # brazil_raw <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "BR 91-00-10")
@@ -149,3 +150,38 @@ state.2000.CENTRO_OESTE.IDHM_R <- state.2000.CENTRO_OESTE$IDHM_R
 boxplot(state.2000.NORTE.IDHM, state.2000.NORDESTE.IDHM, state.2000.SUDESTE.IDHM, state.2000.SUL.IDHM, state.2000.CENTRO_OESTE.IDHM,
   names = c_regions,
   main = "Índice de Desenvolvimento Humano Municipal por Região ")
+
+##############################################################################################
+############## HEAT MAPs for each indicator, by Region
+
+# Geographical Data
+
+# Brazil
+brazil <- readOGR("data/brasil/UFEBRASIL.shp")
+# brazil$NM_ESTADO <- state.2000$UFN #Shapefile encoding
+
+brazil$ESPVIDA <- state.2000$ESPVIDA
+
+norte <- subset(brazil, NM_ESTADO == "RONDÃ”NIA" | NM_ESTADO == "ACRE" 
+                | NM_ESTADO == "AMAZONAS" | NM_ESTADO == "RORAIMA"
+                | NM_ESTADO == "PARÃ\u0081" | NM_ESTADO == "AMAPÃ\u0081"
+                | NM_ESTADO == "TOCANTINS")
+
+nordeste <- subset(brazil, NM_ESTADO == "MARANHÃƒO" | NM_ESTADO == "PIAUÃ\u008d" 
+                   | NM_ESTADO == "CEARÃ\u0081" | NM_ESTADO == "RIO GRANDE DO NORTE"
+                   | NM_ESTADO == "PARAÃ\u008dBA" | NM_ESTADO == "PERNAMBUCO"
+                   | NM_ESTADO == "ALAGOAS" | NM_ESTADO == "SERGIPE" | NM_ESTADO == "BAHIA")
+
+sudeste <- subset(brazil, NM_ESTADO == "MINAS GERAIS" | NM_ESTADO == "ESPIRITO SANTO"
+                  | NM_ESTADO == "RIO DE JANEIRO" | NM_ESTADO == "SÃƒO PAULO")
+
+sul <- subset(brazil, NM_ESTADO == "PARANÃ\u0081" | NM_ESTADO == "SANTA CATARINA" | NM_ESTADO == "RIO GRANDE DO SUL")
+
+centro_oeste <- subset(brazil, NM_ESTADO == "MATO GROSSO DO SUL" | NM_ESTADO == "MATO GROSSO" 
+                       | NM_ESTADO == "GOIÃ\u0081S" | NM_ESTADO == "DISTRITO FEDERAL" )
+
+colors <- colorRampPalette(c("white", "green4"))
+
+################### EXPECTATIVA DE VIDA POR ESTADO
+
+spplot(brazil[,5], col.regions=colors(max(state.2000$ESPVIDA)), main="Expectativa de Vida por Estado", alpha= 0.5)
