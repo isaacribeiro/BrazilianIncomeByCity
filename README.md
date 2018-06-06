@@ -47,7 +47,7 @@ Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/downloa
 ## Additional Features added into State Level
 
 * Average Income _per capita_ by Region
-![RDCP](/images/RDCP_heatmap.png)
+![RDPC](/images/RDPC_heatmap.png)
 
 * Average Life Expectation
 ![ESPVIDA](/images/ESPVIDA_heatmap.png)
