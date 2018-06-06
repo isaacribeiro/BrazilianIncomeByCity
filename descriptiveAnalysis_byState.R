@@ -1,15 +1,7 @@
 # Required Libraries
 library(readxl)
 library(rgdal)
-
-# Brazil - Raw Data
-# brazil_raw <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "BR 91-00-10")
-
-# Useful Constants
-c_regions <- c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
-
-# Variables
-census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas")
+library(gridExtra)
 
 # ESPVIDA - Esperança de vida ao nascer
 # Número médio de anos que as pessoas deverão viver a partir do nascimento, se permanecerem constantes ao longo da vida o nível e o padrão de mortalidade por idade prevalecentes no ano do Censo.
@@ -73,83 +65,40 @@ census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas"
 
 # State - Raw Data
 state_raw <- read_excel("./data/atlas2013_dadosbrutos_pt.xlsx", sheet = "UF 91-00-10")
+
+##############################################################################################
+# 1991's Census
+
+state.1991 <- state_raw[state_raw$ANO == "1991", ]
+
+# state.1991.NORTE <- state.1991[state.1991$UF < 20, ]
+# state.1991.NORDESTE <- state.1991[state.1991$UF >= 20 & state.1991$UF < 30, ]
+# state.1991.SUDESTE <- state.1991[state.1991$UF >= 30 & state.1991$UF < 40, ]
+# state.1991.SUL <- state.1991[state.1991$UF >= 40 & state.1991$UF < 50, ]
+# state.1991.CENTRO_OESTE <- state.1991[state.1991$UF >= 50, ]
+
+##############################################################################################
+# 2000's Census
+
 state.2000 <- state_raw[state_raw$ANO == "2000", ]
 
-state.2000.NORTE <- state.2000[state.2000$UF < 20, ]
-state.2000.NORDESTE <- state.2000[state.2000$UF >= 20 & state.2000$UF < 30, ]
-state.2000.SUDESTE <- state.2000[state.2000$UF >= 30 & state.2000$UF < 40, ]
-state.2000.SUL <- state.2000[state.2000$UF >= 40 & state.2000$UF < 50, ]
-state.2000.CENTRO_OESTE <- state.2000[state.2000$UF >= 50, ]
+# state.2000.NORTE <- state.2000[state.2000$UF < 20, ]
+# state.2000.NORDESTE <- state.2000[state.2000$UF >= 20 & state.2000$UF < 30, ]
+# state.2000.SUDESTE <- state.2000[state.2000$UF >= 30 & state.2000$UF < 40, ]
+# state.2000.SUL <- state.2000[state.2000$UF >= 40 & state.2000$UF < 50, ]
+# state.2000.CENTRO_OESTE <- state.2000[state.2000$UF >= 50, ]
 
-###########################################################
-# Expectativa de Vida
-state.2000.NORTE.ESPVIDA <- state.2000.NORTE$ESPVIDA
-state.2000.NORDESTE.ESPVIDA <- state.2000.NORDESTE$ESPVIDA
-state.2000.SUDESTE.ESPVIDA <- state.2000.SUDESTE$ESPVIDA
-state.2000.SUL.ESPVIDA <- state.2000.SUL$ESPVIDA
-state.2000.CENTRO_OESTE.ESPVIDA <- state.2000.CENTRO_OESTE$ESPVIDA
+##############################################################################################
+# 2010's Census
 
-boxplot(state.2000.NORTE.ESPVIDA, state.2000.NORDESTE.ESPVIDA, state.2000.SUDESTE.ESPVIDA, state.2000.SUL.ESPVIDA, state.2000.CENTRO_OESTE.ESPVIDA,
-        names = c_regions,
-        main = "Expectativa de Vida por Região")
+state.2010 <- state_raw[state_raw$ANO == "2010", ]
 
-###########################################################
-# Renda per Capita Média
-state.2000.NORTE.RDPC <- state.2000.NORTE$RDPC
-state.2000.NORDESTE.RDPC <- state.2000.NORDESTE$RDPC
-state.2000.SUDESTE.RDPC <- state.2000.SUDESTE$RDPC
-state.2000.SUL.RDPC <- state.2000.SUL$RDPC
-state.2000.CENTRO_OESTE.RDPC <- state.2000.CENTRO_OESTE$RDPC
+# state.2010.NORTE <- state.2010[state.2010$UF < 20, ]
+# state.2010.NORDESTE <- state.2010[state.2010$UF >= 20 & state.2010$UF < 30, ]
+# state.2010.SUDESTE <- state.2010[state.2010$UF >= 30 & state.2010$UF < 40, ]
+# state.2010.SUL <- state.2010[state.2010$UF >= 40 & state.2010$UF < 50, ]
+# state.2010.CENTRO_OESTE <- state.2010[state.2010$UF >= 50, ]
 
-# boxplot(state.2000.NORTE.RDPC, state.2000.NORDESTE.RDPC, state.2000.SUDESTE.RDPC, state.2000.SUL.RDPC, state.2000.CENTRO_OESTE.RDPC,
-# names = c_regions,
-# main = "Renda per capita Média por Região")
-
-###########################################################
-# E_ANOSESTUDO - Expectativa de anos de estudo
-state.2000.NORTE.E_ANOSESTUDO <- state.2000.NORTE$E_ANOSESTUDO
-state.2000.NORDESTE.E_ANOSESTUDO <- state.2000.NORDESTE$E_ANOSESTUDO
-state.2000.SUDESTE.E_ANOSESTUDO <- state.2000.SUDESTE$E_ANOSESTUDO
-state.2000.SUL.E_ANOSESTUDO <- state.2000.SUL$E_ANOSESTUDO
-state.2000.CENTRO_OESTE.E_ANOSESTUDO <- state.2000.CENTRO_OESTE$E_ANOSESTUDO
-
-boxplot(state.2000.NORTE.E_ANOSESTUDO, state.2000.NORDESTE.E_ANOSESTUDO, state.2000.SUDESTE.E_ANOSESTUDO, state.2000.SUL.E_ANOSESTUDO, state.2000.CENTRO_OESTE.E_ANOSESTUDO,
-  names = c_regions,
-  main = "Expectativa de Anos de Estudo ao Atingir 18 Anos por Região ")
-
-###########################################################
-# IDHM -Índice de Desenvolvimento Humano Municipal
-# IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
-# IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
-# IDHM_R - IDHM Renda
-state.2000.NORTE.IDHM <- state.2000.NORTE$IDHM
-state.2000.NORTE.IDHM_E <- state.2000.NORTE$IDHM_E
-state.2000.NORTE.IDHM_L <- state.2000.NORTE$IDHM_L
-state.2000.NORTE.IDHM_R <- state.2000.NORTE$IDHM_R
-
-state.2000.NORDESTE.IDHM <- state.2000.NORDESTE$IDHM
-state.2000.NORDESTE.IDHM_E <- state.2000.NORDESTE$IDHM_E
-state.2000.NORDESTE.IDHM_L <- state.2000.NORDESTE$IDHM_L
-state.2000.NORDESTE.IDHM_R <- state.2000.NORDESTE$IDHM_R
-
-state.2000.SUDESTE.IDHM <- state.2000.SUDESTE$IDHM
-state.2000.SUDESTE.IDHM_E <- state.2000.SUDESTE$IDHM_E
-state.2000.SUDESTE.IDHM_L <- state.2000.SUDESTE$IDHM_L
-state.2000.SUDESTE.IDHM_R <- state.2000.SUDESTE$IDHM_R
-
-state.2000.SUL.IDHM <- state.2000.SUL$IDHM
-state.2000.SUL.IDHM_E <- state.2000.SUL$IDHM_E
-state.2000.SUL.IDHM_L <- state.2000.SUL$IDHM_L
-state.2000.SUL.IDHM_R <- state.2000.SUL$IDHM_R
-
-state.2000.CENTRO_OESTE.IDHM <- state.2000.CENTRO_OESTE$IDHM
-state.2000.CENTRO_OESTE.IDHM_E <- state.2000.CENTRO_OESTE$IDHM_E
-state.2000.CENTRO_OESTE.IDHM_L <- state.2000.CENTRO_OESTE$IDHM_L
-state.2000.CENTRO_OESTE.IDHM_R <- state.2000.CENTRO_OESTE$IDHM_R
-
-boxplot(state.2000.NORTE.IDHM, state.2000.NORDESTE.IDHM, state.2000.SUDESTE.IDHM, state.2000.SUL.IDHM, state.2000.CENTRO_OESTE.IDHM,
-  names = c_regions,
-  main = "Índice de Desenvolvimento Humano Municipal por Região ")
 
 ##############################################################################################
 ############## HEAT MAPs for each indicator, by Region
@@ -158,30 +107,59 @@ boxplot(state.2000.NORTE.IDHM, state.2000.NORDESTE.IDHM, state.2000.SUDESTE.IDHM
 
 # Brazil
 brazil <- readOGR("data/brasil/UFEBRASIL.shp")
-# brazil$NM_ESTADO <- state.2000$UFN #Shapefile encoding
 
-brazil$ESPVIDA <- state.2000$ESPVIDA
+# norte <- subset(brazil, NM_ESTADO == "RONDÃ”NIA" | NM_ESTADO == "ACRE" 
+#                 | NM_ESTADO == "AMAZONAS" | NM_ESTADO == "RORAIMA"
+#                 | NM_ESTADO == "PARÃ\u0081" | NM_ESTADO == "AMAPÃ\u0081"
+#                 | NM_ESTADO == "TOCANTINS")
+# 
+# nordeste <- subset(brazil, NM_ESTADO == "MARANHÃƒO" | NM_ESTADO == "PIAUÃ\u008d" 
+#                    | NM_ESTADO == "CEARÃ\u0081" | NM_ESTADO == "RIO GRANDE DO NORTE"
+#                    | NM_ESTADO == "PARAÃ\u008dBA" | NM_ESTADO == "PERNAMBUCO"
+#                    | NM_ESTADO == "ALAGOAS" | NM_ESTADO == "SERGIPE" | NM_ESTADO == "BAHIA")
+# 
+# sudeste <- subset(brazil, NM_ESTADO == "MINAS GERAIS" | NM_ESTADO == "ESPIRITO SANTO"
+#                   | NM_ESTADO == "RIO DE JANEIRO" | NM_ESTADO == "SÃƒO PAULO")
+# 
+# sul <- subset(brazil, NM_ESTADO == "PARANÃ\u0081" | NM_ESTADO == "SANTA CATARINA" | NM_ESTADO == "RIO GRANDE DO SUL")
+# 
+# centro_oeste <- subset(brazil, NM_ESTADO == "MATO GROSSO DO SUL" | NM_ESTADO == "MATO GROSSO" 
+#                        | NM_ESTADO == "GOIÃ\u0081S" | NM_ESTADO == "DISTRITO FEDERAL" )
 
-norte <- subset(brazil, NM_ESTADO == "RONDÃ”NIA" | NM_ESTADO == "ACRE" 
-                | NM_ESTADO == "AMAZONAS" | NM_ESTADO == "RORAIMA"
-                | NM_ESTADO == "PARÃ\u0081" | NM_ESTADO == "AMAPÃ\u0081"
-                | NM_ESTADO == "TOCANTINS")
+# Add Census' dimension to SpatialPolygonsDataFrame data
 
-nordeste <- subset(brazil, NM_ESTADO == "MARANHÃƒO" | NM_ESTADO == "PIAUÃ\u008d" 
-                   | NM_ESTADO == "CEARÃ\u0081" | NM_ESTADO == "RIO GRANDE DO NORTE"
-                   | NM_ESTADO == "PARAÃ\u008dBA" | NM_ESTADO == "PERNAMBUCO"
-                   | NM_ESTADO == "ALAGOAS" | NM_ESTADO == "SERGIPE" | NM_ESTADO == "BAHIA")
+brazil$RDPC.1991 <- state.1991$RDPC
+brazil$RDPC.2000 <- state.2000$RDPC
+brazil$RDPC.2010 <- state.2010$RDPC
 
-sudeste <- subset(brazil, NM_ESTADO == "MINAS GERAIS" | NM_ESTADO == "ESPIRITO SANTO"
-                  | NM_ESTADO == "RIO DE JANEIRO" | NM_ESTADO == "SÃƒO PAULO")
+brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
+brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
+brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
 
-sul <- subset(brazil, NM_ESTADO == "PARANÃ\u0081" | NM_ESTADO == "SANTA CATARINA" | NM_ESTADO == "RIO GRANDE DO SUL")
+brazil$E_ANOSDEESTUDO.2000 <- state.2000$E_ANOSESTUDO
+brazil$IDHM.2000 <- state.2000$IDHM          
 
-centro_oeste <- subset(brazil, NM_ESTADO == "MATO GROSSO DO SUL" | NM_ESTADO == "MATO GROSSO" 
-                       | NM_ESTADO == "GOIÃ\u0081S" | NM_ESTADO == "DISTRITO FEDERAL" )
+###########################################################
+# Renda per Capita Média - RDPC
+colors <- colorRampPalette(c("white", "blue4"))
+title <- expression(paste("Renda ", italic("per capta"), " Média"))
 
-colors <- colorRampPalette(c("white", "green4"))
 
-################### EXPECTATIVA DE VIDA POR ESTADO
+spplot(brazil, 
+       c("RDPC.1991", "RDPC.2000", "RDPC.2010"), 
+       col.regions=colors(max(state_raw$RDPC)),
+       main=title,
+       scales = list(draw = FALSE))
 
-spplot(brazil[,5], col.regions=colors(max(state.2000$ESPVIDA)), main="Expectativa de Vida por Estado", alpha= 0.5)
+###########################################################
+# Expecitativa de Vida - ESPVIDA
+spplot(brazil[,6], col.regions=colors(max(state.2000$ESPVIDA)), main="Expectativa de Vida por Estado", alpha= 0.5)
+
+###########################################################
+# E_ANOSESTUDO - Expectativa de anos de estudo
+
+###########################################################
+# IDHM -Índice de Desenvolvimento Humano Municipal
+# IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
+# IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
+# IDHM_R - IDHM Renda
