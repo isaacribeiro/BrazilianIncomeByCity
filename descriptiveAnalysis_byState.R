@@ -128,32 +128,39 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 
 # Add Census' dimension to SpatialPolygonsDataFrame data
 
-brazil$RDPC.1991 <- state.1991$RDPC
-brazil$RDPC.2000 <- state.2000$RDPC
-brazil$RDPC.2010 <- state.2010$RDPC
+###########################################################
+# Renda per Capita Média - RDPC
+# 
+# colors <- colorRampPalette(c("white", "blue4"))
+# 
+# title <- expression(paste("Renda ", italic("per capta"), " Média"))
+# 
+# brazil$RDPC.1991 <- state.1991$RDPC
+# brazil$RDPC.2000 <- state.2000$RDPC
+# brazil$RDPC.2010 <- state.2010$RDPC
+# 
+# spplot(brazil, 
+#        c("RDPC.1991", "RDPC.2000", "RDPC.2010"), 
+#        col.regions=colors(max(state_raw$RDPC)),
+#        main=title,
+#        scales = list(draw = FALSE))
+
+###########################################################
+# Expectativa de Vida - ESPVIDA
+
+colors <- colorRampPalette(c("deeppink", "green4"))
+
+title <- expression(bold("Expectativa de Vida Média"))
 
 brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
 brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
 brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
 
-brazil$E_ANOSDEESTUDO.2000 <- state.2000$E_ANOSESTUDO
-brazil$IDHM.2000 <- state.2000$IDHM          
-
-###########################################################
-# Renda per Capita Média - RDPC
-colors <- colorRampPalette(c("white", "blue4"))
-title <- expression(paste("Renda ", italic("per capta"), " Média"))
-
-
 spplot(brazil, 
-       c("RDPC.1991", "RDPC.2000", "RDPC.2010"), 
-       col.regions=colors(max(state_raw$RDPC)),
+       c("ESPVIDA.1991", "ESPVIDA.2000", "ESPVIDA.2010"), 
+       col.regions=colors(max(state_raw$ESPVIDA)),
        main=title,
        scales = list(draw = FALSE))
-
-###########################################################
-# Expecitativa de Vida - ESPVIDA
-spplot(brazil[,6], col.regions=colors(max(state.2000$ESPVIDA)), main="Expectativa de Vida por Estado", alpha= 0.5)
 
 ###########################################################
 # E_ANOSESTUDO - Expectativa de anos de estudo
