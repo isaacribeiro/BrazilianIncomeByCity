@@ -148,25 +148,75 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 ###########################################################
 # Expectativa de Vida - ESPVIDA
 
-colors <- colorRampPalette(c("deeppink", "green4"))
-
-title <- expression(bold("Expectativa de Vida Média"))
-
-brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
-brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
-brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
-
-spplot(brazil, 
-       c("ESPVIDA.1991", "ESPVIDA.2000", "ESPVIDA.2010"), 
-       col.regions=colors(max(state_raw$ESPVIDA)),
-       main=title,
-       scales = list(draw = FALSE))
+# colors <- colorRampPalette(c("deeppink", "green4"))
+# 
+# title <- expression(bold("Expectativa de Vida Média"))
+# 
+# brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
+# brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
+# brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
+# 
+# spplot(brazil,
+#        c("ESPVIDA.1991", "ESPVIDA.2000", "ESPVIDA.2010"),
+#        col.regions=colors(max(state_raw$ESPVIDA)),
+#        main=title,
+#        scales = list(draw = FALSE))
 
 ###########################################################
 # E_ANOSESTUDO - Expectativa de anos de estudo
+
+# title <- expression(bold("Expectativa de anos de estudo"))
+# 
+# brazil$E_ANOESTUDO.1991 <- state.1991$E_ANOSESTUDO
+# brazil$E_ANOESTUDO.2000 <- state.2000$E_ANOSESTUDO
+# brazil$E_ANOESTUDO.2010 <- state.2010$E_ANOSESTUDO
+# 
+# spplot(brazil,
+#        c("E_ANOESTUDO.1991", "E_ANOESTUDO.2000", "E_ANOESTUDO.2010"),
+#        main=title)
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
 # IDHM_R - IDHM Renda
+
+# title <- expression(bold("Índice de Desenvolvimento Humano Municipal"))
+# 
+# brazil$IDHM.1991 <- state.1991$IDHM
+# brazil$IDHM.2000 <- state.2000$IDHM
+# brazil$IDHM.2010 <- state.2010$IDHM
+# 
+# spplot(brazil,
+#        c("IDHM.1991", "IDHM.2000", "IDHM.2010"),
+#        main=title)
+
+# title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Educação"))
+# 
+# brazil$IDHM_E.1991 <- state.1991$IDHM_E
+# brazil$IDHM_E.2000 <- state.2000$IDHM_E
+# brazil$IDHM_E.2010 <- state.2010$IDHM_E
+# 
+# spplot(brazil,
+#        c("IDHM_E.1991", "IDHM_E.2000", "IDHM_E.2010"),
+#        main=title)
+
+# title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade"))
+# 
+# brazil$IDHM_L.1991 <- state.1991$IDHM_L
+# brazil$IDHM_L.2000 <- state.2000$IDHM_L
+# brazil$IDHM_L.2010 <- state.2010$IDHM_L
+# 
+# spplot(brazil,
+#        c("IDHM_L.1991", "IDHM_L.2000", "IDHM_L.2010"),
+#        main=title)
+
+# title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Renda"))
+# 
+# brazil$IDHM_R.1991 <- state.1991$IDHM_R
+# brazil$IDHM_R.2000 <- state.2000$IDHM_R
+# brazil$IDHM_R.2010 <- state.2010$IDHM_R
+# 
+# spplot(brazil,
+#        c("IDHM_R.1991", "IDHM_R.2000", "IDHM_R.2010"),
+#        main=title)
