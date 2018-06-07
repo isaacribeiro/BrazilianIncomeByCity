@@ -51,3 +51,14 @@ Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/downloa
 
 * Average Life Expectation
 ![ESPVIDA](/images/ESPVIDA_heatmap.png)
+
+* Average Number of Years of Formal Education at Basic School
+
+![E_ANOSESTUDO](/images/E_ANOS_ESTUDO_heatmap.png)
+
+* Municipal Human Development Index
+
+![IDHM](/images/IDHM_heatmap.png)
+![IDHM_E](/images/IDHM_E_heatmap.png)
+![IDHM_L](/images/IDHM_L_heatmap.png)
+![IDHM_R](/images/IDHM_R_heatmap.png)
