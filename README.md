@@ -54,7 +54,7 @@ Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/downloa
 
 * Average Number of Years of Formal Education at Basic School
 
-![E_ANOSESTUDO](/images/E_ANOS_ESTUDO_heatmap.png)
+![E_ANOSESTUDO](/images/E_ANOSESTUDO_heatmap.png)
 
 * Municipal Human Development Index
 
