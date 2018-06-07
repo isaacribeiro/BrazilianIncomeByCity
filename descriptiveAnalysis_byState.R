@@ -12,6 +12,9 @@ library(gridExtra)
 # T_ENV - Taxa de envelhecimento
 # Razão entre a população de 65 anos ou mais de idade e a população total multiplicado por 100.
 
+# RAZDEP - Razão de dependência 
+# Razão de dependência é medida pela razão entre o número de pessoas com 14 anos ou menos e de 65 anos ou mais de idade (população dependente) e o número de pessoas com idade de 15 a 64 anos (população potencialmente ativa) multiplicado por 100.
+
 # E_ANOSESTUDO - Expectativa de anos de estudo
 # Número médio de anos de estudo que uma geração de crianças que ingressa na escola deverá completar ao atingir 18 anos de idade, se os padrões atuais se mantiverem ao longo de sua vida escolar.
 
@@ -23,6 +26,18 @@ library(gridExtra)
 
 # T_ANALF25M - Taxa de analfabetismo da população de 25 anos ou mais de idade
 # Razão entre a população de 25 anos ou mais de idade que não sabe ler nem escrever um bilhete simples e o total de pessoas nesta faixa etária multiplicado por 100.
+
+# T_FUND15A17 - Percentual da população de 15 a 17 anos com fundamental completo
+# Razão entre a população de 15 a 17 anos de idade que concluiu o ensino fundamental, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100.
+
+# T_FUND16A18 - Percentual da população de 16 a 18 anos de idade com o ensino fundamental completo
+# Razão entre a população de 16 a 18 anos de idade que já concluiu o ensino fundamental em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100.
+
+# T_FUND18A24 - Percentual da população de 18 a 24 anos com fundamental completo
+# Razão entre a população de 18 a 24 anos de idade que concluiu o ensino fundamental, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100.
+
+# T_FUND18M - Percentual da população de 18 anos ou mais com fundamental completo
+# Razão entre a população de 18 anos ou mais de idade que concluiu o ensino fundamental, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100.
 
 # T_FUND25M - Percentual da população de 25 anos ou mais com fundamental completo
 # Razão entre a população de 25 anos ou mais de idade que concluiu o ensino fundamental, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100.
@@ -48,6 +63,33 @@ library(gridExtra)
 # GINI - Índice de Gini
 # Mede o grau de desigualdade existente na distribuição de indivíduos segundo a renda domiciliar per capita. Seu valor varia de 0, quando não há desigualdade (a renda domiciliar per capita de todos os indivíduos tem o mesmo valor), a 1, quando a desigualdade é máxima (apenas um indivíduo detém toda a renda).O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
 
+# PREN10RICOS - Percentual da renda total apropriada pelos 10% da população com maior renda domiciliar per capita
+# Percentual da renda total apropriada pelos indivíduos pertencentes ao décimo mais rico da distribuição dos indivíduos segundo a renda domiciliar per capita. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
+# PREN20 - Percentual da renda total apropriada pelos 20% da população com menor renda domiciliar per capita
+# Percentual da renda total apropriada pelos indivíduos pertencentes ao quinto mais pobre da distribuição dos indivíduos segundo a renda domiciliar per capita. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
+# PREN20RICOS - Percentual da renda total apropriada pelos 20% da população com maior renda domiciliar per capita
+# Percentual da renda total apropriada pelos indivíduos pertencentes ao quinto mais rico da distribuição dos indivíduos segundo a renda domiciliar per capita. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
+# PREN40 - Percentual da renda total apropriada pelos 40% da população com menor renda domiciliar per capita
+# Percentual da renda total apropriada pelos indivíduos pertencentes aos dois quintos mais pobres da distribuição dos indivíduos segundo a renda domiciliar per capita. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
+# PREN60 - Percentual da renda total apropriada pelos 60% da população com menor renda domiciliar per capita
+# Percentual da renda total apropriada pelos indivíduos pertencentes aos três quintos mais pobres da distribuição dos indivíduos segundo a renda domiciliar per capita. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
+# PREN80 - Percentual da renda total apropriada pelos 80% da população com menor renda domiciliar per capita
+# Percentual da renda total apropriada pelos indivíduos pertencentes aos quatro quintos mais pobres da distribuição dos indivíduos segundo a renda domiciliar per capita. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
+# PRENTRAB - Percentual da renda proveniente de rendimentos do trabalho
+# Participação percentual das rendas provenientes do trabalho (principal e outros) na renda total, considerando-se apenas as pessoas que vivem em domicílios particulares permanentes.
+
+# R1040 - Razão 10% mais ricos / 40% mais pobres
+# Medida do grau de desigualdade existente na distribuição de indivíduos segundo a renda domiciliar per capita. Compara a renda per capita média dos indivíduos pertencentes ao décimo mais rico dessa distribuição com a renda capita média dos indivíduos pertencentes aos dois quintos mais pobres. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
+# R2040 - Razão 20% mais ricos / 40% mais pobres
+# Medida do grau de desigualdade existente na distribuição de indivíduos segundo a renda domiciliar per capita. Compara a renda per capita média dos indivíduos pertencentes ao quinto mais rico dessa distribuição com a renda per capita média dos indivíduos pertencentes aos dois quintos mais pobres. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
+
 # RDPC - Renda per capita média
 # Razão entre o somatório da renda de todos os indivíduos residentes em domicílios particulares permanentes e o número total desses indivíduos. Valores em reais de 01/agosto de 2010.
 
@@ -62,6 +104,69 @@ library(gridExtra)
 
 # IDHM_R - IDHM Renda
 # Índice de Desenvolvimento Humano Municipal - Dimensão Renda
+
+# HOMEMTOT - População residente masculina
+# População total do sexo masculino
+
+# MULHERTOT - População residente feminina
+# População total do sexo feminino
+
+# PEA18M - PEA (18 anos ou mais)
+# População economicamente ativa. Corresponde ao número de pessoas nessa faixa etária que, na semana de referência do Censo, encontravam-se ocupadas no mercado de trabalho ou que, encontrando-se desocupadas, tinham procurado trabalho no mês anterior à data da pesquisa.
+
+# PESORUR - População rural
+# População residente na área rural
+
+# PESOURB - População urbana
+# População residente na área urbana
+
+# PESOTOT - População total
+# População residente total
+
+# REN0 - % dos ocupados sem rendimento - 18 anos ou mais
+# Razão entre o número de pessoas de 18 anos ou mais de idade ocupadas e sem rendimento do trabalho e o número total de pessoas ocupadas nessa faixa etária multiplicado por 100.
+
+# REN1 - % dos ocupados com rendimento de até 1 s.m. - 18 anos ou mais
+# Razão entre o número de pessoas de 18 anos ou mais de idade ocupadas e com rendimento mensal de todos os trabalhos inferior a 1 salário mínimo de julho de 2010 e o número total de pessoas ocupadas nessa faixa etária multiplicado por 100.
+
+# REN2 - % dos ocupados com rendimento de até 2 s.m. - 18 anos ou mais
+# Razão entre o número de pessoas de 18 anos ou mais de idade ocupadas e com rendimento mensal de todos os trabalhos inferior a 2 salários mínimos de julho de 2010 e o número total de pessoas ocupadas nessa faixa etária multiplicado por 100.
+
+# REN3 - % dos ocupados com rendimento de até 3 s.m. - 18 anos ou mais
+# Razão entre o  número de pessoas de 18 anos ou mais de idade ocupadas e com rendimento mensal de todos os trabalhos inferior a 3 salários mínimos de julho de 2010 e o número total de pessoas ocupadas nessa faixa etária multiplicado por 100.
+
+# REN5 - % dos ocupados com rendimento de até 5 s.m. - 18 anos ou mais
+# Razão entre o número de pessoas de 18 anos ou mais de idade ocupadas e com rendimento mensal de todos os trabalhos inferior a 5 salários mínimos de julho de 2010 e o número total de pessoas ocupadas nessa faixa etária multiplicado por 100.
+
+# RENOCUP - Rendimento médio dos ocupados - 18 anos ou mais
+# Média dos rendimentos de todos os trabalhos das pessoas ocupadas de 18 anos ou mais de idade. Valores em reais de agosto de 2010.
+
+# T_ATIV1517 - Taxa de atividade das pessoas de 15 a 17 anos de idade
+# Razão entre as pessoas de 15 a 17 anos de idade que eram economicamente ativas, ou seja, que estavam ocupadas ou desocupadas na semana de referência do Censo e o total de pessoas nesta faixa etária multiplicado por 100. Considera-se desocupada a pessoa que, não estando ocupada na semana de referência, havia procurado trabalho no mês anterior a essa pesquisa.
+
+# T_ATIV1824 - Taxa de atividade das pessoas de 18 a 24 anos de idade
+# Razão entre as pessoas de 18 a 24 anos de idade que eram economicamente ativas, ou seja, que estavam ocupadas ou desocupadas na semana de referência do Censo e o total de pessoas nesta faixa etária multiplicado por 100. Considera-se desocupada a pessoa que, não estando ocupada na semana de referência, havia procurado trabalho no mês anterior a essa pesquisa.
+
+# T_ATIV18M - Taxa de atividade das pessoas de 18 anos ou mais de idade
+# Razão entre as pessoas de 18 anos ou mais de idade que eram economicamente ativas, ou seja, que estavam ocupadas ou desocupadas na semana de referência do Censo e o total de pessoas nesta faixa etária multiplicado por 100. Considera-se desocupada a pessoa que, não estando ocupada na semana de referência, havia procurado trabalho no mês anterior a essa pesquisa.
+
+# T_ATIV2529 - Taxa de atividade das pessoas de 25 a 29 anos de idade
+# Razão entre as pessoas de 25 a 29 anos de idade que eram economicamente ativas, ou seja, que estavam ocupadas ou desocupadas na semana de referência do Censo e o total de pessoas nesta faixa etária multiplicado por 100. Considera-se desocupada a pessoa que, não estando ocupada na semana de referência, havia procurado trabalho no mês anterior a essa pesquisa.
+
+# T_DES1517 - Taxa de desocupação da população de 15 a 17 anos de idade
+# Percentual da população economicamente ativa (PEA) nessa faixa etária que estava desocupada, ou seja, que não estava ocupada na semana anterior à data do Censo mas havia procurado trabalho ao longo do mês anterior à data dessa pesquisa.
+
+# T_DES1824 - Taxa de desocupação da população de 18 a 24 anos de idade
+# Percentual da população economicamente ativa (PEA) nessa faixa etária que estava desocupada, ou seja, que não estava ocupada na semana anterior à data do Censo mas havia procurado trabalho ao longo do mês anterior à data dessa pesquisa.
+
+# T_DES18M - Taxa de desocupação da população de 18 anos ou mais de idade
+# Percentual da população economicamente ativa (PEA) nessa faixa etária que estava desocupada, ou seja, que não estava ocupada na semana anterior à data do Censo mas havia procurado trabalho ao longo do mês anterior à data dessa pesquisa.
+
+# T_DES2529 - Taxa de desocupação da população de 25 a 29 anos de idade
+# Percentual da população economicamente ativa (PEA) nessa faixa etária que estava desocupada, ou seja, que não estava ocupada na semana anterior à data do Censo mas havia procurado trabalho ao longo do mês anterior à data dessa pesquisa.
+
+# THEILtrab - Índice de Theil-L dos rendimentos do trabalho - 18 anos ou mais
+# Mede a desigualdade na distribuição de indivíduos de 18 anos ou mais de idade ocupados, segundo o rendimento de todos os trabalhos, excluídos aqueles sem rendimento do trabalho.É o logaritmo da razão entre as médias aritmética e geométrica do rendimento dos indivíduos, sendo nulo quando não existir desigualdade de renda entre eles e tendente ao infinito quando a desigualdade tender ao máximo.
 
 # State - Raw Data
 state_raw <- read_excel("./data/atlas2013_dadosbrutos_pt.xlsx", sheet = "UF 91-00-10")
