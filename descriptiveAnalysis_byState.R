@@ -285,6 +285,19 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 #        main=title)
 
 ###########################################################
+# GINI - Índice de Gini
+
+# title <- expression(bold("Índice de Gini"))
+# 
+# brazil$GINI.1991 <- state.1991$GINI
+# brazil$GINI.2000 <- state.2000$GINI
+# brazil$GINI.2010 <- state.2010$GINI
+# 
+# spplot(brazil,
+#        c("GINI.1991", "GINI.2000", "GINI.2010"),
+#        main=title)
+
+###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
