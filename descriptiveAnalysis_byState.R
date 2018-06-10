@@ -210,8 +210,6 @@ state.2010 <- state_raw[state_raw$ANO == "2010", ]
 # Brazil
 brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 
-
-
 ###########################################################
 # Esperança de vida ao nascer - ESPVIDA
 # 
@@ -270,10 +268,10 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 #        col.regions=colors(max(state_raw$RDPC)),
 #        main=title,
 #        scales = list(draw = FALSE))
-
+# 
 ###########################################################
 # E_ANOSESTUDO - Expectativa de anos de estudo
-
+# 
 # title <- expression(bold("Expectativa de anos de estudo"))
 # 
 # brazil$E_ANOESTUDO.1991 <- state.1991$E_ANOSESTUDO
@@ -283,10 +281,10 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 # spplot(brazil,
 #        c("E_ANOESTUDO.1991", "E_ANOESTUDO.2000", "E_ANOESTUDO.2010"),
 #        main=title)
-
+# 
 ###########################################################
 # GINI - Índice de Gini
-
+# 
 # title <- expression(bold("Índice de Gini"))
 # 
 # brazil$GINI.1991 <- state.1991$GINI
@@ -296,6 +294,41 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 # spplot(brazil,
 #        c("GINI.1991", "GINI.2000", "GINI.2010"),
 #        main=title)
+# 
+###########################################################
+# T_FUND18M - Percentual da população de 18 anos ou mais com fundamental completo
+# T_MED18M - Percentual da população de 18 anos ou mais com ensino médio completo
+# T_SUPER25M - Percentual da população de 25 anos ou mais com superior completo
+
+title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Fundamental Completo"))
+
+brazil$T_FUND18M.1991 <- state.1991$T_FUND18M
+brazil$T_FUND18M.2000 <- state.2000$T_FUND18M
+brazil$T_FUND18M.2010 <- state.2010$T_FUND18M
+
+spplot(brazil,
+       c("T_FUND18M.1991", "T_FUND18M.2000", "T_FUND18M.2010"),
+       main=title)
+
+title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Médio Completo"))
+
+brazil$T_MED18M.1991 <- state.1991$T_MED18M
+brazil$T_MED18M.2000 <- state.2000$T_MED18M
+brazil$T_MED18M.2010 <- state.2010$T_MED18M
+
+spplot(brazil,
+       c("T_MED18M.1991", "T_MED18M.2000", "T_MED18M.2010"),
+       main=title)
+
+title <- expression(bold("Percentual da População de 25 anos ou mais com Ensino Superior Completo"))
+
+brazil$T_SUPER25M.1991 <- state.1991$T_SUPER25M
+brazil$T_SUPER25M.2000 <- state.2000$T_SUPER25M
+brazil$T_SUPER25M.2010 <- state.2010$T_SUPER25M
+
+spplot(brazil,
+       c("T_SUPER25M.1991", "T_SUPER25M.2000", "T_SUPER25M.2010"),
+       main=title)
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
