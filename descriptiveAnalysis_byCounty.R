@@ -102,28 +102,6 @@ counties.2010.SUDESTE <- counties.2010[counties.2010$UF >= 30 & counties.2010$UF
 counties.2010.SUL <- counties.2010[counties.2010$UF >= 40 & counties.2010$UF < 50, ]
 counties.2010.CENTRO_OESTE <- counties.2010[counties.2000$UF >= 50, ]
 
-###########################################################
-############### ESPVIDA - Expectativa de Vida
-##########################################################
-
-counties.1991.NORTE.ESPVIDA <- counties.1991.NORTE$ESPVIDA
-counties.1991.NORDESTE.ESPVIDA <- counties.1991.NORDESTE$ESPVIDA
-counties.1991.SUDESTE.ESPVIDA <- counties.1991.SUDESTE$ESPVIDA
-counties.1991.SUL.ESPVIDA <- counties.1991.SUL$ESPVIDA
-counties.1991.CENTRO_OESTE.ESPVIDA <- counties.1991.CENTRO_OESTE$ESPVIDA
-
-counties.2000.NORTE.ESPVIDA <- counties.2000.NORTE$ESPVIDA
-counties.2000.NORDESTE.ESPVIDA <- counties.2000.NORDESTE$ESPVIDA
-counties.2000.SUDESTE.ESPVIDA <- counties.2000.SUDESTE$ESPVIDA
-counties.2000.SUL.ESPVIDA <- counties.2000.SUL$ESPVIDA
-counties.2000.CENTRO_OESTE.ESPVIDA <- counties.2000.CENTRO_OESTE$ESPVIDA
-
-counties.2010.NORTE.ESPVIDA <- counties.2010.NORTE$ESPVIDA
-counties.2010.NORDESTE.ESPVIDA <- counties.2010.NORDESTE$ESPVIDA
-counties.2010.SUDESTE.ESPVIDA <- counties.2010.SUDESTE$ESPVIDA
-counties.2010.SUL.ESPVIDA <- counties.2010.SUL$ESPVIDA
-counties.2010.CENTRO_OESTE.ESPVIDA <- counties.2010.CENTRO_OESTE$ESPVIDA
-
 GROUP_BY_REGION <- c(rep.int("Norte", 1347),
                      rep.int("Nordeste", 5382),
                      rep.int("Sudeste", 5004),
@@ -146,30 +124,79 @@ GROUP_BY_YEAR <- c(rep.int("1991", 449),
                    rep.int("2000", 466),
                    rep.int("2010", 466))
 
-ESPVIDA <- c(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
-             counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
-             counties.1991.SUDESTE.ESPVIDA, counties.2000.SUDESTE.ESPVIDA, counties.2010.SUDESTE.ESPVIDA,
-             counties.1991.SUL.ESPVIDA, counties.2000.SUL.ESPVIDA, counties.2010.SUL.ESPVIDA,
-             counties.1991.CENTRO_OESTE.ESPVIDA, counties.2000.CENTRO_OESTE.ESPVIDA, counties.2010.CENTRO_OESTE.ESPVIDA)
+###########################################################
+############### ESPVIDA - Expectativa de Vida
+##########################################################
 
-ESPVIDA.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, ESPVIDA)
+counties.1991.NORTE.ESPVIDA <- counties.1991.NORTE$ESPVIDA
+counties.1991.NORDESTE.ESPVIDA <- counties.1991.NORDESTE$ESPVIDA
+counties.1991.SUDESTE.ESPVIDA <- counties.1991.SUDESTE$ESPVIDA
+counties.1991.SUL.ESPVIDA <- counties.1991.SUL$ESPVIDA
+counties.1991.CENTRO_OESTE.ESPVIDA <- counties.1991.CENTRO_OESTE$ESPVIDA
+
+counties.2000.NORTE.ESPVIDA <- counties.2000.NORTE$ESPVIDA
+counties.2000.NORDESTE.ESPVIDA <- counties.2000.NORDESTE$ESPVIDA
+counties.2000.SUDESTE.ESPVIDA <- counties.2000.SUDESTE$ESPVIDA
+counties.2000.SUL.ESPVIDA <- counties.2000.SUL$ESPVIDA
+counties.2000.CENTRO_OESTE.ESPVIDA <- counties.2000.CENTRO_OESTE$ESPVIDA
+
+counties.2010.NORTE.ESPVIDA <- counties.2010.NORTE$ESPVIDA
+counties.2010.NORDESTE.ESPVIDA <- counties.2010.NORDESTE$ESPVIDA
+counties.2010.SUDESTE.ESPVIDA <- counties.2010.SUDESTE$ESPVIDA
+counties.2010.SUL.ESPVIDA <- counties.2010.SUL$ESPVIDA
+counties.2010.CENTRO_OESTE.ESPVIDA <- counties.2010.CENTRO_OESTE$ESPVIDA
+
+ESPVIDA_BY_REGION <- c(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
+                       counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
+                       counties.1991.SUDESTE.ESPVIDA, counties.2000.SUDESTE.ESPVIDA, counties.2010.SUDESTE.ESPVIDA,
+                       counties.1991.SUL.ESPVIDA, counties.2000.SUL.ESPVIDA, counties.2010.SUL.ESPVIDA,
+                       counties.1991.CENTRO_OESTE.ESPVIDA, counties.2000.CENTRO_OESTE.ESPVIDA, counties.2010.CENTRO_OESTE.ESPVIDA)
+
+ESPVIDA_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, ESPVIDA_BY_REGION)
 
 # Grouped Boxplot
-p <- ggplot(ESPVIDA.df, aes(x = GROUP_BY_REGION, y=ESPVIDA, fill = GROUP_BY_YEAR)) + geom_boxplot()
+p <- ggplot(ESPVIDA_BY_REGION.df, aes(x = GROUP_BY_REGION, y=ESPVIDA_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
 
 p + ggtitle("Expectativa de Vida por Região") + xlab(NULL) + ylab("Anos") + labs(fill="Ano") + theme(plot.title = element_text(hjust = 0.5))
 
-###########################################################
+ ###########################################################
 # Renda per Capita Média
+
+counties.1991.NORTE.RDPC <- counties.1991.NORTE$RDPC
+counties.1991.NORDESTE.RDPC <- counties.1991.NORDESTE$RDPC
+counties.1991.SUDESTE.RDPC <- counties.1991.SUDESTE$RDPC
+counties.1991.SUL.RDPC <- counties.1991.SUL$RDPC
+counties.1991.CENTRO_OESTE.RDPC <- counties.1991.CENTRO_OESTE$RDPC
+
 counties.2000.NORTE.RDPC <- counties.2000.NORTE$RDPC
 counties.2000.NORDESTE.RDPC <- counties.2000.NORDESTE$RDPC
 counties.2000.SUDESTE.RDPC <- counties.2000.SUDESTE$RDPC
 counties.2000.SUL.RDPC <- counties.2000.SUL$RDPC
 counties.2000.CENTRO_OESTE.RDPC <- counties.2000.CENTRO_OESTE$RDPC
 
-# boxplot(counties.2000.NORTE.RDPC, counties.2000.NORDESTE.RDPC, counties.2000.SUDESTE.RDPC, counties.2000.SUL.RDPC, counties.2000.CENTRO_OESTE.RDPC,
-# names = c_regions,
-# main = "Renda per capita Média por Região")
+counties.2010.NORTE.RDPC <- counties.2010.NORTE$RDPC
+counties.2010.NORDESTE.RDPC <- counties.2010.NORDESTE$RDPC
+counties.2010.SUDESTE.RDPC <- counties.2010.SUDESTE$RDPC
+counties.2010.SUL.RDPC <- counties.2010.SUL$RDPC
+counties.2010.CENTRO_OESTE.RDPC <- counties.2010.CENTRO_OESTE$RDPC
+
+RDPC_BY_REGION <- c(counties.1991.NORTE.RDPC, counties.2000.NORTE.RDPC, counties.2010.NORTE.RDPC,
+                    counties.1991.NORDESTE.RDPC, counties.2000.NORDESTE.RDPC, counties.2010.NORDESTE.RDPC,
+                    counties.1991.SUDESTE.RDPC, counties.2000.SUDESTE.RDPC, counties.2010.SUDESTE.RDPC,
+                    counties.1991.SUL.RDPC, counties.2000.SUL.RDPC, counties.2010.SUL.RDPC,
+                    counties.1991.CENTRO_OESTE.RDPC, counties.2000.CENTRO_OESTE.RDPC, counties.2010.CENTRO_OESTE.RDPC)
+
+RDPC_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, RDPC_BY_REGION)
+
+# Grouped Boxplot
+p <- ggplot(RDPC_BY_REGION.df, aes(x = GROUP_BY_REGION, y=RDPC_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
+
+p + ggtitle("Renda per capta Média por Região") + xlab(NULL) + ylab("Anos") + labs(fill="Ano") + theme(plot.title = element_text(hjust = 0.5))
+
+
+boxplot(counties.2000.NORTE.RDPC, counties.2000.NORDESTE.RDPC, counties.2000.SUDESTE.RDPC, counties.2000.SUL.RDPC, counties.2000.CENTRO_OESTE.RDPC,
+names = c_regions,
+main = "Renda per capita Média por Região")
 
 ###########################################################
 # E_ANOSESTUDO - Expectativa de anos de estudo
