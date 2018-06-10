@@ -361,25 +361,16 @@ brazil$MULHERTOT.1991 <- state.1991$MULHERTOT
 brazil$MULHERTOT.2000 <- state.2000$MULHERTOT
 brazil$MULHERTOT.2010 <- state.2010$MULHERTOT
 
-pop$total_1991 <- brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991
-pop$total_2000 <- brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000
-pop$total_2010 <- brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010
+tot
 
-brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / populacao_total.1991 * 100
-brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / populacao_total.2000 * 100
-brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / populacao_total.2010 * 100
+# Heatmap plot
+brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991) * 100
+brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000) * 100
+brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010) * 100
 
-brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / populacao_total.1991 * 100
-brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / populacao_total.2000 * 100
-brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / populacao_total.2010 * 100
-  
-total_population.1991 <- c(sum(brazil$T_POPMASC.1991), sum(brazil$T_POPFEMIN.1991))
-total_population.2000 <- c(sum(brazil$T_POPMASC.2000), sum(brazil$T_POPFEMIN.2000))
-total_population.2010 <- c(sum(brazil$T_POPMASC.2010), sum(brazil$T_POPFEMIN.2010))
-
-gender_distr$prop <- c(slices.1991, slices.2000, slices.2010)
-
-ggplot(data = )
+brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991) * 100
+brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000) * 100
+brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010) * 100
 
 spplot(brazil,
        c("T_POPMASC.1991", "T_POPMASC.2000", "T_POPMASC.2010"),
@@ -391,8 +382,23 @@ spplot(brazil,
        col.regions=colors_femin(max(state_raw$RDPC)),
        main=title_femin)
 
+# Pie Chart
+populational_data <- data.frame(matrix(c(sum(brazil$HOMEMTOT.1991), sum(brazil$MULHERTOT.1991),
+                                sum(brazil$HOMEMTOT.2000), sum(brazil$MULHERTOT.2000),
+                                sum(brazil$HOMEMTOT.2010), sum(brazil$MULHERTOT.2010)),
+                                nrow = 3, ncol=2))
+
+rownames(populational_data) <- c("1991", "2000", "2010")
+colnames(populational_data) <- c("masculino", "feminino")
+
+populational_data$Total <- populational_data$masculino + populational_data$feminino
+populational_data$factor_masc <- populational_data$masculino / populational_data$Total
+populational_data$factor_femin <- populational_data$feminino / populational_data$Total
+
+pie(populational_data$factor_masc, populational_data$factor_femin)
 
 ###########################################################
+
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
