@@ -193,22 +193,39 @@ p <- ggplot(RDPC_BY_REGION.df, aes(x = GROUP_BY_REGION, y=RDPC_BY_REGION, fill =
 
 p + ggtitle("Renda per capta Média por Região") + xlab(NULL) + ylab("Reais") + labs(fill="Ano") + theme(plot.title = element_text(hjust = 0.5))
 
-
-boxplot(counties.2000.NORTE.RDPC, counties.2000.NORDESTE.RDPC, counties.2000.SUDESTE.RDPC, counties.2000.SUL.RDPC, counties.2000.CENTRO_OESTE.RDPC,
-names = c_regions,
-main = "Renda per capita Média por Região")
-
 ###########################################################
 # E_ANOSESTUDO - Expectativa de anos de estudo
+
+counties.1991.NORTE.E_ANOSESTUDO <- counties.1991.NORTE$E_ANOSESTUDO
+counties.1991.NORDESTE.E_ANOSESTUDO <- counties.1991.NORDESTE$E_ANOSESTUDO
+counties.1991.SUDESTE.E_ANOSESTUDO <- counties.1991.SUDESTE$E_ANOSESTUDO
+counties.1991.SUL.E_ANOSESTUDO <- counties.1991.SUL$E_ANOSESTUDO
+counties.1991.CENTRO_OESTE.E_ANOSESTUDO <- counties.1991.CENTRO_OESTE$E_ANOSESTUDO
+
 counties.2000.NORTE.E_ANOSESTUDO <- counties.2000.NORTE$E_ANOSESTUDO
 counties.2000.NORDESTE.E_ANOSESTUDO <- counties.2000.NORDESTE$E_ANOSESTUDO
 counties.2000.SUDESTE.E_ANOSESTUDO <- counties.2000.SUDESTE$E_ANOSESTUDO
 counties.2000.SUL.E_ANOSESTUDO <- counties.2000.SUL$E_ANOSESTUDO
 counties.2000.CENTRO_OESTE.E_ANOSESTUDO <- counties.2000.CENTRO_OESTE$E_ANOSESTUDO
 
-boxplot(counties.2000.NORTE.E_ANOSESTUDO, counties.2000.NORDESTE.E_ANOSESTUDO, counties.2000.SUDESTE.E_ANOSESTUDO, counties.2000.SUL.E_ANOSESTUDO, counties.2000.CENTRO_OESTE.E_ANOSESTUDO,
-        names = c_regions,
-        main = "Expectativa de Anos de Estudo ao Atingir 18 Anos por Região ")
+counties.2010.NORTE.E_ANOSESTUDO <- counties.2010.NORTE$E_ANOSESTUDO
+counties.2010.NORDESTE.E_ANOSESTUDO <- counties.2010.NORDESTE$E_ANOSESTUDO
+counties.2010.SUDESTE.E_ANOSESTUDO <- counties.2010.SUDESTE$E_ANOSESTUDO
+counties.2010.SUL.E_ANOSESTUDO <- counties.2010.SUL$E_ANOSESTUDO
+counties.2010.CENTRO_OESTE.E_ANOSESTUDO <- counties.2010.CENTRO_OESTE$E_ANOSESTUDO
+
+E_ANOSESTUDO_BY_REGION <- c(counties.1991.NORTE.E_ANOSESTUDO, counties.2000.NORTE.E_ANOSESTUDO, counties.2010.NORTE.E_ANOSESTUDO,
+                    counties.1991.NORDESTE.E_ANOSESTUDO, counties.2000.NORDESTE.E_ANOSESTUDO, counties.2010.NORDESTE.E_ANOSESTUDO,
+                    counties.1991.SUDESTE.E_ANOSESTUDO, counties.2000.SUDESTE.E_ANOSESTUDO, counties.2010.SUDESTE.E_ANOSESTUDO,
+                    counties.1991.SUL.E_ANOSESTUDO, counties.2000.SUL.E_ANOSESTUDO, counties.2010.SUL.E_ANOSESTUDO,
+                    counties.1991.CENTRO_OESTE.E_ANOSESTUDO, counties.2000.CENTRO_OESTE.E_ANOSESTUDO, counties.2010.CENTRO_OESTE.E_ANOSESTUDO)
+
+E_ANOSESTUDO_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, E_ANOSESTUDO_BY_REGION)
+
+# Grouped Boxplot
+p <- ggplot(E_ANOSESTUDO_BY_REGION.df, aes(x = GROUP_BY_REGION, y=E_ANOSESTUDO_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
+
+p + ggtitle("Expectativa de Anos de Estudo ao Atingir 18 Anos por Região") + xlab(NULL) + ylab("Anos") + labs(fill="Anos") + theme(plot.title = element_text(hjust = 0.5))
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
