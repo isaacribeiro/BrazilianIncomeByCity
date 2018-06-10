@@ -344,6 +344,57 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 #        main=title)
 
 ###########################################################
+# HOMEMTOT - População residente masculina
+# MULHERTOT - População residente feminina
+
+colors_masc <- colorRampPalette(c("white", "blue4"))
+colors_femin <- colorRampPalette(c("white", "violetred2"))
+
+title_masc <- expression(paste("Percentual da População Masculina em Relação à População Total"))
+title_femin <- expression(paste("Percentual da População Feminina em Relação à População Total"))
+
+brazil$HOMEMTOT.1991 <- state.1991$HOMEMTOT
+brazil$HOMEMTOT.2000 <- state.2000$HOMEMTOT
+brazil$HOMEMTOT.2010 <- state.2010$HOMEMTOT
+
+brazil$MULHERTOT.1991 <- state.1991$MULHERTOT
+brazil$MULHERTOT.2000 <- state.2000$MULHERTOT
+brazil$MULHERTOT.2010 <- state.2010$MULHERTOT
+
+pop$total_1991 <- brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991
+pop$total_2000 <- brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000
+pop$total_2010 <- brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010
+
+brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / populacao_total.1991 * 100
+brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / populacao_total.2000 * 100
+brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / populacao_total.2010 * 100
+
+brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / populacao_total.1991 * 100
+brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / populacao_total.2000 * 100
+brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / populacao_total.2010 * 100
+  
+total_population.1991 <- c(sum(brazil$T_POPMASC.1991), sum(brazil$T_POPFEMIN.1991))
+total_population.2000 <- c(sum(brazil$T_POPMASC.2000), sum(brazil$T_POPFEMIN.2000))
+total_population.2010 <- c(sum(brazil$T_POPMASC.2010), sum(brazil$T_POPFEMIN.2010))
+
+gender_distr$prop <- c(slices.1991, slices.2000, slices.2010)
+
+ggplot(data = )
+
+spplot(brazil,
+       c("T_POPMASC.1991", "T_POPMASC.2000", "T_POPMASC.2010"),
+       col.regions=colors_masc(max(state_raw$RDPC)),
+       main=title_masc)
+
+spplot(brazil,
+       c("T_POPFEMIN.1991", "T_POPFEMIN.2000", "T_POPFEMIN.2010"),
+       col.regions=colors_femin(max(state_raw$RDPC)),
+       main=title_femin)
+
+
+###########################################################
+
+###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
