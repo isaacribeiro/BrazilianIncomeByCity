@@ -1,5 +1,6 @@
 # Required Libraries
 library(readxl)
+library(ggplot2)
 
 # Brazil - Raw Data
 # brazil_raw <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "BR 91-00-10")
@@ -123,16 +124,60 @@ counties.2010.SUDESTE.ESPVIDA <- counties.2010.SUDESTE$ESPVIDA
 counties.2010.SUL.ESPVIDA <- counties.2010.SUL$ESPVIDA
 counties.2010.CENTRO_OESTE.ESPVIDA <- counties.2010.CENTRO_OESTE$ESPVIDA
 
-# boxplot(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
-#         counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
-#         counties.1991.SUDESTE.ESPVIDA, counties.2000.SUDESTE.ESPVIDA, counties.2010.SUDESTE.ESPVIDA,
-#         counties.1991.SUL.ESPVIDA, counties.2000.SUL.ESPVIDA, counties.2010.SUL.ESPVIDA,
-#         counties.1991.CENTRO_OESTE.ESPVIDA, counties.2000.CENTRO_OESTE.ESPVIDA, counties.2010.CENTRO_OESTE.ESPVIDA,
-# names = c_regions,
-# col = c("red", "blue", "yellow"),
-# main = "Expectativa de Vida por Região")
+counties.NORTE.ESPVIDA <- data.frame(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA)
+counties.NORDESTE.ESPVIDA <- data.frame(counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA)
+counties.SUDESTE.ESPVIDA <- data.frame(counties.1991.SUDESTE.ESPVIDA, counties.2000.SUDESTE.ESPVIDA, counties.2010.SUDESTE.ESPVIDA)
+counties.SUL.ESPVIDA <- data.frame(counties.1991.SUL.ESPVIDA, counties.2000.SUL.ESPVIDA, counties.2010.SUL.ESPVIDA)
+counties.CENTRO_OESTE.ESPVIDA <- data.frame(counties.1991.CENTRO_OESTE.ESPVIDA, counties.2000.CENTRO_OESTE.ESPVIDA, counties.2010.CENTRO_OESTE.ESPVIDA)
 
-###########################################################
+data <- list(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
+             counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
+             counties.1991.SUDESTE.ESPVIDA, counties.2000.SUDESTE.ESPVIDA, counties.2010.SUDESTE.ESPVIDA,
+             counties.1991.SUL.ESPVIDA, counties.2000.SUL.ESPVIDA, counties.2010.SUL.ESPVIDA,
+             counties.1991.CENTRO_OESTE.ESPVIDA, counties.2000.CENTRO_OESTE.ESPVIDA, counties.2010.CENTRO_OESTE.ESPVIDA)
+variety=list(rep.int("Norte", length(counties.NORTE.ESPVIDA$counties.1991.NORTE.ESPVIDA)*3),
+             rep.int("Nordeste", length(counties.NORDESTE.ESPVIDA$counties.1991.NORDESTE.ESPVIDA)*3),
+             rep.int("Sudeste", length(counties.SUDESTE.ESPVIDA$counties.1991.SUDESTE.ESPVIDA)*3),
+             rep.int("Sul", length(counties.SUL.ESPVIDA$counties.1991.SUL.ESPVIDA)*3),
+             rep.int("Centro-Oeste", length(counties.CENTRO_OESTE.ESPVIDA$counties.1991.CENTRO_OESTE.ESPVIDA)*3))
+treatment=list(rep.int("1991", length(counties.NORTE.ESPVIDA$counties.1991.NORTE.ESPVIDA)),
+               rep.int("2000", length(counties.NORTE.ESPVIDA$counties.1991.NORTE.ESPVIDA)),
+               rep.int("2010", length(counties.NORTE.ESPVIDA$counties.1991.NORTE.ESPVIDA)),
+               rep.int("1991", length(counties.NORDESTE.ESPVIDA$counties.1991.NORDESTE.ESPVIDA)),
+               rep.int("2000", length(counties.NORDESTE.ESPVIDA$counties.1991.NORDESTE.ESPVIDA)),
+               rep.int("2010", length(counties.NORDESTE.ESPVIDA$counties.1991.NORDESTE.ESPVIDA)),
+               rep.int("1991", length(counties.SUDESTE.ESPVIDA$counties.1991.SUDESTE.ESPVIDA)),
+               rep.int("2000", length(counties.SUDESTE.ESPVIDA$counties.1991.SUDESTE.ESPVIDA)),
+               rep.int("2010", length(counties.SUDESTE.ESPVIDA$counties.1991.SUDESTE.ESPVIDA)),
+               rep.int("1991", length(counties.SUL.ESPVIDA$counties.1991.SUL.ESPVIDA)),
+               rep.int("2000", length(counties.SUL.ESPVIDA$counties.1991.SUL.ESPVIDA)),
+               rep.int("2010", length(counties.SUL.ESPVIDA$counties.1991.SUL.ESPVIDA)),
+               rep.int("1991", length(counties.CENTRO_OESTE.ESPVIDA$counties.1991.CENTRO_OESTE.ESPVIDA)),
+               rep.int("2000", length(counties.CENTRO_OESTE.ESPVIDA$counties.1991.CENTRO_OESTE.ESPVIDA)),
+               rep.int("2010", length(counties.CENTRO_OESTE.ESPVIDA$counties.1991.CENTRO_OESTE.ESPVIDA)))
+data_2 <- unlist(data)
+variety_2 <- unlist(variety)
+treatment_2 <- unlist(treatment)
+
+data <- data.frame(variety_2, treatment_2, data_2)
+
+# grouped boxplot
+p <- ggplot(data, aes(x=variety_2, y=data_2, fill=treatment_2)) + 
+  geom_boxplot()
+
+p + ggtitle("Expectativa de Vida por Região") + xlab(NULL) + ylab("Anos") + labs(fill="Ano") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+boxplot(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
+        counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
+        counties.1991.SUDESTE.ESPVIDA, counties.2000.SUDESTE.ESPVIDA, counties.2010.SUDESTE.ESPVIDA,
+        counties.1991.SUL.ESPVIDA, counties.2000.SUL.ESPVIDA, counties.2010.SUL.ESPVIDA,
+        counties.1991.CENTRO_OESTE.ESPVIDA, counties.2000.CENTRO_OESTE.ESPVIDA, counties.2010.CENTRO_OESTE.ESPVIDA,
+        aes(c_regions, years, fill=fill),
+        col = c("bisque3", "azure1", "coral1"),
+        main = "Expectativa de Vida por Região")
+
+ ###########
 # Renda per Capita Média
 counties.2000.NORTE.RDPC <- counties.2000.NORTE$RDPC
 counties.2000.NORDESTE.RDPC <- counties.2000.NORDESTE$RDPC

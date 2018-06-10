@@ -6,9 +6,6 @@ library(gridExtra)
 # ESPVIDA - Esperança de vida ao nascer
 # Número médio de anos que as pessoas deverão viver a partir do nascimento, se permanecerem constantes ao longo da vida o nível e o padrão de mortalidade por idade prevalecentes no ano do Censo.
 
-# MORT1 - Mortalidade até um ano de idade
-# Número de crianças que não deverão sobreviver ao primeiro ano de vida em cada 1000 crianças nascidas vivas.
-
 # T_ENV - Taxa de envelhecimento
 # Razão entre a população de 65 anos ou mais de idade e a população total multiplicado por 100.
 
@@ -213,26 +210,50 @@ state.2010 <- state_raw[state_raw$ANO == "2010", ]
 # Brazil
 brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 
-# norte <- subset(brazil, NM_ESTADO == "RONDÃ”NIA" | NM_ESTADO == "ACRE" 
-#                 | NM_ESTADO == "AMAZONAS" | NM_ESTADO == "RORAIMA"
-#                 | NM_ESTADO == "PARÃ\u0081" | NM_ESTADO == "AMAPÃ\u0081"
-#                 | NM_ESTADO == "TOCANTINS")
-# 
-# nordeste <- subset(brazil, NM_ESTADO == "MARANHÃƒO" | NM_ESTADO == "PIAUÃ\u008d" 
-#                    | NM_ESTADO == "CEARÃ\u0081" | NM_ESTADO == "RIO GRANDE DO NORTE"
-#                    | NM_ESTADO == "PARAÃ\u008dBA" | NM_ESTADO == "PERNAMBUCO"
-#                    | NM_ESTADO == "ALAGOAS" | NM_ESTADO == "SERGIPE" | NM_ESTADO == "BAHIA")
-# 
-# sudeste <- subset(brazil, NM_ESTADO == "MINAS GERAIS" | NM_ESTADO == "ESPIRITO SANTO"
-#                   | NM_ESTADO == "RIO DE JANEIRO" | NM_ESTADO == "SÃƒO PAULO")
-# 
-# sul <- subset(brazil, NM_ESTADO == "PARANÃ\u0081" | NM_ESTADO == "SANTA CATARINA" | NM_ESTADO == "RIO GRANDE DO SUL")
-# 
-# centro_oeste <- subset(brazil, NM_ESTADO == "MATO GROSSO DO SUL" | NM_ESTADO == "MATO GROSSO" 
-#                        | NM_ESTADO == "GOIÃ\u0081S" | NM_ESTADO == "DISTRITO FEDERAL" )
 
-# Add Census' dimension to SpatialPolygonsDataFrame data
 
+###########################################################
+# Esperança de vida ao nascer - ESPVIDA
+# 
+# colors <- colorRampPalette(c("deeppink", "green4"))
+# 
+# title <- expression(bold("Esperança Média de Vida ao Nascer por Estados (anos de vida)"))
+# 
+# brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
+# brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
+# brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
+# 
+# spplot(brazil,
+#        c("ESPVIDA.1991", "ESPVIDA.2000", "ESPVIDA.2010"),
+#        col.regions=colors(max(state_raw$ESPVIDA)),
+#        main=title)
+# 
+###########################################################
+# Taxa de envelhecimento - T_ENV
+# 
+# title <- expression(bold("Taxa de Envelhecimento Média por Estado (%)"))
+# 
+# brazil$T_ENV.1991 <- state.1991$T_ENV
+# brazil$T_ENV.2000 <- state.2000$T_ENV
+# brazil$T_ENV.2010 <- state.2010$T_ENV
+# 
+# spplot(brazil,
+#        c("T_ENV.1991", "T_ENV.2000", "T_ENV.2010"),
+#        main=title)
+# 
+###########################################################
+# Razão de dependência - RAZDEP
+# 
+# title <- expression(bold("Taxa de Envelhecimento Média por Estado (%)"))
+# 
+# brazil$T_ENV.1991 <- state.1991$T_ENV
+# brazil$T_ENV.2000 <- state.2000$T_ENV
+# brazil$T_ENV.2010 <- state.2010$T_ENV
+# 
+# spplot(brazil,
+#        c("T_ENV.1991", "T_ENV.2000", "T_ENV.2010"),
+#        main=title)
+# 
 ###########################################################
 # Renda per Capita Média - RDPC
 # 
@@ -247,23 +268,6 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 # spplot(brazil, 
 #        c("RDPC.1991", "RDPC.2000", "RDPC.2010"), 
 #        col.regions=colors(max(state_raw$RDPC)),
-#        main=title,
-#        scales = list(draw = FALSE))
-
-###########################################################
-# Expectativa de Vida - ESPVIDA
-
-# colors <- colorRampPalette(c("deeppink", "green4"))
-# 
-# title <- expression(bold("Expectativa de Vida Média"))
-# 
-# brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
-# brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
-# brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
-# 
-# spplot(brazil,
-#        c("ESPVIDA.1991", "ESPVIDA.2000", "ESPVIDA.2010"),
-#        col.regions=colors(max(state_raw$ESPVIDA)),
 #        main=title,
 #        scales = list(draw = FALSE))
 
@@ -325,3 +329,22 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 # spplot(brazil,
 #        c("IDHM_R.1991", "IDHM_R.2000", "IDHM_R.2010"),
 #        main=title)
+
+####################################################################################################################
+# norte <- subset(brazil, NM_ESTADO == "RONDÃ”NIA" | NM_ESTADO == "ACRE"
+#                 | NM_ESTADO == "AMAZONAS" | NM_ESTADO == "RORAIMA"
+#                 | NM_ESTADO == "PARÃ\u0081" | NM_ESTADO == "AMAPÃ\u0081"
+#                 | NM_ESTADO == "TOCANTINS")
+# 
+# nordeste <- subset(brazil, NM_ESTADO == "MARANHÃƒO" | NM_ESTADO == "PIAUÃ\u008d"
+#                    | NM_ESTADO == "CEARÃ\u0081" | NM_ESTADO == "RIO GRANDE DO NORTE"
+#                    | NM_ESTADO == "PARAÃ\u008dBA" | NM_ESTADO == "PERNAMBUCO"
+#                    | NM_ESTADO == "ALAGOAS" | NM_ESTADO == "SERGIPE" | NM_ESTADO == "BAHIA")
+# 
+# sudeste <- subset(brazil, NM_ESTADO == "MINAS GERAIS" | NM_ESTADO == "ESPIRITO SANTO"
+#                   | NM_ESTADO == "RIO DE JANEIRO" | NM_ESTADO == "SÃƒO PAULO")
+# 
+# sul <- subset(brazil, NM_ESTADO == "PARANÃ\u0081" | NM_ESTADO == "SANTA CATARINA" | NM_ESTADO == "RIO GRANDE DO SUL")
+# 
+# centro_oeste <- subset(brazil, NM_ESTADO == "MATO GROSSO DO SUL" | NM_ESTADO == "MATO GROSSO"
+#                        | NM_ESTADO == "GOIÃ\u0081S" | NM_ESTADO == "DISTRITO FEDERAL" )
