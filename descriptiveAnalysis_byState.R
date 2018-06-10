@@ -3,7 +3,7 @@ library(readxl)
 library(rgdal)
 library(gridExtra)
 
-# ESPVIDA - Esperança de vida ao nascer
+# (!) ESPVIDA - Esperança de vida ao nascer
 # Número médio de anos que as pessoas deverão viver a partir do nascimento, se permanecerem constantes ao longo da vida o nível e o padrão de mortalidade por idade prevalecentes no ano do Censo.
 
 # T_ENV - Taxa de envelhecimento
@@ -12,10 +12,10 @@ library(gridExtra)
 # RAZDEP - Razão de dependência 
 # Razão de dependência é medida pela razão entre o número de pessoas com 14 anos ou menos e de 65 anos ou mais de idade (população dependente) e o número de pessoas com idade de 15 a 64 anos (população potencialmente ativa) multiplicado por 100.
 
-# E_ANOSESTUDO - Expectativa de anos de estudo
+# (!) E_ANOSESTUDO - Expectativa de anos de estudo
 # Número médio de anos de estudo que uma geração de crianças que ingressa na escola deverá completar ao atingir 18 anos de idade, se os padrões atuais se mantiverem ao longo de sua vida escolar.
 
-#  T_ANALF18M - Taxa de analfabetismo da população de 18 anos ou mais de idade
+# (!) T_ANALF18M - Taxa de analfabetismo da população de 18 anos ou mais de idade
 # Razão entre a população de 18 anos ou mais de idade que não sabe ler nem escrever um bilhete simples e o total de pessoas nesta faixa etária multiplicado por 100.
 
 # T_ANALF25A29 - Taxa de analfabetismo da população de 25 a 29 anos de idade
@@ -33,7 +33,7 @@ library(gridExtra)
 # T_FUND18A24 - Percentual da população de 18 a 24 anos com fundamental completo
 # Razão entre a população de 18 a 24 anos de idade que concluiu o ensino fundamental, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100.
 
-# T_FUND18M - Percentual da população de 18 anos ou mais com fundamental completo
+# (!) T_FUND18M - Percentual da população de 18 anos ou mais com fundamental completo
 # Razão entre a população de 18 anos ou mais de idade que concluiu o ensino fundamental, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100.
 
 # T_FUND25M - Percentual da população de 25 anos ou mais com fundamental completo
@@ -45,7 +45,7 @@ library(gridExtra)
 # T_MED18A24 - Percentual da população de 18 a 24 anos com ensino médio completo
 # Razão entre a população de 18 a 24 anos de idade que concluiu o ensino médio, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100. Foram consideradas como tendo concluído o ensino médio as pessoas frequentando a 4ª série desse nível.
 
-# T_MED18M - Percentual da população de 18 anos ou mais com ensino médio completo
+# (!) T_MED18M - Percentual da população de 18 anos ou mais com ensino médio completo
 # Razão entre a população de 18 anos ou mais de idade que concluiu o ensino médio, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100. Foram consideradas como tendo concluído o ensino médio as pessoas frequentando a 4ª série desse nível.
 
 # T_MED19A21 - Percentual da população de 19 a 21 anos de idade com o ensino médio completo
@@ -54,10 +54,10 @@ library(gridExtra)
 # T_MED25M - Percentual da população de 25 anos ou mais com ensino médio incompleto
 # Razão entre a população de 25 anos ou mais de idade que concluiu o ensino médio, em quaisquer de suas modalidades (regular seriado, não seriado, EJA ou supletivo) e o total de pessoas nesta faixa etária multiplicado por 100. Foram consideradas como tendo concluído o ensino médio as pessoas frequentando a 4ª série desse nível.
 
-# T_SUPER25M - Percentual da população de 25 anos ou mais com superior completo
+# (!) T_SUPER25M - Percentual da população de 25 anos ou mais com superior completo
 # Razão entre a população de 25 anos ou mais de idade que concluiu pelo menos a graduação do ensino superior e o total de pessoas nesta faixa etária multiplicado por 100.
 
-# GINI - Índice de Gini
+# (!) GINI - Índice de Gini
 # Mede o grau de desigualdade existente na distribuição de indivíduos segundo a renda domiciliar per capita. Seu valor varia de 0, quando não há desigualdade (a renda domiciliar per capita de todos os indivíduos tem o mesmo valor), a 1, quando a desigualdade é máxima (apenas um indivíduo detém toda a renda).O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
 
 # PREN10RICOS - Percentual da renda total apropriada pelos 10% da população com maior renda domiciliar per capita
@@ -87,10 +87,10 @@ library(gridExtra)
 # R2040 - Razão 20% mais ricos / 40% mais pobres
 # Medida do grau de desigualdade existente na distribuição de indivíduos segundo a renda domiciliar per capita. Compara a renda per capita média dos indivíduos pertencentes ao quinto mais rico dessa distribuição com a renda per capita média dos indivíduos pertencentes aos dois quintos mais pobres. O universo de indivíduos é limitado àqueles que vivem em domicílios particulares permanentes.
 
-# RDPC - Renda per capita média
+# (Y) RDPC - Renda per capita média
 # Razão entre o somatório da renda de todos os indivíduos residentes em domicílios particulares permanentes e o número total desses indivíduos. Valores em reais de 01/agosto de 2010.
 
-# IDHM -Índice de Desenvolvimento Humano Municipal
+# (!) IDHM -Índice de Desenvolvimento Humano Municipal
 # Média geométrica dos índices das dimensões Renda, Educação e Longevidade, com pesos iguais.
 
 # IDHM_E- Índice de Desenvolvimento Humano Municipal - Dimensão Educação
@@ -102,13 +102,13 @@ library(gridExtra)
 # IDHM_R - IDHM Renda
 # Índice de Desenvolvimento Humano Municipal - Dimensão Renda
 
-# HOMEMTOT - População residente masculina
+# (!) HOMEMTOT - População residente masculina
 # População total do sexo masculino
 
-# MULHERTOT - População residente feminina
+# (!) MULHERTOT - População residente feminina
 # População total do sexo feminino
 
-# PEA18M - PEA (18 anos ou mais)
+# (!) PEA18M - PEA (18 anos ou mais)
 # População economicamente ativa. Corresponde ao número de pessoas nessa faixa etária que, na semana de referência do Censo, encontravam-se ocupadas no mercado de trabalho ou que, encontrando-se desocupadas, tinham procurado trabalho no mês anterior à data da pesquisa.
 
 # PESORUR - População rural
@@ -117,7 +117,7 @@ library(gridExtra)
 # PESOURB - População urbana
 # População residente na área urbana
 
-# PESOTOT - População total
+# (!) PESOTOT - População total
 # População residente total
 
 # REN0 - % dos ocupados sem rendimento - 18 anos ou mais
@@ -135,7 +135,7 @@ library(gridExtra)
 # REN5 - % dos ocupados com rendimento de até 5 s.m. - 18 anos ou mais
 # Razão entre o número de pessoas de 18 anos ou mais de idade ocupadas e com rendimento mensal de todos os trabalhos inferior a 5 salários mínimos de julho de 2010 e o número total de pessoas ocupadas nessa faixa etária multiplicado por 100.
 
-# RENOCUP - Rendimento médio dos ocupados - 18 anos ou mais
+# (!) RENOCUP - Rendimento médio dos ocupados - 18 anos ou mais
 # Média dos rendimentos de todos os trabalhos das pessoas ocupadas de 18 anos ou mais de idade. Valores em reais de agosto de 2010.
 
 # T_ATIV1517 - Taxa de atividade das pessoas de 15 a 17 anos de idade
@@ -144,7 +144,7 @@ library(gridExtra)
 # T_ATIV1824 - Taxa de atividade das pessoas de 18 a 24 anos de idade
 # Razão entre as pessoas de 18 a 24 anos de idade que eram economicamente ativas, ou seja, que estavam ocupadas ou desocupadas na semana de referência do Censo e o total de pessoas nesta faixa etária multiplicado por 100. Considera-se desocupada a pessoa que, não estando ocupada na semana de referência, havia procurado trabalho no mês anterior a essa pesquisa.
 
-# T_ATIV18M - Taxa de atividade das pessoas de 18 anos ou mais de idade
+# (!) T_ATIV18M - Taxa de atividade das pessoas de 18 anos ou mais de idade
 # Razão entre as pessoas de 18 anos ou mais de idade que eram economicamente ativas, ou seja, que estavam ocupadas ou desocupadas na semana de referência do Censo e o total de pessoas nesta faixa etária multiplicado por 100. Considera-se desocupada a pessoa que, não estando ocupada na semana de referência, havia procurado trabalho no mês anterior a essa pesquisa.
 
 # T_ATIV2529 - Taxa de atividade das pessoas de 25 a 29 anos de idade
@@ -156,7 +156,7 @@ library(gridExtra)
 # T_DES1824 - Taxa de desocupação da população de 18 a 24 anos de idade
 # Percentual da população economicamente ativa (PEA) nessa faixa etária que estava desocupada, ou seja, que não estava ocupada na semana anterior à data do Censo mas havia procurado trabalho ao longo do mês anterior à data dessa pesquisa.
 
-# T_DES18M - Taxa de desocupação da população de 18 anos ou mais de idade
+# (!) T_DES18M - Taxa de desocupação da população de 18 anos ou mais de idade
 # Percentual da população economicamente ativa (PEA) nessa faixa etária que estava desocupada, ou seja, que não estava ocupada na semana anterior à data do Censo mas havia procurado trabalho ao longo do mês anterior à data dessa pesquisa.
 
 # T_DES2529 - Taxa de desocupação da população de 25 a 29 anos de idade
@@ -300,35 +300,48 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 # T_MED18M - Percentual da população de 18 anos ou mais com ensino médio completo
 # T_SUPER25M - Percentual da população de 25 anos ou mais com superior completo
 
-title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Fundamental Completo"))
+# title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Fundamental Completo"))
+# 
+# brazil$T_FUND18M.1991 <- state.1991$T_FUND18M
+# brazil$T_FUND18M.2000 <- state.2000$T_FUND18M
+# brazil$T_FUND18M.2010 <- state.2010$T_FUND18M
+# 
+# spplot(brazil,
+#        c("T_FUND18M.1991", "T_FUND18M.2000", "T_FUND18M.2010"),
+#        main=title)
+# 
+# title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Médio Completo"))
+# 
+# brazil$T_MED18M.1991 <- state.1991$T_MED18M
+# brazil$T_MED18M.2000 <- state.2000$T_MED18M
+# brazil$T_MED18M.2010 <- state.2010$T_MED18M
+# 
+# spplot(brazil,
+#        c("T_MED18M.1991", "T_MED18M.2000", "T_MED18M.2010"),
+#        main=title)
+# 
+# title <- expression(bold("Percentual da População de 25 anos ou mais com Ensino Superior Completo"))
+# 
+# brazil$T_SUPER25M.1991 <- state.1991$T_SUPER25M
+# brazil$T_SUPER25M.2000 <- state.2000$T_SUPER25M
+# brazil$T_SUPER25M.2010 <- state.2010$T_SUPER25M
+# 
+# spplot(brazil,
+#        c("T_SUPER25M.1991", "T_SUPER25M.2000", "T_SUPER25M.2010"),
+#        main=title)
 
-brazil$T_FUND18M.1991 <- state.1991$T_FUND18M
-brazil$T_FUND18M.2000 <- state.2000$T_FUND18M
-brazil$T_FUND18M.2010 <- state.2010$T_FUND18M
+###########################################################
+# T_ANALF18M - Taxa de analfabetismo da população de 18 anos ou mais de idade
 
-spplot(brazil,
-       c("T_FUND18M.1991", "T_FUND18M.2000", "T_FUND18M.2010"),
-       main=title)
-
-title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Médio Completo"))
-
-brazil$T_MED18M.1991 <- state.1991$T_MED18M
-brazil$T_MED18M.2000 <- state.2000$T_MED18M
-brazil$T_MED18M.2010 <- state.2010$T_MED18M
-
-spplot(brazil,
-       c("T_MED18M.1991", "T_MED18M.2000", "T_MED18M.2010"),
-       main=title)
-
-title <- expression(bold("Percentual da População de 25 anos ou mais com Ensino Superior Completo"))
-
-brazil$T_SUPER25M.1991 <- state.1991$T_SUPER25M
-brazil$T_SUPER25M.2000 <- state.2000$T_SUPER25M
-brazil$T_SUPER25M.2010 <- state.2010$T_SUPER25M
-
-spplot(brazil,
-       c("T_SUPER25M.1991", "T_SUPER25M.2000", "T_SUPER25M.2010"),
-       main=title)
+# title <- expression(bold("Taxa de Analfabetismo da População de 18 anos ou mais de Idade"))
+# 
+# brazil$T_ANALF18M.1991 <- state.1991$T_ANALF18M
+# brazil$T_ANALF18M.2000 <- state.2000$T_ANALF18M
+# brazil$T_ANALF18M.2010 <- state.2010$T_ANALF18M
+# 
+# spplot(brazil,
+#        c("T_ANALF18M.1991", "T_ANALF18M.2000", "T_ANALF18M.2010"),
+#        main=title)
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
