@@ -191,7 +191,7 @@ RDPC_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, RDPC_BY_REGION)
 # Grouped Boxplot
 p <- ggplot(RDPC_BY_REGION.df, aes(x = GROUP_BY_REGION, y=RDPC_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
 
-p + ggtitle("Renda per capta Média por Região") + xlab(NULL) + ylab("Anos") + labs(fill="Ano") + theme(plot.title = element_text(hjust = 0.5))
+p + ggtitle("Renda per capta Média por Região") + xlab(NULL) + ylab("Reais") + labs(fill="Ano") + theme(plot.title = element_text(hjust = 0.5))
 
 
 boxplot(counties.2000.NORTE.RDPC, counties.2000.NORDESTE.RDPC, counties.2000.SUDESTE.RDPC, counties.2000.SUL.RDPC, counties.2000.CENTRO_OESTE.RDPC,
