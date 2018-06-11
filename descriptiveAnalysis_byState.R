@@ -445,6 +445,19 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 #        main=title)
 
 ###########################################################
+# T_DES18M - Taxa de desocupação da população de 18 anos ou mais de idade
+
+# title <- expression(bold("Taxa de Desocupação da População de 18 Anos ou mais de Idade"))
+# 
+# # brazil$T_DES18M.1991 <- state.1991$T_DES18M
+# brazil$T_DES18M.2000 <- state.2000$T_DES18M
+# brazil$T_DES18M.2010 <- state.2010$T_DES18M
+# 
+# spplot(brazil,
+#        c("T_DES18M.2000", "T_DES18M.2010"),
+#        main=title)
+
+###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
