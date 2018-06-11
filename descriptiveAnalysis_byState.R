@@ -348,62 +348,74 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 # HOMEMTOT - População residente masculina
 # MULHERTOT - População residente feminina
 
-colors_masc <- colorRampPalette(c("white", "blue4"))
-colors_femin <- colorRampPalette(c("white", "violetred2"))
+# colors_masc <- colorRampPalette(c("white", "blue4"))
+# colors_femin <- colorRampPalette(c("white", "violetred2"))
+# 
+# title_masc <- expression(paste("Percentual da População Masculina em Relação à População Total"))
+# title_femin <- expression(paste("Percentual da População Feminina em Relação à População Total"))
+# 
+# brazil$HOMEMTOT.1991 <- state.1991$HOMEMTOT
+# brazil$HOMEMTOT.2000 <- state.2000$HOMEMTOT
+# brazil$HOMEMTOT.2010 <- state.2010$HOMEMTOT
+# 
+# brazil$MULHERTOT.1991 <- state.1991$MULHERTOT
+# brazil$MULHERTOT.2000 <- state.2000$MULHERTOT
+# brazil$MULHERTOT.2010 <- state.2010$MULHERTOT
+# 
+# brazil$POPTOT.1991 = (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991)
+# brazil$POPTOT.2000 = (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000)
+# brazil$POPTOT.2010 = (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010)
+# 
+# # Heatmap plot
+# brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / brazil$POPTOT.1991 * 100
+# brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / brazil$POPTOT.2000 * 100
+# brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / brazil$POPTOT.2010 * 100
+# 
+# brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / brazil$POPTOT.1991 * 100
+# brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / brazil$POPTOT.2000 * 100
+# brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / brazil$POPTOT.2010 * 100
+# 
+# spplot(brazil,
+#        c("T_POPMASC.1991", "T_POPMASC.2000", "T_POPMASC.2010"),
+#        col.regions=colors_masc(max(state_raw$RDPC)),
+#        main=title_masc)
+# 
+# spplot(brazil,
+#        c("T_POPFEMIN.1991", "T_POPFEMIN.2000", "T_POPFEMIN.2010"),
+#        col.regions=colors_femin(max(state_raw$RDPC)),
+#        main=title_femin)
+# 
+# # Pie Chart
+# populational_data <- data.frame(year = c("1991", "1991", "2000", "2000", "2010", "2010"),
+#                                 gender = c("Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino"),
+#                                 rate = c(sum(brazil$HOMEMTOT.1991) / sum(brazil$POPTOT.1991),
+#                                          sum(brazil$MULHERTOT.1991) / sum(brazil$POPTOT.1991),
+#                                          sum(brazil$HOMEMTOT.2000) / sum(brazil$POPTOT.2000),
+#                                          sum(brazil$MULHERTOT.2000) / sum(brazil$POPTOT.2000),
+#                                          sum(brazil$HOMEMTOT.2010) / sum(brazil$POPTOT.2010),
+#                                          sum(brazil$MULHERTOT.2010) / sum(brazil$POPTOT.2010)))
+# 
+# ggplot(data=populational_data,
+#        aes(x=" ", y=rate, fill=factor(gender))) + 
+# geom_bar(stat= "identity") +
+# geom_text(aes(label = round(rate, digits = 4)*100), position = position_stack(vjust = 0.5)) +
+# facet_grid(facets = . ~ year) +
+#   coord_polar(theta = "y") + 
+#   ggtitle(label = "Proporção da População por Gênero") +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab("") + ylab("") + labs(fill = "Gênero")
 
-title_masc <- expression(paste("Percentual da População Masculina em Relação à População Total"))
-title_femin <- expression(paste("Percentual da População Feminina em Relação à População Total"))
+###########################################################
+# RENOCUP - Rendimento médio dos ocupados - 18 anos ou mais
+# Data available only in 2010's census
 
-brazil$HOMEMTOT.1991 <- state.1991$HOMEMTOT
-brazil$HOMEMTOT.2000 <- state.2000$HOMEMTOT
-brazil$HOMEMTOT.2010 <- state.2010$HOMEMTOT
-
-brazil$MULHERTOT.1991 <- state.1991$MULHERTOT
-brazil$MULHERTOT.2000 <- state.2000$MULHERTOT
-brazil$MULHERTOT.2010 <- state.2010$MULHERTOT
-
-brazil$POPTOT.1991 = (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991)
-brazil$POPTOT.2000 = (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000)
-brazil$POPTOT.2010 = (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010)
-
-# Heatmap plot
-brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / brazil$POPTOT.1991 * 100
-brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / brazil$POPTOT.2000 * 100
-brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / brazil$POPTOT.2010 * 100
-
-brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / brazil$POPTOT.1991 * 100
-brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / brazil$POPTOT.2000 * 100
-brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / brazil$POPTOT.2010 * 100
-
-spplot(brazil,
-       c("T_POPMASC.1991", "T_POPMASC.2000", "T_POPMASC.2010"),
-       col.regions=colors_masc(max(state_raw$RDPC)),
-       main=title_masc)
-
-spplot(brazil,
-       c("T_POPFEMIN.1991", "T_POPFEMIN.2000", "T_POPFEMIN.2010"),
-       col.regions=colors_femin(max(state_raw$RDPC)),
-       main=title_femin)
-
-# Pie Chart
-populational_data <- data.frame(year = c("1991", "1991", "2000", "2000", "2010", "2010"),
-                                gender = c("Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino"),
-                                rate = c(sum(brazil$HOMEMTOT.1991) / sum(brazil$POPTOT.1991),
-                                         sum(brazil$MULHERTOT.1991) / sum(brazil$POPTOT.1991),
-                                         sum(brazil$HOMEMTOT.2000) / sum(brazil$POPTOT.2000),
-                                         sum(brazil$MULHERTOT.2000) / sum(brazil$POPTOT.2000),
-                                         sum(brazil$HOMEMTOT.2010) / sum(brazil$POPTOT.2010),
-                                         sum(brazil$MULHERTOT.2010) / sum(brazil$POPTOT.2010)))
-
-ggplot(data=populational_data,
-       aes(x=" ", y=rate, fill=factor(gender))) + 
-geom_bar(stat= "identity") +
-geom_text(aes(label = round(rate, digits = 4)*100), position = position_stack(vjust = 0.5)) +
-facet_grid(facets = . ~ year) +
-  coord_polar(theta = "y") + 
-  ggtitle(label = "Proporção da População por Gênero") +
-  theme(plot.title = element_text(hjust = 0.5)) +
-  xlab("") + ylab("") + labs(fill = "Gênero")
+# title <- expression(bold("Rendimento Médio dos Ocupados em 2010"))
+# 
+# brazil$RENOCUP.2010 <- state.2010$RENOCUP
+# 
+# spplot(brazil,
+#        "RENOCUP.2010",
+#        main=title)
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
