@@ -418,6 +418,20 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 #        main=title)
 
 ###########################################################
+# PEA18M - PEA (18 anos ou mais)
+# CUSTOM_PEA18M = PEA18M / PESO18
+
+# title <- expression(bold("Relação entre a PEA e a População Residente Total com mais de 18 Anos"))
+# 
+# # brazil$PEA18M.1991 <- state.1991$PEA18M
+# brazil$CUSTOM_PEA18M.2000 <- state.2000$PEA18M / state.2000$PESO18
+# brazil$CUSTOM_PEA18M.2010 <- state.2010$PEA18M / state.2010$PESO18
+# 
+# spplot(brazil,
+#        c("CUSTOM_PEA18M.2000", "CUSTOM_PEA18M.2010"),
+#        main=title)
+
+###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
