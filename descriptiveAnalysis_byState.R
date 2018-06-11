@@ -432,6 +432,19 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 #        main=title)
 
 ###########################################################
+# T_ATIV18M - Taxa de atividade das pessoas de 18 anos ou mais de idade
+
+# title <- expression(bold("Taxa de Atividade das Pessoas de 18 Anos ou mais de Idade"))
+# 
+# # brazil$T_ATIV18M.1991 <- state.1991$T_ATIV18M
+# brazil$T_ATIV18M.2000 <- state.2000$T_ATIV18M
+# brazil$T_ATIV18M.2010 <- state.2010$T_ATIV18M
+# 
+# spplot(brazil,
+#        c("T_ATIV18M.2000", "T_ATIV18M.2010"),
+#        main=title)
+
+###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
 # IDHM_E - Índice de Desenvolvimento Humano Municipal - Dimensão Educação
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
