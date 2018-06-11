@@ -2,6 +2,7 @@
 library(readxl)
 library(rgdal)
 library(gridExtra)
+library(ggplot2)
 
 # (!) ESPVIDA - Esperança de vida ao nascer
 # Número médio de anos que as pessoas deverão viver a partir do nascimento, se permanecerem constantes ao longo da vida o nível e o padrão de mortalidade por idade prevalecentes no ano do Censo.
@@ -361,16 +362,18 @@ brazil$MULHERTOT.1991 <- state.1991$MULHERTOT
 brazil$MULHERTOT.2000 <- state.2000$MULHERTOT
 brazil$MULHERTOT.2010 <- state.2010$MULHERTOT
 
-tot
+brazil$POPTOT.1991 = (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991)
+brazil$POPTOT.2000 = (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000)
+brazil$POPTOT.2010 = (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010)
 
 # Heatmap plot
-brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991) * 100
-brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000) * 100
-brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010) * 100
+brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / brazil$POPTOT.1991 * 100
+brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / brazil$POPTOT.2000 * 100
+brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / brazil$POPTOT.2010 * 100
 
-brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991) * 100
-brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000) * 100
-brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010) * 100
+brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / brazil$POPTOT.1991 * 100
+brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / brazil$POPTOT.2000 * 100
+brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / brazil$POPTOT.2010 * 100
 
 spplot(brazil,
        c("T_POPMASC.1991", "T_POPMASC.2000", "T_POPMASC.2010"),
@@ -383,22 +386,24 @@ spplot(brazil,
        main=title_femin)
 
 # Pie Chart
-populational_data <- data.frame(matrix(c(sum(brazil$HOMEMTOT.1991), sum(brazil$MULHERTOT.1991),
-                                sum(brazil$HOMEMTOT.2000), sum(brazil$MULHERTOT.2000),
-                                sum(brazil$HOMEMTOT.2010), sum(brazil$MULHERTOT.2010)),
-                                nrow = 3, ncol=2))
+populational_data <- data.frame(year = c("1991", "1991", "2000", "2000", "2010", "2010"),
+                                gender = c("Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino"),
+                                rate = c(sum(brazil$HOMEMTOT.1991) / sum(brazil$POPTOT.1991),
+                                         sum(brazil$MULHERTOT.1991) / sum(brazil$POPTOT.1991),
+                                         sum(brazil$HOMEMTOT.2000) / sum(brazil$POPTOT.2000),
+                                         sum(brazil$MULHERTOT.2000) / sum(brazil$POPTOT.2000),
+                                         sum(brazil$HOMEMTOT.2010) / sum(brazil$POPTOT.2010),
+                                         sum(brazil$MULHERTOT.2010) / sum(brazil$POPTOT.2010)))
 
-rownames(populational_data) <- c("1991", "2000", "2010")
-colnames(populational_data) <- c("masculino", "feminino")
-
-populational_data$Total <- populational_data$masculino + populational_data$feminino
-populational_data$factor_masc <- populational_data$masculino / populational_data$Total
-populational_data$factor_femin <- populational_data$feminino / populational_data$Total
-
-pie(populational_data$factor_masc, populational_data$factor_femin)
-
-###########################################################
-
+ggplot(data=populational_data,
+       aes(x=" ", y=rate, fill=factor(gender))) + 
+geom_bar(stat= "identity") +
+geom_text(aes(label = round(rate, digits = 4)*100), position = position_stack(vjust = 0.5)) +
+facet_grid(facets = . ~ year) +
+  coord_polar(theta = "y") + 
+  ggtitle(label = "Proporção da População por Gênero") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  xlab("") + ylab("") + labs(fill = "Gênero")
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
