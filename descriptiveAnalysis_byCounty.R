@@ -122,8 +122,7 @@ GROUP_BY_YEAR <- c(rep.int("1991", 449),
                    rep.int("2010", 466))
 
 ###########################################################
-############### ESPVIDA - Expectativa de Vida
-##########################################################
+# ESPVIDA - Expectativa de Vida
 
 # counties.1991.NORTE.ESPVIDA <- counties.1991.NORTE$ESPVIDA
 # counties.1991.NORDESTE.ESPVIDA <- counties.1991.NORDESTE$ESPVIDA
@@ -157,7 +156,7 @@ GROUP_BY_YEAR <- c(rep.int("1991", 449),
 # p + ggtitle("Expectativa de Vida por Região") + xlab(NULL) + ylab("Anos") + labs(fill="Ano") + theme(plot.title = element_text(hjust = 0.5))
 
 ############################################################
-# Renda per Capita Média
+# RDPC - Renda per Capita Média
 
 # counties.1991.NORTE.RDPC <- counties.1991.NORTE$RDPC
 # counties.1991.NORDESTE.RDPC <- counties.1991.NORDESTE$RDPC
