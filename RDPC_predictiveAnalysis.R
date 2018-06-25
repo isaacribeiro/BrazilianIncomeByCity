@@ -1,7 +1,7 @@
 # Required Libraries
 library(readxl)
 library(plotly)
-library(MASS) #optional: Linear regression stepwise alghoritm
+library(MASS) #optional: Linear regression stepwise algorithm
 
 # Variables
 # census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas")
@@ -90,24 +90,27 @@ hist(counties.2010$IDHM)
 # hist(counties.2010$PEA18M)    --> Available only for State level data
 # hist(counties.2010$T_ATIV18M) --> Available only for State level data
 
-# Correlation between relevant variables for Regression
-plot(counties.2010$E_ANOSESTUDO, counties.2010$ESPVIDA)
-cor(counties.2010$E_ANOSESTUDO, counties.2010$ESPVIDA) #0.4405025
+# Correlation between relevant variables
+plot(counties.2010$E_ANOSESTUDO, counties.2010$RDPC)
+cor(counties.2010$E_ANOSESTUDO, counties.2010$RDPC) #0.5124129
 
-plot(counties.2010$T_ANALF18M, counties.2010$GINI)
-cor(counties.2010$T_ANALF18M, counties.2010$GINI) #0.3966796
+plot(counties.2010$ESPVIDA, counties.2010$RDPC)
+cor(counties.2010$ESPVIDA, counties.2010$RDPC) #0.7841763
 
-plot(counties.2010$GINI, counties.2010$IDHM)
-cor(counties.2010$GINI, counties.2010$IDHM) #-0.4238454
+plot(counties.2010$T_ANALF18M, counties.2010$RDPC)
+cor(counties.2010$T_ANALF18M, counties.2010$RDPC) #-0.8175425
 
-plot(counties.2010$T_SUPER25M, counties.2010$ESPVIDA)
-cor(counties.2010$T_SUPER25M, counties.2010$ESPVIDA) #0.5925884
+plot(counties.2010$T_MED18M, counties.2010$RDPC)
+cor(counties.2010$T_MED18M, counties.2010$RDPC) #0.7453527
 
-plot(counties.2010$T_MED18M, counties.2010$ESPVIDA)
-cor(counties.2010$T_MED18M, counties.2010$ESPVIDA) #0.6031414
+plot(counties.2010$T_SUPER25M, counties.2010$RDPC)
+cor(counties.2010$T_SUPER25M, counties.2010$RDPC) #0.7754382
 
-plot(counties.2010$T_FUND18M, counties.2010$ESPVIDA)
-cor(counties.2010$T_FUND18M, counties.2010$ESPVIDA) #0.6323623
+plot(counties.2010$GINI, counties.2010$RDPC)
+cor(counties.2010$GINI, counties.2010$RDPC) #-0.2735242
+
+plot(counties.2010$IDHM, counties.2010$RDPC)
+cor(counties.2010$IDHM, counties.2010$RDPC) #0.9079875
 
 # Linear Regression
 # Useful link https://www.statmethods.net/stats/regression.html
@@ -162,7 +165,7 @@ summary(fit2)
 
 ## 3rd Try
 
-fit = lm(counties.2010$RDPC~ counties.2010$E_ANOSESTUDO +
+fit3 = lm(counties.2010$RDPC~ counties.2010$E_ANOSESTUDO +
             counties.2010$ESPVIDA +
             counties.2010$T_FUND18M +
             counties.2010$T_MED18M +
@@ -170,7 +173,7 @@ fit = lm(counties.2010$RDPC~ counties.2010$E_ANOSESTUDO +
             counties.2010$GINI +
             counties.2010$IDHM)
 
-summary(fit)
+summary(fit3)
 
 # Coefficients:
 #   Estimate Std. Error t value Pr(>|t|)    
@@ -185,10 +188,10 @@ summary(fit)
 
 #################################################################################
 # Other useful functions 
-coefficients(fit)
+coefficients(fit3)
 
 # Confidence Interval
-confint(fit) #level=0.95
+confint(fit3) #level=0.95
 
 # 2.5 %       97.5 %
 #   (Intercept)                -1273.507370 -1070.125883
@@ -200,45 +203,46 @@ confint(fit) #level=0.95
 # counties.2010$GINI           324.387646   406.007185
 # counties.2010$IDHM          4235.862155  4486.423317
 
-fitted(fit) # predicted values
-residuals(fit) # residuals
-anova(fit) # anova table 
-vcov(fit) # covariance matrix for model parameters 
-influence(fit) # regression diagnostics
+fitted(fit3) # predicted values
+residuals(fit3) # residuals
+anova(fit3) # anova table 
+vcov(fit3) # covariance matrix for model parameters 
+influence(fit3) # regression diagnostics
 
-step <- stepAIC(fit1, direction = "both")
+step <- stepAIC(fit3, direction = "both")
 
 step$anova
+
 # diagnostic plots 
 layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page 
-plot(fit)
+plot(fit3)
 
 # Residual Factors
-plot(fitted(fit), residuals(fit), xlab="Valores Ajustados", ylab="Resíduos")
+plot(fitted(fit3), residuals(fit3), xlab="Valores Ajustados", ylab="Resíduos")
 abline(h=0)
 
-plot(counties.2010$E_ANOSESTUDO, residuals(fit), xlab="Anos de Estudo", ylab="Resíduos")
+plot(counties.2010$E_ANOSESTUDO, residuals(fit3), xlab="Anos de Estudo", ylab="Resíduos")
 abline(h=0)
 
-plot(counties.2010$ESPVIDA, residuals(fit), xlab="Expectativa de Vida", ylab="Resíduos")
+plot(counties.2010$ESPVIDA, residuals(fi3t), xlab="Expectativa de Vida", ylab="Resíduos")
 abline(h=0)
 
-plot(counties.2010$GINI, residuals(fit), xlab="Índice de Gini", ylab="Resíduos")
+plot(counties.2010$GINI, residuals(fit3), xlab="Índice de Gini", ylab="Resíduos")
 abline(h=0)
 
-plot(counties.2010$IDHM, residuals(fit), xlab="IDHM", ylab="Resíduos")
+plot(counties.2010$IDHM, residuals(fit3), xlab="IDHM", ylab="Resíduos")
 abline(h=0)
 
 # Homoscedasticity test: Property of having equal Statistical Variance
 RDPC.median <- median(counties.2010$ESPVIDA)
-var.test(residuals(fit)[counties.2010$ESPVIDA>RDPC.median], residuals(fit)[counties.2010$ESPVIDA<RDPC.median])
+var.test(residuals(fit3)[counties.2010$ESPVIDA>RDPC.median], residuals(fit3)[counties.2010$ESPVIDA<RDPC.median])
 
-regression.result <- data.frame(counties.2010$UF,counties.2010$Município,counties.2010$RDPC, fitted(fit))
+regression.result <- data.frame(counties.2010$UF,counties.2010$Município,counties.2010$RDPC, fitted(fit3))
 
 random_selection <- sample(1:5565, 100)
 
 plot_ly(regression.result, x=1:100, y = ~counties.2010.RDPC[random_selection], name="Real", type="scatter", mode="lines+markers") %>%
-                          add_trace(y = ~fitted.fit.[random_selection], name="Estimado", type="scatter", mode="lines+markers") %>%
+                          add_trace(y = ~fitted.fit3.[random_selection], name="Estimado", type="scatter", mode="lines+markers") %>%
 layout(title = "RDPC Real X RDPC Estimado para uma amostra aleatória de 100 Cidades",
        xaxis = list(title="Cidades"),
        yaxis = list(title="RDPC"))
