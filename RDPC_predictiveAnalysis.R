@@ -78,52 +78,56 @@ counties.2010 <- raw_data[raw_data$ANO == "2010", ]
 #### Multiple Regression will be created based on latest data --> 2010's census
 
 # # Check Normality of Explanatory Vars
-hist(counties.2010$E_ANOSESTUDO, main = "Histograma - Anos de Estudo")
-hist(counties.2010$ESPVIDA, main = "Histograma - Esperança de Vida")
-hist(counties.2010$T_ANALF18M, main = "Histograma - Taxa de Analfabetismo")
-hist(counties.2010$T_FUND18M, main = "Histograma - População com Ensino Fundamental Completo")
-hist(counties.2010$T_MED18M, main = "Histograma - População com Ensino Médio Completo")
-hist(counties.2010$T_SUPER25M, main = "Histograma - População com Ensino Superio Completo")
-hist(counties.2010$GINI, main = "Histograma - Índice de GINI")
-hist(counties.2010$IDHM, main = "Hisograma - IDHM")
+hist(counties.2010$E_ANOSESTUDO, xlab = NULL, main = "Histograma - Anos de Estudo")
+hist(counties.2010$ESPVIDA, xlab = NULL, main = "Histograma - Esperança de Vida")
+hist(counties.2010$T_ANALF18M, xlab = NULL, main = "Histograma - Taxa de Analfabetismo")
+hist(counties.2010$T_FUND18M, xlab = NULL, main = "Histograma - População com Ensino Fundamental Completo")
+hist(counties.2010$T_MED18M, xlab = NULL, main = "Histograma - População com Ensino Médio Completo")
+hist(counties.2010$T_SUPER25M, xlab = NULL, main = "Histograma - População com Ensino Superio Completo")
+hist(counties.2010$GINI, xlab = NULL, main = "Histograma - Índice de GINI")
+hist(counties.2010$IDHM, xlab = NULL, main = "Histograma - IDHM")
 # # hist(counties.2010$RENOCUP)   --> Available only for State level data
 # # hist(counties.2010$PEA18M)    --> Available only for State level data
 # # hist(counties.2010$T_ATIV18M) --> Available only for State level data
 
-# # Correlation between relevant variables
-# plot(counties.2010$E_ANOSESTUDO, counties.2010$RDPC)
-# cor(counties.2010$E_ANOSESTUDO, counties.2010$RDPC) #0.5124129
-# 
-# plot(counties.2010$ESPVIDA, counties.2010$RDPC)
-# cor(counties.2010$ESPVIDA, counties.2010$RDPC) #0.7841763
-# 
-# plot(counties.2010$T_ANALF18M, counties.2010$RDPC)
-# cor(counties.2010$T_ANALF18M, counties.2010$RDPC) #-0.8175425
-# 
-# plot(counties.2010$T_MED18M, counties.2010$RDPC)
-# cor(counties.2010$T_MED18M, counties.2010$RDPC) #0.7453527
-# 
-# plot(counties.2010$T_SUPER25M, counties.2010$RDPC)
-# cor(counties.2010$T_SUPER25M, counties.2010$RDPC) #0.7754382
-# 
-# plot(counties.2010$GINI, counties.2010$RDPC)
-# cor(counties.2010$GINI, counties.2010$RDPC) #-0.2735242
-# 
-# plot(counties.2010$IDHM, counties.2010$RDPC)
-# cor(counties.2010$IDHM, counties.2010$RDPC) #0.9079875
+# Correlation between relevant variables
+plot(counties.2010$E_ANOSESTUDO, counties.2010$RDPC, main = "Anos de Estudo X RDPC", xlab = "Anos", ylab = "Reais")
+cor(counties.2010$E_ANOSESTUDO, counties.2010$RDPC) #0.5124129
+
+plot(counties.2010$ESPVIDA, counties.2010$RDPC, main = "Esperança de Vida X RDPC", xlab = "Anos", ylab = "Reais")
+cor(counties.2010$ESPVIDA, counties.2010$RDPC) #0.7841763
+
+plot(counties.2010$T_ANALF18M, counties.2010$RDPC, main = "Taxa de Analfabetismo X RDPC", xlab = "", ylab = "Reais")
+cor(counties.2010$T_ANALF18M, counties.2010$RDPC) #-0.8175425
+
+plot(counties.2010$T_FUND18M, counties.2010$RDPC, main = "População com Ensino Fundamental Completo X RDPC", xlab = "", ylab = "Reais")
+cor(counties.2010$T_FUND18M, counties.2010$RDPC) #0.756784
+
+plot(counties.2010$T_MED18M, counties.2010$RDPC, main = "População com Ensino Médio Completo X RDPC", xlab = "", ylab = "Reais")
+cor(counties.2010$T_MED18M, counties.2010$RDPC) #0.7453527
+
+plot(counties.2010$T_SUPER25M, counties.2010$RDPC, main = "População com Ensino Superior Completo X RDPC", xlab = "", ylab = "Reais")
+cor(counties.2010$T_SUPER25M, counties.2010$RDPC) #0.7754382
+
+plot(counties.2010$GINI, counties.2010$RDPC, main = "GINI X RDPC", xlab = "", ylab = "Reais")
+cor(counties.2010$GINI, counties.2010$RDPC) #-0.2735242
+
+plot(counties.2010$IDHM, counties.2010$RDPC, main = "IDHM X RDPC", xlab = "", ylab = "Reais")
+cor(counties.2010$IDHM, counties.2010$RDPC) #0.9079875
 
 # Linear Regression
 # Useful link https://www.statmethods.net/stats/regression.html
 
 ### 1st Try
 # Linear Regression
-fit_1 = lm(counties.2010$RDPC~ counties.2010$E_ANOSESTUDO +
-                              counties.2010$ESPVIDA +
+fit_1 = lm(counties.2010$RDPC ~ 
+                              # counties.2010$E_ANOSESTUDO +
+                              # counties.2010$ESPVIDA +
                               counties.2010$T_ANALF18M +
                               counties.2010$T_FUND18M +
                               counties.2010$T_MED18M +
                               counties.2010$T_SUPER25M +
-                              counties.2010$GINI +
+                              # counties.2010$GINI +
                               counties.2010$IDHM )
 
 summary(fit_1)
@@ -229,12 +233,27 @@ summary(fit_3)
 
 # plot(fit_3)
 
+fit_3 = lm(counties.2010$RDPC~ poly(counties.2010$E_ANOSESTUDO, degree=2, raw=FALSE) +
+             poly(counties.2010$ESPVIDA, degree=1, raw=FALSE) +
+             poly(counties.2010$T_FUND18M, degree=2, raw=FALSE) +
+             poly(counties.2010$T_MED18M, degree=2, raw=FALSE) +
+             poly(counties.2010$T_SUPER25M, degree=2, raw=FALSE) +
+             poly(counties.2010$GINI, degree=2, raw=FALSE) +
+             poly(counties.2010$IDHM, degree=2, raw=FALSE ))
+
+summary(fit_3)
+
 ## 4rd Try - Third Model has some high p-values
 # Apply an automated variable selection stepwise algorithm and selects the five more relevant ones.
 
 fit_reference = lm(RDPC~ 1, data=counties.2010)
 varSelection <- (RDCP ~ ESPVIDA + FECTOT + MORT1 + MORT5 + RAZDEP + SOBRE40 + SOBRE60 + T_ENV + E_ANOSESTUDO + T_ATRASO_0_FUND + T_ATRASO_0_MED + T_ATRASO_1_BASICO + T_ATRASO_1_MED + T_ATRASO_2_BASICO + T_ATRASO_2_FUND + T_ATRASO_2_MED + T_FREQ0A3 + T_FREQ11A14 + T_FREQ15A17 + T_FREQ18A24 + T_FREQ25A29 +T_FUND18M + T_MED18M + T_SUPER25M + GINI + PIND + P_FORMAL + IDHM)
 fit_4 <- step(fit_reference, direction="both", scope=formula(varSelection), steps = 5)
+summary(fit_4) 
+
+fit_reference = lm(RDPC~ 1, data=counties.2010)
+varSelection <- (RDCP ~ ESPVIDA + FECTOT + MORT1 + MORT5 + RAZDEP + SOBRE40 + SOBRE60 + T_ENV + E_ANOSESTUDO + T_ATRASO_0_FUND + T_ATRASO_0_MED + T_ATRASO_1_BASICO + T_ATRASO_1_MED + T_ATRASO_2_BASICO + T_ATRASO_2_FUND + T_ATRASO_2_MED + T_FREQ0A3 + T_FREQ11A14 + T_FREQ15A17 + T_FREQ18A24 + T_FREQ25A29 +T_FUND18M + T_MED18M + T_SUPER25M + GINI + PIND + P_FORMAL + IDHM)
+fit_4 <- step(fit_reference, direction="both", scope=formula(varSelection), steps = 7)
 summary(fit_4)
 
 # Residuals:
@@ -263,6 +282,16 @@ fit_4_quad = lm(RDPC ~ poly(IDHM, degree=2, raw=FALSE) +
                        poly(T_MED18M, degree=2, raw=FALSE) +
                        poly(T_ATRASO_2_BASICO, degree=2, raw=FALSE) +
                        poly(MORT1, degree=2, raw=FALSE), data = counties.2010)
+
+summary(fit_4_quad)
+
+fit_4_quad = lm(RDPC ~ poly(IDHM, degree=2, raw=FALSE) +
+                  poly(T_SUPER25M, degree=2, raw=FALSE) +
+                  poly(T_MED18M, degree=1, raw=FALSE) +
+                  poly(T_ATRASO_2_BASICO, degree=2, raw=FALSE) +
+                  poly(MORT1, degree=1, raw=FALSE) +
+                  poly(T_FREQ11A14, degree=1, raw=FALSE) + 
+                  poly(GINI, degree=1, raw=FALSE), data = counties.2010)
 
 summary(fit_4_quad)
 
