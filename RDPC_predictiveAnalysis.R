@@ -4,7 +4,7 @@ library(plotly)
 library(MASS) #optional: Linear regression stepwise algorithm
 
 # Variables
-# census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas")
+census_vars <- read_excel("data/atlas2013_dadosbrutos_pt.xlsx", sheet = "Siglas")
 
 # (!) ESPVIDA - Esperança de vida ao nascer - DONE
 # Número médio de anos que as pessoas deverão viver a partir do nascimento, se permanecerem constantes ao longo da vida o nível e o padrão de mortalidade por idade prevalecentes no ano do Censo.
@@ -78,14 +78,14 @@ counties.2010 <- raw_data[raw_data$ANO == "2010", ]
 #### Multiple Regression will be created based on latest data --> 2010's census
 
 # # Check Normality of Explanatory Vars
-# hist(counties.2010$E_ANOSESTUDO)
-# hist(counties.2010$ESPVIDA)
-# hist(counties.2010$T_ANALF18M)
-# hist(counties.2010$T_FUND18M)
-# hist(counties.2010$T_MED18M)
-# hist(counties.2010$T_SUPER25M)
-# hist(counties.2010$GINI)
-# hist(counties.2010$IDHM)
+hist(counties.2010$E_ANOSESTUDO, main = "Histograma - Anos de Estudo")
+hist(counties.2010$ESPVIDA, main = "Histograma - Esperança de Vida")
+hist(counties.2010$T_ANALF18M, main = "Histograma - Taxa de Analfabetismo")
+hist(counties.2010$T_FUND18M, main = "Histograma - População com Ensino Fundamental Completo")
+hist(counties.2010$T_MED18M, main = "Histograma - População com Ensino Médio Completo")
+hist(counties.2010$T_SUPER25M, main = "Histograma - População com Ensino Superio Completo")
+hist(counties.2010$GINI, main = "Histograma - Índice de GINI")
+hist(counties.2010$IDHM, main = "Hisograma - IDHM")
 # # hist(counties.2010$RENOCUP)   --> Available only for State level data
 # # hist(counties.2010$PEA18M)    --> Available only for State level data
 # # hist(counties.2010$T_ATIV18M) --> Available only for State level data
@@ -185,7 +185,7 @@ summary(fit_2)
 # Multiple R-squared:  0.883,	Adjusted R-squared:  0.8828 
 # F-statistic:  5990 on 7 and 5557 DF,  p-value: < 2.2e-16
 
-plot(fit_2)
+# plot(fit_2)
 
 ## 3rd Try - Model can be adjusted into a Quadratic Regression Model
 
@@ -227,7 +227,7 @@ summary(fit_3)
 # Multiple R-squared:  0.9347,	Adjusted R-squared:  0.9346 
 # F-statistic:  5676 on 14 and 5550 DF,  p-value: < 2.2e-16
 
-plot(fit_3)
+# plot(fit_3)
 
 ## 4rd Try - Third Model has some high p-values
 # Apply an automated variable selection stepwise algorithm and selects the five more relevant ones.
@@ -355,17 +355,17 @@ summary(fit_5)
 
 plot(fit_5)
 
-fit_6 = lm(counties.2010$RDPC~ poly(counties.2010$E_ANOSESTUDO, degree=1, raw=FALSE) +
-             poly(counties.2010$ESPVIDA, degree=1, raw=FALSE) +
-             poly(counties.2010$T_FUND18M, degree=3, raw=FALSE) +
-             poly(counties.2010$T_MED18M, degree=2, raw=FALSE) +
-             poly(counties.2010$T_SUPER25M, degree=2, raw=FALSE) +
-             poly(counties.2010$GINI, degree=2, raw=FALSE) +
-             poly(counties.2010$IDHM, degree=2, raw=FALSE ))
-
-summary(fit_6)
-
-plot(fit_6)
+# fit_6 = lm(counties.2010$RDPC~ poly(counties.2010$E_ANOSESTUDO, degree=1, raw=FALSE) +
+#              poly(counties.2010$ESPVIDA, degree=1, raw=FALSE) +
+#              poly(counties.2010$T_FUND18M, degree=3, raw=FALSE) +
+#              poly(counties.2010$T_MED18M, degree=2, raw=FALSE) +
+#              poly(counties.2010$T_SUPER25M, degree=2, raw=FALSE) +
+#              poly(counties.2010$GINI, degree=2, raw=FALSE) +
+#              poly(counties.2010$IDHM, degree=2, raw=FALSE ))
+# 
+# summary(fit_6)
+# 
+# plot(fit_6)
 
 # Residuals:
 #   Min      1Q  Median      3Q     Max 
@@ -423,15 +423,15 @@ confint(fit_5) #level=0.95
 # poly(T_ATRASO_2_BASICO, degree = 3, raw = FALSE)3   123.1263   387.6057
 # poly(MORT1, degree = 1, raw = FALSE)               1068.7336  1605.4886
 
-fitted(fit_5) # predicted values
+# fitted(fit_5) # predicted values
 # residuals(fit_5) # residuals
 # anova(fit_5) # anova table 
 # vcov(fit_5) # covariance matrix for model parameters 
 # influence(fit_5) # regression diagnostics
 
-# Residual Factors
-plot(fitted(fit_5), residuals(fit_5), xlab="Valores Ajustados", ylab="Resíduos")
-abline(h=0)
+# # Residual Factors
+# plot(fitted(fit_5), residuals(fit_5), xlab="Valores Ajustados", ylab="Resíduos", main = "Resíduos X Valores Ajustados")
+# abline(h=0)
 
 # plot(counties.2010$E_ANOSESTUDO, residuals(fit3), xlab="Anos de Estudo", ylab="Resíduos")
 # abline(h=0)

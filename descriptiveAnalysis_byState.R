@@ -213,249 +213,260 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 
 ###########################################################
 # Esperança de vida ao nascer - ESPVIDA
-# 
-# colors <- colorRampPalette(c("deeppink", "green4"))
-# 
-# title <- expression(bold("Esperança Média de Vida ao Nascer por Estados (anos de vida)"))
-# 
-# brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
-# brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
-# brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
-# 
-# spplot(brazil,
-#        c("ESPVIDA.1991", "ESPVIDA.2000", "ESPVIDA.2010"),
-#        col.regions=colors(max(state_raw$ESPVIDA)),
-#        main=title)
-# 
+
+colors <- colorRampPalette(c("deeppink", "green4"))
+
+title <- expression(bold("Esperança Média de Vida ao Nascer por Estados (anos de vida)"))
+
+brazil$ESPVIDA.1991 <- state.1991$ESPVIDA
+brazil$ESPVIDA.2000 <- state.2000$ESPVIDA
+brazil$ESPVIDA.2010 <- state.2010$ESPVIDA
+
+spplot(brazil,
+       c("ESPVIDA.1991", "ESPVIDA.2000", "ESPVIDA.2010"),
+       col.regions=colors(max(state_raw$ESPVIDA)),
+       main=title)
+
 ###########################################################
 # Taxa de envelhecimento - T_ENV
-# 
-# title <- expression(bold("Taxa de Envelhecimento Média por Estado (%)"))
-# 
-# brazil$T_ENV.1991 <- state.1991$T_ENV
-# brazil$T_ENV.2000 <- state.2000$T_ENV
-# brazil$T_ENV.2010 <- state.2010$T_ENV
-# 
-# spplot(brazil,
-#        c("T_ENV.1991", "T_ENV.2000", "T_ENV.2010"),
-#        main=title)
-# 
+
+title <- expression(bold("Taxa de Envelhecimento Média por Estado (%)"))
+
+brazil$T_ENV.1991 <- state.1991$T_ENV
+brazil$T_ENV.2000 <- state.2000$T_ENV
+brazil$T_ENV.2010 <- state.2010$T_ENV
+
+spplot(brazil,
+       c("T_ENV.1991", "T_ENV.2000", "T_ENV.2010"),
+       main=title)
+
 ###########################################################
 # Razão de dependência - RAZDEP
-# 
-# title <- expression(bold("Taxa de Envelhecimento Média por Estado (%)"))
-# 
-# brazil$T_ENV.1991 <- state.1991$T_ENV
-# brazil$T_ENV.2000 <- state.2000$T_ENV
-# brazil$T_ENV.2010 <- state.2010$T_ENV
-# 
-# spplot(brazil,
-#        c("T_ENV.1991", "T_ENV.2000", "T_ENV.2010"),
-#        main=title)
-# 
+
+title <- expression(bold("Taxa de Envelhecimento Média por Estado (%)"))
+
+brazil$T_ENV.1991 <- state.1991$T_ENV
+brazil$T_ENV.2000 <- state.2000$T_ENV
+brazil$T_ENV.2010 <- state.2010$T_ENV
+
+spplot(brazil,
+       c("T_ENV.1991", "T_ENV.2000", "T_ENV.2010"),
+       main=title)
+
 ###########################################################
 # Renda per Capita Média - RDPC
-# 
-# colors <- colorRampPalette(c("white", "blue4"))
-# 
-# title <- expression(paste("Renda ", italic("per capta"), " Média"))
-# 
-# brazil$RDPC.1991 <- state.1991$RDPC
-# brazil$RDPC.2000 <- state.2000$RDPC
-# brazil$RDPC.2010 <- state.2010$RDPC
-# 
-# spplot(brazil, 
-#        c("RDPC.1991", "RDPC.2000", "RDPC.2010"), 
-#        col.regions=colors(max(state_raw$RDPC)),
-#        main=title,
-#        scales = list(draw = FALSE))
-# 
+
+colors <- colorRampPalette(c("white", "blue4"))
+
+title <- expression(paste("Renda ", italic("per capta"), " Média"))
+
+brazil$RDPC.1991 <- state.1991$RDPC
+brazil$RDPC.2000 <- state.2000$RDPC
+brazil$RDPC.2010 <- state.2010$RDPC
+
+spplot(brazil,
+       c("RDPC.1991", "RDPC.2000", "RDPC.2010"),
+       col.regions=colors(max(state_raw$RDPC)),
+       main=title,
+       scales = list(draw = FALSE))
+
 ###########################################################
 # E_ANOSESTUDO - Expectativa de anos de estudo
-# 
-# title <- expression(bold("Expectativa de anos de estudo"))
-# 
-# brazil$E_ANOESTUDO.1991 <- state.1991$E_ANOSESTUDO
-# brazil$E_ANOESTUDO.2000 <- state.2000$E_ANOSESTUDO
-# brazil$E_ANOESTUDO.2010 <- state.2010$E_ANOSESTUDO
-# 
-# spplot(brazil,
-#        c("E_ANOESTUDO.1991", "E_ANOESTUDO.2000", "E_ANOESTUDO.2010"),
-#        main=title)
-# 
+
+title <- expression(bold("Expectativa de anos de estudo"))
+
+brazil$E_ANOESTUDO.1991 <- state.1991$E_ANOSESTUDO
+brazil$E_ANOESTUDO.2000 <- state.2000$E_ANOSESTUDO
+brazil$E_ANOESTUDO.2010 <- state.2010$E_ANOSESTUDO
+
+spplot(brazil,
+       c("E_ANOESTUDO.1991", "E_ANOESTUDO.2000", "E_ANOESTUDO.2010"),
+       main=title)
+
 ###########################################################
 # GINI - Índice de Gini
-# 
-# title <- expression(bold("Índice de Gini"))
-# 
-# brazil$GINI.1991 <- state.1991$GINI
-# brazil$GINI.2000 <- state.2000$GINI
-# brazil$GINI.2010 <- state.2010$GINI
-# 
-# spplot(brazil,
-#        c("GINI.1991", "GINI.2000", "GINI.2010"),
-#        main=title)
-# 
+
+title <- expression(bold("Índice de Gini"))
+
+brazil$GINI.1991 <- state.1991$GINI
+brazil$GINI.2000 <- state.2000$GINI
+brazil$GINI.2010 <- state.2010$GINI
+
+spplot(brazil,
+       c("GINI.1991", "GINI.2000", "GINI.2010"),
+       main=title)
+
 ###########################################################
 # T_FUND18M - Percentual da população de 18 anos ou mais com fundamental completo
 # T_MED18M - Percentual da população de 18 anos ou mais com ensino médio completo
 # T_SUPER25M - Percentual da população de 25 anos ou mais com superior completo
 
-# title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Fundamental Completo"))
-# 
-# brazil$T_FUND18M.1991 <- state.1991$T_FUND18M
-# brazil$T_FUND18M.2000 <- state.2000$T_FUND18M
-# brazil$T_FUND18M.2010 <- state.2010$T_FUND18M
-# 
-# spplot(brazil,
-#        c("T_FUND18M.1991", "T_FUND18M.2000", "T_FUND18M.2010"),
-#        main=title)
-# 
-# title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Médio Completo"))
-# 
-# brazil$T_MED18M.1991 <- state.1991$T_MED18M
-# brazil$T_MED18M.2000 <- state.2000$T_MED18M
-# brazil$T_MED18M.2010 <- state.2010$T_MED18M
-# 
-# spplot(brazil,
-#        c("T_MED18M.1991", "T_MED18M.2000", "T_MED18M.2010"),
-#        main=title)
-# 
-# title <- expression(bold("Percentual da População de 25 anos ou mais com Ensino Superior Completo"))
-# 
-# brazil$T_SUPER25M.1991 <- state.1991$T_SUPER25M
-# brazil$T_SUPER25M.2000 <- state.2000$T_SUPER25M
-# brazil$T_SUPER25M.2010 <- state.2010$T_SUPER25M
-# 
-# spplot(brazil,
-#        c("T_SUPER25M.1991", "T_SUPER25M.2000", "T_SUPER25M.2010"),
-#        main=title)
+title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Fundamental Completo"))
+
+brazil$T_FUND18M.1991 <- state.1991$T_FUND18M
+brazil$T_FUND18M.2000 <- state.2000$T_FUND18M
+brazil$T_FUND18M.2010 <- state.2010$T_FUND18M
+
+spplot(brazil,
+       c("T_FUND18M.1991", "T_FUND18M.2000", "T_FUND18M.2010"),
+       main=title)
+
+title <- expression(bold("Percentual da População de 18 anos ou mais com Ensino Médio Completo"))
+
+brazil$T_MED18M.1991 <- state.1991$T_MED18M
+brazil$T_MED18M.2000 <- state.2000$T_MED18M
+brazil$T_MED18M.2010 <- state.2010$T_MED18M
+
+spplot(brazil,
+       c("T_MED18M.1991", "T_MED18M.2000", "T_MED18M.2010"),
+       main=title)
+
+title <- expression(bold("Percentual da População de 25 anos ou mais com Ensino Superior Completo"))
+
+brazil$T_SUPER25M.1991 <- state.1991$T_SUPER25M
+brazil$T_SUPER25M.2000 <- state.2000$T_SUPER25M
+brazil$T_SUPER25M.2010 <- state.2010$T_SUPER25M
+
+spplot(brazil,
+       c("T_SUPER25M.1991", "T_SUPER25M.2000", "T_SUPER25M.2010"),
+       main=title)
 
 ###########################################################
 # T_ANALF18M - Taxa de analfabetismo da população de 18 anos ou mais de idade
 
-# title <- expression(bold("Taxa de Analfabetismo da População de 18 anos ou mais de Idade"))
-# 
-# brazil$T_ANALF18M.1991 <- state.1991$T_ANALF18M
-# brazil$T_ANALF18M.2000 <- state.2000$T_ANALF18M
-# brazil$T_ANALF18M.2010 <- state.2010$T_ANALF18M
-# 
-# spplot(brazil,
-#        c("T_ANALF18M.1991", "T_ANALF18M.2000", "T_ANALF18M.2010"),
-#        main=title)
+title <- expression(bold("Taxa de Analfabetismo da População de 18 anos ou mais de Idade"))
+
+brazil$T_ANALF18M.1991 <- state.1991$T_ANALF18M
+brazil$T_ANALF18M.2000 <- state.2000$T_ANALF18M
+brazil$T_ANALF18M.2010 <- state.2010$T_ANALF18M
+
+spplot(brazil,
+       c("T_ANALF18M.1991", "T_ANALF18M.2000", "T_ANALF18M.2010"),
+       main=title)
 
 ###########################################################
 # HOMEMTOT - População residente masculina
 # MULHERTOT - População residente feminina
 
-# colors_masc <- colorRampPalette(c("white", "blue4"))
-# colors_femin <- colorRampPalette(c("white", "violetred2"))
-# 
-# title_masc <- expression(paste("Percentual da População Masculina em Relação à População Total"))
-# title_femin <- expression(paste("Percentual da População Feminina em Relação à População Total"))
-# 
-# brazil$HOMEMTOT.1991 <- state.1991$HOMEMTOT
-# brazil$HOMEMTOT.2000 <- state.2000$HOMEMTOT
-# brazil$HOMEMTOT.2010 <- state.2010$HOMEMTOT
-# 
-# brazil$MULHERTOT.1991 <- state.1991$MULHERTOT
-# brazil$MULHERTOT.2000 <- state.2000$MULHERTOT
-# brazil$MULHERTOT.2010 <- state.2010$MULHERTOT
-# 
-# brazil$POPTOT.1991 = (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991)
-# brazil$POPTOT.2000 = (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000)
-# brazil$POPTOT.2010 = (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010)
-# 
-# # Heatmap plot
-# brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / brazil$POPTOT.1991 * 100
-# brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / brazil$POPTOT.2000 * 100
-# brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / brazil$POPTOT.2010 * 100
-# 
-# brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / brazil$POPTOT.1991 * 100
-# brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / brazil$POPTOT.2000 * 100
-# brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / brazil$POPTOT.2010 * 100
-# 
-# spplot(brazil,
-#        c("T_POPMASC.1991", "T_POPMASC.2000", "T_POPMASC.2010"),
-#        col.regions=colors_masc(max(state_raw$RDPC)),
-#        main=title_masc)
-# 
-# spplot(brazil,
-#        c("T_POPFEMIN.1991", "T_POPFEMIN.2000", "T_POPFEMIN.2010"),
-#        col.regions=colors_femin(max(state_raw$RDPC)),
-#        main=title_femin)
-# 
-# # Pie Chart
-# populational_data <- data.frame(year = c("1991", "1991", "2000", "2000", "2010", "2010"),
-#                                 gender = c("Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino"),
-#                                 rate = c(sum(brazil$HOMEMTOT.1991) / sum(brazil$POPTOT.1991),
-#                                          sum(brazil$MULHERTOT.1991) / sum(brazil$POPTOT.1991),
-#                                          sum(brazil$HOMEMTOT.2000) / sum(brazil$POPTOT.2000),
-#                                          sum(brazil$MULHERTOT.2000) / sum(brazil$POPTOT.2000),
-#                                          sum(brazil$HOMEMTOT.2010) / sum(brazil$POPTOT.2010),
-#                                          sum(brazil$MULHERTOT.2010) / sum(brazil$POPTOT.2010)))
-# 
-# ggplot(data=populational_data,
-#        aes(x=" ", y=rate, fill=factor(gender))) + 
-# geom_bar(stat= "identity") +
-# geom_text(aes(label = round(rate, digits = 4)*100), position = position_stack(vjust = 0.5)) +
-# facet_grid(facets = . ~ year) +
-#   coord_polar(theta = "y") + 
-#   ggtitle(label = "Proporção da População por Gênero") +
-#   theme(plot.title = element_text(hjust = 0.5)) +
-#   xlab("") + ylab("") + labs(fill = "Gênero")
+colors_masc <- colorRampPalette(c("white", "blue4"))
+colors_femin <- colorRampPalette(c("white", "violetred2"))
+
+title_masc <- expression(paste("Percentual da População Masculina em Relação à População Total"))
+title_femin <- expression(paste("Percentual da População Feminina em Relação à População Total"))
+
+brazil$HOMEMTOT.1991 <- state.1991$HOMEMTOT
+brazil$HOMEMTOT.2000 <- state.2000$HOMEMTOT
+brazil$HOMEMTOT.2010 <- state.2010$HOMEMTOT
+
+brazil$MULHERTOT.1991 <- state.1991$MULHERTOT
+brazil$MULHERTOT.2000 <- state.2000$MULHERTOT
+brazil$MULHERTOT.2010 <- state.2010$MULHERTOT
+
+brazil$POPTOT.1991 = (brazil$HOMEMTOT.1991 + brazil$MULHERTOT.1991)
+brazil$POPTOT.2000 = (brazil$HOMEMTOT.2000 + brazil$MULHERTOT.2000)
+brazil$POPTOT.2010 = (brazil$HOMEMTOT.2010 + brazil$MULHERTOT.2010)
+
+# Heatmap plot
+brazil$T_POPMASC.1991 <- brazil$HOMEMTOT.1991 / brazil$POPTOT.1991 * 100
+brazil$T_POPMASC.2000 <- brazil$HOMEMTOT.2000 / brazil$POPTOT.2000 * 100
+brazil$T_POPMASC.2010 <- brazil$HOMEMTOT.2010 / brazil$POPTOT.2010 * 100
+
+brazil$T_POPFEMIN.1991 <- brazil$MULHERTOT.1991 / brazil$POPTOT.1991 * 100
+brazil$T_POPFEMIN.2000 <- brazil$MULHERTOT.2000 / brazil$POPTOT.2000 * 100
+brazil$T_POPFEMIN.2010 <- brazil$MULHERTOT.2010 / brazil$POPTOT.2010 * 100
+
+spplot(brazil,
+       c("T_POPMASC.1991", "T_POPMASC.2000", "T_POPMASC.2010"),
+       col.regions=colors_masc(max(state_raw$RDPC)),
+       main=title_masc)
+
+spplot(brazil,
+       c("T_POPFEMIN.1991", "T_POPFEMIN.2000", "T_POPFEMIN.2010"),
+       col.regions=colors_femin(max(state_raw$RDPC)),
+       main=title_femin)
+
+# Pie Chart
+populational_data <- data.frame(year = c("1991", "1991", "2000", "2000", "2010", "2010"),
+                                gender = c("Masculino", "Feminino", "Masculino", "Feminino", "Masculino", "Feminino"),
+                                rate = c(sum(brazil$HOMEMTOT.1991) / sum(brazil$POPTOT.1991),
+                                         sum(brazil$MULHERTOT.1991) / sum(brazil$POPTOT.1991),
+                                         sum(brazil$HOMEMTOT.2000) / sum(brazil$POPTOT.2000),
+                                         sum(brazil$MULHERTOT.2000) / sum(brazil$POPTOT.2000),
+                                         sum(brazil$HOMEMTOT.2010) / sum(brazil$POPTOT.2010),
+                                         sum(brazil$MULHERTOT.2010) / sum(brazil$POPTOT.2010)))
+
+ggplot(data=populational_data,
+       aes(x=" ", y=rate, fill=factor(gender))) +
+geom_bar(stat= "identity") +
+geom_text(aes(label = round(rate, digits = 4)*100), position = position_stack(vjust = 0.5)) +
+facet_grid(facets = . ~ year) +
+  coord_polar(theta = "y") +
+  ggtitle(label = "Proporção da População por Gênero") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  xlab("") + ylab("") + labs(fill = "Gênero")
+
+# PESOTOT - População total
+title <- expression(bold("População Total por Estado"))
+
+brazil$PESOTOT.1991 <- state.1991$pesotot
+brazil$PESOTOT.2000 <- state.2000$pesotot
+brazil$PESOTOT.2010 <- state.2010$pesotot
+
+spplot(brazil,
+       c("PESOTOT.1991", "PESOTOT.2000", "PESOTOT.2010"),
+       main=title)
 
 ###########################################################
 # RENOCUP - Rendimento médio dos ocupados - 18 anos ou mais
 # Data available only in 2010's census
 
-# title <- expression(bold("Rendimento Médio dos Ocupados em 2010"))
-# 
-# brazil$RENOCUP.2010 <- state.2010$RENOCUP
-# 
-# spplot(brazil,
-#        "RENOCUP.2010",
-#        main=title)
+title <- expression(bold("Rendimento Médio dos Ocupados em 2010"))
+
+brazil$RENOCUP.2010 <- state.2010$RENOCUP
+
+spplot(brazil,
+       "RENOCUP.2010",
+       main=title)
 
 ###########################################################
 # PEA18M - PEA (18 anos ou mais)
 # CUSTOM_PEA18M = PEA18M / PESO18
 
-# title <- expression(bold("Relação entre a PEA e a População Residente Total com mais de 18 Anos"))
-# 
-# # brazil$PEA18M.1991 <- state.1991$PEA18M
-# brazil$CUSTOM_PEA18M.2000 <- state.2000$PEA18M / state.2000$PESO18
-# brazil$CUSTOM_PEA18M.2010 <- state.2010$PEA18M / state.2010$PESO18
-# 
-# spplot(brazil,
-#        c("CUSTOM_PEA18M.2000", "CUSTOM_PEA18M.2010"),
-#        main=title)
+title <- expression(bold("Relação entre a PEA e a População Residente Total com mais de 18 Anos"))
+
+# brazil$PEA18M.1991 <- state.1991$PEA18M
+brazil$CUSTOM_PEA18M.2000 <- state.2000$PEA18M / state.2000$PESO18
+brazil$CUSTOM_PEA18M.2010 <- state.2010$PEA18M / state.2010$PESO18
+
+spplot(brazil,
+       c("CUSTOM_PEA18M.2000", "CUSTOM_PEA18M.2010"),
+       main=title)
 
 ###########################################################
 # T_ATIV18M - Taxa de atividade das pessoas de 18 anos ou mais de idade
 
-# title <- expression(bold("Taxa de Atividade das Pessoas de 18 Anos ou mais de Idade"))
-# 
-# # brazil$T_ATIV18M.1991 <- state.1991$T_ATIV18M
-# brazil$T_ATIV18M.2000 <- state.2000$T_ATIV18M
-# brazil$T_ATIV18M.2010 <- state.2010$T_ATIV18M
-# 
-# spplot(brazil,
-#        c("T_ATIV18M.2000", "T_ATIV18M.2010"),
-#        main=title)
+title <- expression(bold("Taxa de Atividade das Pessoas de 18 Anos ou mais de Idade"))
+
+# brazil$T_ATIV18M.1991 <- state.1991$T_ATIV18M
+brazil$T_ATIV18M.2000 <- state.2000$T_ATIV18M
+brazil$T_ATIV18M.2010 <- state.2010$T_ATIV18M
+
+spplot(brazil,
+       c("T_ATIV18M.2000", "T_ATIV18M.2010"),
+       main=title)
 
 ###########################################################
 # T_DES18M - Taxa de desocupação da população de 18 anos ou mais de idade
 
-# title <- expression(bold("Taxa de Desocupação da População de 18 Anos ou mais de Idade"))
-# 
-# # brazil$T_DES18M.1991 <- state.1991$T_DES18M
-# brazil$T_DES18M.2000 <- state.2000$T_DES18M
-# brazil$T_DES18M.2010 <- state.2010$T_DES18M
-# 
-# spplot(brazil,
-#        c("T_DES18M.2000", "T_DES18M.2010"),
-#        main=title)
+title <- expression(bold("Taxa de Desocupação da População de 18 Anos ou mais de Idade"))
+
+# brazil$T_DES18M.1991 <- state.1991$T_DES18M
+brazil$T_DES18M.2000 <- state.2000$T_DES18M
+brazil$T_DES18M.2010 <- state.2010$T_DES18M
+
+spplot(brazil,
+       c("T_DES18M.2000", "T_DES18M.2010"),
+       main=title)
 
 ###########################################################
 # IDHM -Índice de Desenvolvimento Humano Municipal
@@ -463,42 +474,42 @@ brazil <- readOGR("data/brasil/UFEBRASIL.shp")
 # IDHM_L - Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade
 # IDHM_R - IDHM Renda
 
-# title <- expression(bold("Índice de Desenvolvimento Humano Municipal"))
-# 
-# brazil$IDHM.1991 <- state.1991$IDHM
-# brazil$IDHM.2000 <- state.2000$IDHM
-# brazil$IDHM.2010 <- state.2010$IDHM
-# 
-# spplot(brazil,
-#        c("IDHM.1991", "IDHM.2000", "IDHM.2010"),
-#        main=title)
+title <- expression(bold("Índice de Desenvolvimento Humano Municipal"))
 
-# title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Educação"))
-# 
-# brazil$IDHM_E.1991 <- state.1991$IDHM_E
-# brazil$IDHM_E.2000 <- state.2000$IDHM_E
-# brazil$IDHM_E.2010 <- state.2010$IDHM_E
-# 
-# spplot(brazil,
-#        c("IDHM_E.1991", "IDHM_E.2000", "IDHM_E.2010"),
-#        main=title)
+brazil$IDHM.1991 <- state.1991$IDHM
+brazil$IDHM.2000 <- state.2000$IDHM
+brazil$IDHM.2010 <- state.2010$IDHM
 
-# title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade"))
-# 
-# brazil$IDHM_L.1991 <- state.1991$IDHM_L
-# brazil$IDHM_L.2000 <- state.2000$IDHM_L
-# brazil$IDHM_L.2010 <- state.2010$IDHM_L
-# 
-# spplot(brazil,
-#        c("IDHM_L.1991", "IDHM_L.2000", "IDHM_L.2010"),
-#        main=title)
+spplot(brazil,
+       c("IDHM.1991", "IDHM.2000", "IDHM.2010"),
+       main=title)
 
-# title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Renda"))
-# 
-# brazil$IDHM_R.1991 <- state.1991$IDHM_R
-# brazil$IDHM_R.2000 <- state.2000$IDHM_R
-# brazil$IDHM_R.2010 <- state.2010$IDHM_R
-# 
+title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Educação"))
+
+brazil$IDHM_E.1991 <- state.1991$IDHM_E
+brazil$IDHM_E.2000 <- state.2000$IDHM_E
+brazil$IDHM_E.2010 <- state.2010$IDHM_E
+
+spplot(brazil,
+       c("IDHM_E.1991", "IDHM_E.2000", "IDHM_E.2010"),
+       main=title)
+
+title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Longevidade"))
+
+brazil$IDHM_L.1991 <- state.1991$IDHM_L
+brazil$IDHM_L.2000 <- state.2000$IDHM_L
+brazil$IDHM_L.2010 <- state.2010$IDHM_L
+
+spplot(brazil,
+       c("IDHM_L.1991", "IDHM_L.2000", "IDHM_L.2010"),
+       main=title)
+
+title <- expression(bold("Índice de Desenvolvimento Humano Municipal - Dimensão Renda"))
+
+brazil$IDHM_R.1991 <- state.1991$IDHM_R
+brazil$IDHM_R.2000 <- state.2000$IDHM_R
+brazil$IDHM_R.2010 <- state.2010$IDHM_R
+#
 # spplot(brazil,
 #        c("IDHM_R.1991", "IDHM_R.2000", "IDHM_R.2010"),
 #        main=title)
