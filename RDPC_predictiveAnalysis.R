@@ -120,128 +120,84 @@ cor(counties.2010$IDHM, counties.2010$RDPC) #0.9079875
 
 ### 1st Try
 # Linear Regression
-fit_1 = lm(counties.2010$RDPC ~ 
-                              # counties.2010$E_ANOSESTUDO +
-                              # counties.2010$ESPVIDA +
-                              counties.2010$T_ANALF18M +
+fit_1 = lm(counties.2010$RDPC ~ counties.2010$T_ANALF18M +
                               counties.2010$T_FUND18M +
                               counties.2010$T_MED18M +
                               counties.2010$T_SUPER25M +
-                              # counties.2010$GINI +
                               counties.2010$IDHM )
 
 summary(fit_1)
 
 # Residuals:
 #   Min      1Q  Median      3Q     Max 
-# -274.80  -53.03   -7.59   43.21  596.74 
+# -260.03  -57.31   -8.34   43.43  694.12 
 # 
 # Coefficients:
 #   Estimate Std. Error t value Pr(>|t|)    
-#   (Intercept)                -938.3221    62.8145 -14.938  < 2e-16 ***
-#   counties.2010$E_ANOSESTUDO  -30.1754     1.5219 -19.827  < 2e-16 ***
-#   counties.2010$ESPVIDA       -13.2722     0.9587 -13.843  < 2e-16 ***
-#   counties.2010$T_ANALF18M     -1.6458     0.2517  -6.539 6.74e-11 ***
-#   counties.2010$T_FUND18M      -4.3617     0.4537  -9.615  < 2e-16 ***
-#   counties.2010$T_MED18M       -6.7000     0.5668 -11.820  < 2e-16 ***
-#   counties.2010$T_SUPER25M     23.0936     0.6779  34.064  < 2e-16 ***
-#   counties.2010$GINI          371.6844    20.7631  17.901  < 2e-16 ***
-#   counties.2010$IDHM         4163.4084    70.4829  59.070  < 2e-16 ***
+#   (Intercept)              -1220.6743    32.6881 -37.343  < 2e-16 ***
+#   counties.2010$T_ANALF18M    -1.9427     0.2551  -7.617 3.04e-14 ***
+#   counties.2010$T_FUND18M     -1.5785     0.4731  -3.337 0.000854 ***
+#   counties.2010$T_MED18M      -6.9713     0.6004 -11.612  < 2e-16 ***
+#   counties.2010$T_SUPER25M    27.7428     0.6818  40.693  < 2e-16 ***
+#   counties.2010$IDHM        2777.4231    48.4277  57.352  < 2e-16 ***
 #   ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 # 
-# Residual standard error: 82.96 on 5556 degrees of freedom
-# Multiple R-squared:  0.8839,	Adjusted R-squared:  0.8837 
-# F-statistic:  5286 on 8 and 5556 DF,  p-value: < 2.2e-16
+# Residual standard error: 88.77 on 5559 degrees of freedom
+# Multiple R-squared:  0.867,	Adjusted R-squared:  0.8668 
+# F-statistic:  7246 on 5 and 5559 DF,  p-value: < 2.2e-16
 
-# plot(fit_1)
+plot(fit_1)
 
 ### 2nd Try --> Coefficient for counties.2010$T_ANALF18M is -1.6458... Low significance
 
-fit_2 = lm(counties.2010$RDPC~ counties.2010$E_ANOSESTUDO +
-            counties.2010$ESPVIDA +
-            counties.2010$T_FUND18M +
-            counties.2010$T_MED18M +
-            counties.2010$T_SUPER25M +
-            counties.2010$GINI +
-            counties.2010$IDHM )
+fit_2 = lm(counties.2010$RDPC ~ poly(counties.2010$T_ANALF18M, degree=4, raw=FALSE) +
+             poly(counties.2010$T_FUND18M, degree=3, raw=FALSE) +
+             poly(counties.2010$T_MED18M, degree=2, raw=FALSE) +
+             poly(counties.2010$T_SUPER25M, degree=2, raw=FALSE) +
+             poly(counties.2010$IDHM, degree=2, raw=FALSE ))
 
 summary(fit_2)
 
 # Residuals:
 #   Min      1Q  Median      3Q     Max 
-# -283.75  -53.65   -7.11   43.70  593.05 
+# -315.52  -38.46   -4.69   32.44  619.33 
 # 
 # Coefficients:
 #   Estimate Std. Error t value Pr(>|t|)    
-#   (Intercept)                -1171.8166    51.8727 -22.590  < 2e-16 ***
-#   counties.2010$E_ANOSESTUDO   -31.9609     1.5028 -21.267  < 2e-16 ***
-#   counties.2010$ESPVIDA        -12.0721     0.9445 -12.781  < 2e-16 ***
-#   counties.2010$T_FUND18M       -3.5632     0.4385  -8.125 5.47e-16 ***
-#   counties.2010$T_MED18M        -7.6390     0.5504 -13.879  < 2e-16 ***
-#   counties.2010$T_SUPER25M      22.8136     0.6791  33.593  < 2e-16 ***
-#   counties.2010$GINI           365.1974    20.8172  17.543  < 2e-16 ***
-#   counties.2010$IDHM          4361.1427    63.9059  68.243  < 2e-16 ***
+#   (Intercept)                                                493.6056     0.9007 548.054  < 2e-16 ***
+#   poly(counties.2010$T_ANALF18M, degree = 4, raw = FALSE)1 -3409.6958   162.6161 -20.968  < 2e-16 ***
+#   poly(counties.2010$T_ANALF18M, degree = 4, raw = FALSE)2  1318.2182    98.5419  13.377  < 2e-16 ***
+#   poly(counties.2010$T_ANALF18M, degree = 4, raw = FALSE)3  -611.3481    76.4343  -7.998 1.52e-15 ***
+#   poly(counties.2010$T_ANALF18M, degree = 4, raw = FALSE)4   361.8017    69.6593   5.194 2.13e-07 ***
+#   poly(counties.2010$T_FUND18M, degree = 3, raw = FALSE)1  -1533.0078   297.5249  -5.153 2.66e-07 ***
+#   poly(counties.2010$T_FUND18M, degree = 3, raw = FALSE)2   1542.4938   214.1675   7.202 6.71e-13 ***
+#   poly(counties.2010$T_FUND18M, degree = 3, raw = FALSE)3    614.6031    98.8354   6.218 5.39e-10 ***
+#   poly(counties.2010$T_MED18M, degree = 2, raw = FALSE)1   -5087.1646   317.6598 -16.015  < 2e-16 ***
+#   poly(counties.2010$T_MED18M, degree = 2, raw = FALSE)2   -1907.3133   228.8990  -8.333  < 2e-16 ***
+#   poly(counties.2010$T_SUPER25M, degree = 2, raw = FALSE)1  4138.9260   145.1820  28.509  < 2e-16 ***
+#   poly(counties.2010$T_SUPER25M, degree = 2, raw = FALSE)2  1716.9567   111.3741  15.416  < 2e-16 ***
+#   poly(counties.2010$IDHM, degree = 2, raw = FALSE)1       16065.1856   219.8741  73.065  < 2e-16 ***
+#   poly(counties.2010$IDHM, degree = 2, raw = FALSE)2        3110.4503   121.6637  25.566  < 2e-16 ***
 #   ---
 #   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 # 
-# Residual standard error: 83.27 on 5557 degrees of freedom
-# Multiple R-squared:  0.883,	Adjusted R-squared:  0.8828 
-# F-statistic:  5990 on 7 and 5557 DF,  p-value: < 2.2e-16
+# Residual standard error: 67.19 on 5551 degrees of freedom
+# Multiple R-squared:  0.9239,	Adjusted R-squared:  0.9237 
+# F-statistic:  5184 on 13 and 5551 DF,  p-value: < 2.2e-16
 
-# plot(fit_2)
+plot(fit_2)
+hist(fitted(fit_2), main = "Distribuição dos Valores Previstos", xlab = NULL)
 
-## 3rd Try - Model can be adjusted into a Quadratic Regression Model
+regression.result <- data.frame(counties.2010$UF,counties.2010$Município,counties.2010$RDPC, fitted(fit_2))
 
-fit_3 = lm(counties.2010$RDPC~ poly(counties.2010$E_ANOSESTUDO, degree=2, raw=FALSE) +
-            poly(counties.2010$ESPVIDA, degree=2, raw=FALSE) +
-            poly(counties.2010$T_FUND18M, degree=2, raw=FALSE) +
-            poly(counties.2010$T_MED18M, degree=2, raw=FALSE) +
-            poly(counties.2010$T_SUPER25M, degree=2, raw=FALSE) +
-            poly(counties.2010$GINI, degree=2, raw=FALSE) +
-            poly(counties.2010$IDHM, degree=2, raw=FALSE ))
+random_selection <- sample(1:5565, 100)
 
-summary(fit_3)
-
-# Residuals:
-#   Min      1Q  Median      3Q     Max 
-# -271.86  -38.11   -2.44   33.12  508.66 
-# 
-# Coefficients:
-#   Estimate Std. Error t value Pr(>|t|)    
-#   (Intercept)                                                  493.6056     0.8343 591.662  < 2e-16 ***
-#   poly(counties.2010$E_ANOSESTUDO, degree = 2, raw = FALSE)1 -2527.2232    92.8155 -27.228  < 2e-16 ***
-#   poly(counties.2010$E_ANOSESTUDO, degree = 2, raw = FALSE)2  -173.3386    75.2933  -2.302  0.02136 *  
-#   poly(counties.2010$ESPVIDA, degree = 2, raw = FALSE)1      -2633.0599   145.2101 -18.133  < 2e-16 ***
-#   poly(counties.2010$ESPVIDA, degree = 2, raw = FALSE)2         78.2363    77.7070   1.007  0.31407    
-#   poly(counties.2010$T_FUND18M, degree = 2, raw = FALSE)1    -1729.1769   265.3151  -6.517 7.78e-11 ***
-#   poly(counties.2010$T_FUND18M, degree = 2, raw = FALSE)2     2271.1177   185.3577  12.253  < 2e-16 ***
-#   poly(counties.2010$T_MED18M, degree = 2, raw = FALSE)1     -7151.8082   282.8631 -25.284  < 2e-16 ***
-#   poly(counties.2010$T_MED18M, degree = 2, raw = FALSE)2     -1970.6762   200.9949  -9.805  < 2e-16 ***
-#   poly(counties.2010$T_SUPER25M, degree = 2, raw = FALSE)1    2829.2426   140.7726  20.098  < 2e-16 ***
-#   poly(counties.2010$T_SUPER25M, degree = 2, raw = FALSE)2    1999.1857    92.5719  21.596  < 2e-16 ***
-#   poly(counties.2010$GINI, degree = 2, raw = FALSE)1          2012.2160    77.3307  26.021  < 2e-16 ***
-#   poly(counties.2010$GINI, degree = 2, raw = FALSE)2           246.6886    66.7291   3.697  0.00022 ***
-#   poly(counties.2010$IDHM, degree = 2, raw = FALSE)1         27067.5146   272.0393  99.499  < 2e-16 ***
-#   poly(counties.2010$IDHM, degree = 2, raw = FALSE)2          3277.3799   118.7625  27.596  < 2e-16 ***
-#   ---
-#   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-# 
-# Residual standard error: 62.24 on 5550 degrees of freedom
-# Multiple R-squared:  0.9347,	Adjusted R-squared:  0.9346 
-# F-statistic:  5676 on 14 and 5550 DF,  p-value: < 2.2e-16
-
-# plot(fit_3)
-
-fit_3 = lm(counties.2010$RDPC~ poly(counties.2010$E_ANOSESTUDO, degree=2, raw=FALSE) +
-             poly(counties.2010$ESPVIDA, degree=1, raw=FALSE) +
-             poly(counties.2010$T_FUND18M, degree=2, raw=FALSE) +
-             poly(counties.2010$T_MED18M, degree=2, raw=FALSE) +
-             poly(counties.2010$T_SUPER25M, degree=2, raw=FALSE) +
-             poly(counties.2010$GINI, degree=2, raw=FALSE) +
-             poly(counties.2010$IDHM, degree=2, raw=FALSE ))
-
-summary(fit_3)
+plot_ly(regression.result, x=1:100, y = ~counties.2010.RDPC[random_selection], name="Real", type="scatter", mode="lines+markers") %>%
+  add_trace(y = ~fitted.fit_2.[random_selection], name="Estimado", type="scatter", mode="lines+markers") %>%
+  layout(title = "RDPC Real X RDPC Estimado para uma amostra aleatória de 100 Cidades",
+         xaxis = list(title="Cidades"),
+         yaxis = list(title="RDPC"))
 
 ## 4rd Try - Third Model has some high p-values
 # Apply an automated variable selection stepwise algorithm and selects the five more relevant ones.
