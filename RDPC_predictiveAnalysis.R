@@ -207,11 +207,6 @@ varSelection <- (RDCP ~ ESPVIDA + FECTOT + MORT1 + MORT5 + RAZDEP + SOBRE40 + SO
 fit_4 <- step(fit_reference, direction="both", scope=formula(varSelection), steps = 5)
 summary(fit_4) 
 
-fit_reference = lm(RDPC~ 1, data=counties.2010)
-varSelection <- (RDCP ~ ESPVIDA + FECTOT + MORT1 + MORT5 + RAZDEP + SOBRE40 + SOBRE60 + T_ENV + E_ANOSESTUDO + T_ATRASO_0_FUND + T_ATRASO_0_MED + T_ATRASO_1_BASICO + T_ATRASO_1_MED + T_ATRASO_2_BASICO + T_ATRASO_2_FUND + T_ATRASO_2_MED + T_FREQ0A3 + T_FREQ11A14 + T_FREQ15A17 + T_FREQ18A24 + T_FREQ25A29 +T_FUND18M + T_MED18M + T_SUPER25M + GINI + PIND + P_FORMAL + IDHM)
-fit_4 <- step(fit_reference, direction="both", scope=formula(varSelection), steps = 7)
-summary(fit_4)
-
 # Residuals:
 #   Min      1Q  Median      3Q     Max 
 # -287.07  -49.75   -8.23   37.33  644.31 
@@ -238,16 +233,6 @@ fit_4_quad = lm(RDPC ~ poly(IDHM, degree=2, raw=FALSE) +
                        poly(T_MED18M, degree=2, raw=FALSE) +
                        poly(T_ATRASO_2_BASICO, degree=2, raw=FALSE) +
                        poly(MORT1, degree=2, raw=FALSE), data = counties.2010)
-
-summary(fit_4_quad)
-
-fit_4_quad = lm(RDPC ~ poly(IDHM, degree=2, raw=FALSE) +
-                  poly(T_SUPER25M, degree=2, raw=FALSE) +
-                  poly(T_MED18M, degree=1, raw=FALSE) +
-                  poly(T_ATRASO_2_BASICO, degree=2, raw=FALSE) +
-                  poly(MORT1, degree=1, raw=FALSE) +
-                  poly(T_FREQ11A14, degree=1, raw=FALSE) + 
-                  poly(GINI, degree=1, raw=FALSE), data = counties.2010)
 
 summary(fit_4_quad)
 
@@ -314,6 +299,7 @@ fit_5 <- lm(RDPC ~ poly(IDHM, degree=2, raw=FALSE) +
                    poly(MORT1, degree=1, raw=FALSE), data = counties.2010)
 
 summary(fit_5)
+hist(fitted(fit_5), main = "Distribuição de Valores Previstos", xlab = NULL)
 
 # Residuals:
 #   Min      1Q  Median      3Q     Max 
