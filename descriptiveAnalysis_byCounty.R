@@ -205,7 +205,18 @@ counties.2010.CENTRO_OESTE.ESPVIDA.MEAN <- mean(counties.2010.CENTRO_OESTE.ESPVI
 counties.2010.CENTRO_OESTE.ESPVIDA.MEDIAN <- median(counties.2010.CENTRO_OESTE.ESPVIDA)
 counties.2010.CENTRO_OESTE.ESPVIDA.SD <- sd(counties.2010.CENTRO_OESTE.ESPVIDA)
 
-counties.2010.ESPVIDA <- data.frame
+counties.1991.ESPVIDA.MEAN <- mean(counties.1991$ESPVIDA)
+counties.1991.ESPVIDA.MEDIAN <- median(counties.1991$ESPVIDA)
+counties.1991.ESPVIDA.SD <- sd(counties.1991$ESPVIDA)
+
+counties.2000.ESPVIDA.MEAN <- mean(counties.2000$ESPVIDA)
+counties.2000.ESPVIDA.MEDIAN <- median(counties.2000$ESPVIDA)
+counties.2000.ESPVIDA.SD <- sd(counties.2000$ESPVIDA)
+
+counties.2010.ESPVIDA.MEAN <- mean(counties.2010$ESPVIDA)
+counties.2010.ESPVIDA.MEDIAN <- median(counties.2010$ESPVIDA)
+counties.2010.ESPVIDA.SD <- sd(counties.2010$ESPVIDA)
+
 # Boxplot
 ESPVIDA_BY_REGION <- c(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
                        counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
