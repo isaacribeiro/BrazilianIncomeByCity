@@ -217,6 +217,69 @@ counties.2010.ESPVIDA.MEAN <- mean(counties.2010$ESPVIDA)
 counties.2010.ESPVIDA.MEDIAN <- median(counties.2010$ESPVIDA)
 counties.2010.ESPVIDA.SD <- sd(counties.2010$ESPVIDA)
 
+ESPVIDA.1991.MEAN <- c(counties.1991.NORTE.ESPVIDA.MEAN, 
+                       counties.1991.NORDESTE.ESPVIDA.MEAN,
+                       counties.1991.SUDESTE.ESPVIDA.MEAN,
+                       counties.1991.SUL.ESPVIDA.MEAN,
+                       counties.1991.CENTRO_OESTE.ESPVIDA.MEAN)
+
+ESPVIDA.1991.MEDIAN <- c(counties.1991.NORTE.ESPVIDA.MEDIAN, 
+                         counties.1991.NORDESTE.ESPVIDA.MEDIAN,
+                         counties.1991.SUDESTE.ESPVIDA.MEDIAN,
+                         counties.1991.SUL.ESPVIDA.MEDIAN,
+                         counties.1991.CENTRO_OESTE.ESPVIDA.MEDIAN)
+
+ESPVIDA.1991.SD <- c(counties.1991.NORTE.ESPVIDA.SD, 
+                     counties.1991.NORDESTE.ESPVIDA.SD,
+                     counties.1991.SUDESTE.ESPVIDA.SD,
+                     counties.1991.SUL.ESPVIDA.SD,
+                     counties.1991.CENTRO_OESTE.ESPVIDA.SD)
+
+ESPVIDA.1991 <- data.frame(ESPVIDA.1991.MEAN, ESPVIDA.1991.MEDIAN, ESPVIDA.1991.SD)
+rownames(ESPVIDA.1991) <- c_regions
+
+ESPVIDA.2000.MEAN <- c(counties.2000.NORTE.ESPVIDA.MEAN, 
+                       counties.2000.NORDESTE.ESPVIDA.MEAN,
+                       counties.2000.SUDESTE.ESPVIDA.MEAN,
+                       counties.2000.SUL.ESPVIDA.MEAN,
+                       counties.2000.CENTRO_OESTE.ESPVIDA.MEAN)
+
+ESPVIDA.2000.MEDIAN <- c(counties.2000.NORTE.ESPVIDA.MEDIAN, 
+                         counties.2000.NORDESTE.ESPVIDA.MEDIAN,
+                         counties.2000.SUDESTE.ESPVIDA.MEDIAN,
+                         counties.2000.SUL.ESPVIDA.MEDIAN,
+                         counties.2000.CENTRO_OESTE.ESPVIDA.MEDIAN)
+
+ESPVIDA.2000.SD <- c(counties.2000.NORTE.ESPVIDA.SD, 
+                     counties.2000.NORDESTE.ESPVIDA.SD,
+                     counties.2000.SUDESTE.ESPVIDA.SD,
+                     counties.2000.SUL.ESPVIDA.SD,
+                     counties.2000.CENTRO_OESTE.ESPVIDA.SD)
+
+ESPVIDA.2000 <- data.frame(ESPVIDA.2000.MEAN, ESPVIDA.2000.MEDIAN, ESPVIDA.2000.SD)
+rownames(ESPVIDA.2000) <- c_regions
+
+ESPVIDA.2010.MEAN <- c(counties.2010.NORTE.ESPVIDA.MEAN, 
+                       counties.2010.NORDESTE.ESPVIDA.MEAN,
+                       counties.2010.SUDESTE.ESPVIDA.MEAN,
+                       counties.2010.SUL.ESPVIDA.MEAN,
+                       counties.2010.CENTRO_OESTE.ESPVIDA.MEAN)
+
+ESPVIDA.2010.MEDIAN <- c(counties.2010.NORTE.ESPVIDA.MEDIAN, 
+                         counties.2010.NORDESTE.ESPVIDA.MEDIAN,
+                         counties.2010.SUDESTE.ESPVIDA.MEDIAN,
+                         counties.2010.SUL.ESPVIDA.MEDIAN,
+                         counties.2010.CENTRO_OESTE.ESPVIDA.MEDIAN)
+
+ESPVIDA.2010.SD <- c(counties.2010.NORTE.ESPVIDA.SD, 
+                     counties.2010.NORDESTE.ESPVIDA.SD,
+                     counties.2010.SUDESTE.ESPVIDA.SD,
+                     counties.2010.SUL.ESPVIDA.SD,
+                     counties.2010.CENTRO_OESTE.ESPVIDA.SD)
+
+c <- data.frame(ESPVIDA.2010.MEAN, ESPVIDA.2010.MEDIAN, ESPVIDA.2010.SD)
+rownames(ESPVIDA.2010) <- c_regions
+
 # Boxplot
 ESPVIDA_BY_REGION <- c(counties.1991.NORTE.ESPVIDA, counties.2000.NORTE.ESPVIDA, counties.2010.NORTE.ESPVIDA,
                        counties.1991.NORDESTE.ESPVIDA, counties.2000.NORDESTE.ESPVIDA, counties.2010.NORDESTE.ESPVIDA,
@@ -259,6 +322,142 @@ RDPC_BY_REGION <- c(counties.1991.NORTE.RDPC, counties.2000.NORTE.RDPC, counties
 
 RDPC_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, RDPC_BY_REGION)
 
+# Mean, Median and Standard Deviation
+counties.1991.NORTE.RDPC.MEAN <- mean(counties.1991.NORTE.RDPC)
+counties.1991.NORTE.RDPC.MEDIAN <- median(counties.1991.NORTE.RDPC)
+counties.1991.NORTE.RDPC.SD <- sd(counties.1991.NORTE.RDPC)
+
+counties.1991.NORDESTE.RDPC.MEAN <- mean(counties.1991.NORDESTE.RDPC)
+counties.1991.NORDESTE.RDPC.MEDIAN <- median(counties.1991.NORDESTE.RDPC)
+counties.1991.NORDESTE.RDPC.SD <- sd(counties.1991.NORDESTE.RDPC)
+
+counties.1991.SUDESTE.RDPC.MEAN <- mean(counties.1991.SUDESTE.RDPC)
+counties.1991.SUDESTE.RDPC.MEDIAN <- median(counties.1991.SUDESTE.RDPC)
+counties.1991.SUDESTE.RDPC.SD <- sd(counties.1991.SUDESTE.RDPC)
+
+counties.1991.SUL.RDPC.MEAN <- mean(counties.1991.SUL.RDPC)
+counties.1991.SUL.RDPC.MEDIAN <- median(counties.1991.SUL.RDPC)
+counties.1991.SUL.RDPC.SD <- sd(counties.1991.SUL.RDPC)
+
+counties.1991.CENTRO_OESTE.RDPC.MEAN <- mean(counties.1991.CENTRO_OESTE.RDPC)
+counties.1991.CENTRO_OESTE.RDPC.MEDIAN <- median(counties.1991.CENTRO_OESTE.RDPC)
+counties.1991.CENTRO_OESTE.RDPC.SD <- sd(counties.1991.CENTRO_OESTE.RDPC)
+
+counties.2000.NORTE.RDPC.MEAN <- mean(counties.2000.NORTE.RDPC)
+counties.2000.NORTE.RDPC.MEDIAN <- median(counties.2000.NORTE.RDPC)
+counties.2000.NORTE.RDPC.SD <- sd(counties.2000.NORTE.RDPC)
+
+counties.2000.NORDESTE.RDPC.MEAN <- mean(counties.2000.NORDESTE.RDPC)
+counties.2000.NORDESTE.RDPC.MEDIAN <- median(counties.2000.NORDESTE.RDPC)
+counties.2000.NORDESTE.RDPC.SD <- sd(counties.2000.NORDESTE.RDPC)
+
+counties.2000.SUDESTE.RDPC.MEAN <- mean(counties.2000.SUDESTE.RDPC)
+counties.2000.SUDESTE.RDPC.MEDIAN <- median(counties.2000.SUDESTE.RDPC)
+counties.2000.SUDESTE.RDPC.SD <- sd(counties.2000.SUDESTE.RDPC)
+
+counties.2000.SUL.RDPC.MEAN <- mean(counties.2000.SUL.RDPC)
+counties.2000.SUL.RDPC.MEDIAN <- median(counties.2000.SUL.RDPC)
+counties.2000.SUL.RDPC.SD <- sd(counties.2000.SUL.RDPC)
+
+counties.2000.CENTRO_OESTE.RDPC.MEAN <- mean(counties.2000.CENTRO_OESTE.RDPC)
+counties.2000.CENTRO_OESTE.RDPC.MEDIAN <- median(counties.2000.CENTRO_OESTE.RDPC)
+counties.2000.CENTRO_OESTE.RDPC.SD <- sd(counties.2000.CENTRO_OESTE.RDPC)
+
+counties.2010.NORTE.RDPC.MEAN <- mean(counties.2010.NORTE.RDPC)
+counties.2010.NORTE.RDPC.MEDIAN <- median(counties.2010.NORTE.RDPC)
+counties.2010.NORTE.RDPC.SD <- sd(counties.2010.NORTE.RDPC)
+
+counties.2010.NORDESTE.RDPC.MEAN <- mean(counties.2010.NORDESTE.RDPC)
+counties.2010.NORDESTE.RDPC.MEDIAN <- median(counties.2010.NORDESTE.RDPC)
+counties.2010.NORDESTE.RDPC.SD <- sd(counties.2010.NORDESTE.RDPC)
+
+counties.2010.SUDESTE.RDPC.MEAN <- mean(counties.2010.SUDESTE.RDPC)
+counties.2010.SUDESTE.RDPC.MEDIAN <- median(counties.2010.SUDESTE.RDPC)
+counties.2010.SUDESTE.RDPC.SD <- sd(counties.2010.SUDESTE.RDPC)
+
+counties.2010.SUL.RDPC.MEAN <- mean(counties.2010.SUL.RDPC)
+counties.2010.SUL.RDPC.MEDIAN <- median(counties.2010.SUL.RDPC)
+counties.2010.SUL.RDPC.SD <- sd(counties.2010.SUL.RDPC)
+
+counties.2010.CENTRO_OESTE.RDPC.MEAN <- mean(counties.2010.CENTRO_OESTE.RDPC)
+counties.2010.CENTRO_OESTE.RDPC.MEDIAN <- median(counties.2010.CENTRO_OESTE.RDPC)
+counties.2010.CENTRO_OESTE.RDPC.SD <- sd(counties.2010.CENTRO_OESTE.RDPC)
+
+counties.1991.RDPC.MEAN <- mean(counties.1991$RDPC)
+counties.1991.RDPC.MEDIAN <- median(counties.1991$RDPC)
+counties.1991.RDPC.SD <- sd(counties.1991$RDPC)
+
+counties.2000.RDPC.MEAN <- mean(counties.2000$RDPC)
+counties.2000.RDPC.MEDIAN <- median(counties.2000$RDPC)
+counties.2000.RDPC.SD <- sd(counties.2000$RDPC)
+
+counties.2010.RDPC.MEAN <- mean(counties.2010$RDPC)
+counties.2010.RDPC.MEDIAN <- median(counties.2010$RDPC)
+counties.2010.RDPC.SD <- sd(counties.2010$RDPC)
+
+RDPC.1991.MEAN <- c(counties.1991.NORTE.RDPC.MEAN, 
+                       counties.1991.NORDESTE.RDPC.MEAN,
+                       counties.1991.SUDESTE.RDPC.MEAN,
+                       counties.1991.SUL.RDPC.MEAN,
+                       counties.1991.CENTRO_OESTE.RDPC.MEAN)
+
+RDPC.1991.MEDIAN <- c(counties.1991.NORTE.RDPC.MEDIAN, 
+                         counties.1991.NORDESTE.RDPC.MEDIAN,
+                         counties.1991.SUDESTE.RDPC.MEDIAN,
+                         counties.1991.SUL.RDPC.MEDIAN,
+                         counties.1991.CENTRO_OESTE.RDPC.MEDIAN)
+
+RDPC.1991.SD <- c(counties.1991.NORTE.RDPC.SD, 
+                     counties.1991.NORDESTE.RDPC.SD,
+                     counties.1991.SUDESTE.RDPC.SD,
+                     counties.1991.SUL.RDPC.SD,
+                     counties.1991.CENTRO_OESTE.RDPC.SD)
+
+RDPC.1991 <- data.frame(RDPC.1991.MEAN, RDPC.1991.MEDIAN, RDPC.1991.SD)
+rownames(RDPC.1991) <- c_regions
+
+RDPC.2000.MEAN <- c(counties.2000.NORTE.RDPC.MEAN, 
+                       counties.2000.NORDESTE.RDPC.MEAN,
+                       counties.2000.SUDESTE.RDPC.MEAN,
+                       counties.2000.SUL.RDPC.MEAN,
+                       counties.2000.CENTRO_OESTE.RDPC.MEAN)
+
+RDPC.2000.MEDIAN <- c(counties.2000.NORTE.RDPC.MEDIAN, 
+                         counties.2000.NORDESTE.RDPC.MEDIAN,
+                         counties.2000.SUDESTE.RDPC.MEDIAN,
+                         counties.2000.SUL.RDPC.MEDIAN,
+                         counties.2000.CENTRO_OESTE.RDPC.MEDIAN)
+
+RDPC.2000.SD <- c(counties.2000.NORTE.RDPC.SD, 
+                     counties.2000.NORDESTE.RDPC.SD,
+                     counties.2000.SUDESTE.RDPC.SD,
+                     counties.2000.SUL.RDPC.SD,
+                     counties.2000.CENTRO_OESTE.RDPC.SD)
+
+RDPC.2000 <- data.frame(RDPC.2000.MEAN, RDPC.2000.MEDIAN, RDPC.2000.SD)
+rownames(RDPC.2000) <- c_regions
+
+RDPC.2010.MEAN <- c(counties.2010.NORTE.RDPC.MEAN, 
+                       counties.2010.NORDESTE.RDPC.MEAN,
+                       counties.2010.SUDESTE.RDPC.MEAN,
+                       counties.2010.SUL.RDPC.MEAN,
+                       counties.2010.CENTRO_OESTE.RDPC.MEAN)
+
+RDPC.2010.MEDIAN <- c(counties.2010.NORTE.RDPC.MEDIAN, 
+                         counties.2010.NORDESTE.RDPC.MEDIAN,
+                         counties.2010.SUDESTE.RDPC.MEDIAN,
+                         counties.2010.SUL.RDPC.MEDIAN,
+                         counties.2010.CENTRO_OESTE.RDPC.MEDIAN)
+
+RDPC.2010.SD <- c(counties.2010.NORTE.RDPC.SD, 
+                     counties.2010.NORDESTE.RDPC.SD,
+                     counties.2010.SUDESTE.RDPC.SD,
+                     counties.2010.SUL.RDPC.SD,
+                     counties.2010.CENTRO_OESTE.RDPC.SD)
+
+RDPC.2010 <- data.frame(RDPC.2010.MEAN, RDPC.2010.MEDIAN, RDPC.2010.SD)
+rownames(RDPC.2010) <- c_regions
+
 # Grouped Boxplot
 p <- ggplot(RDPC_BY_REGION.df, aes(x = GROUP_BY_REGION, y=RDPC_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
 
@@ -293,6 +492,142 @@ E_ANOSESTUDO_BY_REGION <- c(counties.1991.NORTE.E_ANOSESTUDO, counties.2000.NORT
 
 E_ANOSESTUDO_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, E_ANOSESTUDO_BY_REGION)
 
+# Mean, Median and Standard Deviation
+counties.1991.NORTE.E_ANOSESTUDO.MEAN <- mean(counties.1991.NORTE.E_ANOSESTUDO)
+counties.1991.NORTE.E_ANOSESTUDO.MEDIAN <- median(counties.1991.NORTE.E_ANOSESTUDO)
+counties.1991.NORTE.E_ANOSESTUDO.SD <- sd(counties.1991.NORTE.E_ANOSESTUDO)
+
+counties.1991.NORDESTE.E_ANOSESTUDO.MEAN <- mean(counties.1991.NORDESTE.E_ANOSESTUDO)
+counties.1991.NORDESTE.E_ANOSESTUDO.MEDIAN <- median(counties.1991.NORDESTE.E_ANOSESTUDO)
+counties.1991.NORDESTE.E_ANOSESTUDO.SD <- sd(counties.1991.NORDESTE.E_ANOSESTUDO)
+
+counties.1991.SUDESTE.E_ANOSESTUDO.MEAN <- mean(counties.1991.SUDESTE.E_ANOSESTUDO)
+counties.1991.SUDESTE.E_ANOSESTUDO.MEDIAN <- median(counties.1991.SUDESTE.E_ANOSESTUDO)
+counties.1991.SUDESTE.E_ANOSESTUDO.SD <- sd(counties.1991.SUDESTE.E_ANOSESTUDO)
+
+counties.1991.SUL.E_ANOSESTUDO.MEAN <- mean(counties.1991.SUL.E_ANOSESTUDO)
+counties.1991.SUL.E_ANOSESTUDO.MEDIAN <- median(counties.1991.SUL.E_ANOSESTUDO)
+counties.1991.SUL.E_ANOSESTUDO.SD <- sd(counties.1991.SUL.E_ANOSESTUDO)
+
+counties.1991.CENTRO_OESTE.E_ANOSESTUDO.MEAN <- mean(counties.1991.CENTRO_OESTE.E_ANOSESTUDO)
+counties.1991.CENTRO_OESTE.E_ANOSESTUDO.MEDIAN <- median(counties.1991.CENTRO_OESTE.E_ANOSESTUDO)
+counties.1991.CENTRO_OESTE.E_ANOSESTUDO.SD <- sd(counties.1991.CENTRO_OESTE.E_ANOSESTUDO)
+
+counties.2000.NORTE.E_ANOSESTUDO.MEAN <- mean(counties.2000.NORTE.E_ANOSESTUDO)
+counties.2000.NORTE.E_ANOSESTUDO.MEDIAN <- median(counties.2000.NORTE.E_ANOSESTUDO)
+counties.2000.NORTE.E_ANOSESTUDO.SD <- sd(counties.2000.NORTE.E_ANOSESTUDO)
+
+counties.2000.NORDESTE.E_ANOSESTUDO.MEAN <- mean(counties.2000.NORDESTE.E_ANOSESTUDO)
+counties.2000.NORDESTE.E_ANOSESTUDO.MEDIAN <- median(counties.2000.NORDESTE.E_ANOSESTUDO)
+counties.2000.NORDESTE.E_ANOSESTUDO.SD <- sd(counties.2000.NORDESTE.E_ANOSESTUDO)
+
+counties.2000.SUDESTE.E_ANOSESTUDO.MEAN <- mean(counties.2000.SUDESTE.E_ANOSESTUDO)
+counties.2000.SUDESTE.E_ANOSESTUDO.MEDIAN <- median(counties.2000.SUDESTE.E_ANOSESTUDO)
+counties.2000.SUDESTE.E_ANOSESTUDO.SD <- sd(counties.2000.SUDESTE.E_ANOSESTUDO)
+
+counties.2000.SUL.E_ANOSESTUDO.MEAN <- mean(counties.2000.SUL.E_ANOSESTUDO)
+counties.2000.SUL.E_ANOSESTUDO.MEDIAN <- median(counties.2000.SUL.E_ANOSESTUDO)
+counties.2000.SUL.E_ANOSESTUDO.SD <- sd(counties.2000.SUL.E_ANOSESTUDO)
+
+counties.2000.CENTRO_OESTE.E_ANOSESTUDO.MEAN <- mean(counties.2000.CENTRO_OESTE.E_ANOSESTUDO)
+counties.2000.CENTRO_OESTE.E_ANOSESTUDO.MEDIAN <- median(counties.2000.CENTRO_OESTE.E_ANOSESTUDO)
+counties.2000.CENTRO_OESTE.E_ANOSESTUDO.SD <- sd(counties.2000.CENTRO_OESTE.E_ANOSESTUDO)
+
+counties.2010.NORTE.E_ANOSESTUDO.MEAN <- mean(counties.2010.NORTE.E_ANOSESTUDO)
+counties.2010.NORTE.E_ANOSESTUDO.MEDIAN <- median(counties.2010.NORTE.E_ANOSESTUDO)
+counties.2010.NORTE.E_ANOSESTUDO.SD <- sd(counties.2010.NORTE.E_ANOSESTUDO)
+
+counties.2010.NORDESTE.E_ANOSESTUDO.MEAN <- mean(counties.2010.NORDESTE.E_ANOSESTUDO)
+counties.2010.NORDESTE.E_ANOSESTUDO.MEDIAN <- median(counties.2010.NORDESTE.E_ANOSESTUDO)
+counties.2010.NORDESTE.E_ANOSESTUDO.SD <- sd(counties.2010.NORDESTE.E_ANOSESTUDO)
+
+counties.2010.SUDESTE.E_ANOSESTUDO.MEAN <- mean(counties.2010.SUDESTE.E_ANOSESTUDO)
+counties.2010.SUDESTE.E_ANOSESTUDO.MEDIAN <- median(counties.2010.SUDESTE.E_ANOSESTUDO)
+counties.2010.SUDESTE.E_ANOSESTUDO.SD <- sd(counties.2010.SUDESTE.E_ANOSESTUDO)
+
+counties.2010.SUL.E_ANOSESTUDO.MEAN <- mean(counties.2010.SUL.E_ANOSESTUDO)
+counties.2010.SUL.E_ANOSESTUDO.MEDIAN <- median(counties.2010.SUL.E_ANOSESTUDO)
+counties.2010.SUL.E_ANOSESTUDO.SD <- sd(counties.2010.SUL.E_ANOSESTUDO)
+
+counties.2010.CENTRO_OESTE.E_ANOSESTUDO.MEAN <- mean(counties.2010.CENTRO_OESTE.E_ANOSESTUDO)
+counties.2010.CENTRO_OESTE.E_ANOSESTUDO.MEDIAN <- median(counties.2010.CENTRO_OESTE.E_ANOSESTUDO)
+counties.2010.CENTRO_OESTE.E_ANOSESTUDO.SD <- sd(counties.2010.CENTRO_OESTE.E_ANOSESTUDO)
+
+counties.1991.E_ANOSESTUDO.MEAN <- mean(counties.1991$E_ANOSESTUDO)
+counties.1991.E_ANOSESTUDO.MEDIAN <- median(counties.1991$E_ANOSESTUDO)
+counties.1991.E_ANOSESTUDO.SD <- sd(counties.1991$E_ANOSESTUDO)
+
+counties.2000.E_ANOSESTUDO.MEAN <- mean(counties.2000$E_ANOSESTUDO)
+counties.2000.E_ANOSESTUDO.MEDIAN <- median(counties.2000$E_ANOSESTUDO)
+counties.2000.E_ANOSESTUDO.SD <- sd(counties.2000$E_ANOSESTUDO)
+
+counties.2010.E_ANOSESTUDO.MEAN <- mean(counties.2010$E_ANOSESTUDO)
+counties.2010.E_ANOSESTUDO.MEDIAN <- median(counties.2010$E_ANOSESTUDO)
+counties.2010.E_ANOSESTUDO.SD <- sd(counties.2010$E_ANOSESTUDO)
+
+E_ANOSESTUDO.1991.MEAN <- c(counties.1991.NORTE.E_ANOSESTUDO.MEAN, 
+                    counties.1991.NORDESTE.E_ANOSESTUDO.MEAN,
+                    counties.1991.SUDESTE.E_ANOSESTUDO.MEAN,
+                    counties.1991.SUL.E_ANOSESTUDO.MEAN,
+                    counties.1991.CENTRO_OESTE.E_ANOSESTUDO.MEAN)
+
+E_ANOSESTUDO.1991.MEDIAN <- c(counties.1991.NORTE.E_ANOSESTUDO.MEDIAN, 
+                      counties.1991.NORDESTE.E_ANOSESTUDO.MEDIAN,
+                      counties.1991.SUDESTE.E_ANOSESTUDO.MEDIAN,
+                      counties.1991.SUL.E_ANOSESTUDO.MEDIAN,
+                      counties.1991.CENTRO_OESTE.E_ANOSESTUDO.MEDIAN)
+
+E_ANOSESTUDO.1991.SD <- c(counties.1991.NORTE.E_ANOSESTUDO.SD, 
+                  counties.1991.NORDESTE.E_ANOSESTUDO.SD,
+                  counties.1991.SUDESTE.E_ANOSESTUDO.SD,
+                  counties.1991.SUL.E_ANOSESTUDO.SD,
+                  counties.1991.CENTRO_OESTE.E_ANOSESTUDO.SD)
+
+E_ANOSESTUDO.1991 <- data.frame(E_ANOSESTUDO.1991.MEAN, E_ANOSESTUDO.1991.MEDIAN, E_ANOSESTUDO.1991.SD)
+rownames(E_ANOSESTUDO.1991) <- c_regions
+
+E_ANOSESTUDO.2000.MEAN <- c(counties.2000.NORTE.E_ANOSESTUDO.MEAN, 
+                    counties.2000.NORDESTE.E_ANOSESTUDO.MEAN,
+                    counties.2000.SUDESTE.E_ANOSESTUDO.MEAN,
+                    counties.2000.SUL.E_ANOSESTUDO.MEAN,
+                    counties.2000.CENTRO_OESTE.E_ANOSESTUDO.MEAN)
+
+E_ANOSESTUDO.2000.MEDIAN <- c(counties.2000.NORTE.E_ANOSESTUDO.MEDIAN, 
+                      counties.2000.NORDESTE.E_ANOSESTUDO.MEDIAN,
+                      counties.2000.SUDESTE.E_ANOSESTUDO.MEDIAN,
+                      counties.2000.SUL.E_ANOSESTUDO.MEDIAN,
+                      counties.2000.CENTRO_OESTE.E_ANOSESTUDO.MEDIAN)
+
+E_ANOSESTUDO.2000.SD <- c(counties.2000.NORTE.E_ANOSESTUDO.SD, 
+                  counties.2000.NORDESTE.E_ANOSESTUDO.SD,
+                  counties.2000.SUDESTE.E_ANOSESTUDO.SD,
+                  counties.2000.SUL.E_ANOSESTUDO.SD,
+                  counties.2000.CENTRO_OESTE.E_ANOSESTUDO.SD)
+
+E_ANOSESTUDO.2000 <- data.frame(E_ANOSESTUDO.2000.MEAN, E_ANOSESTUDO.2000.MEDIAN, E_ANOSESTUDO.2000.SD)
+rownames(E_ANOSESTUDO.2000) <- c_regions
+
+E_ANOSESTUDO.2010.MEAN <- c(counties.2010.NORTE.E_ANOSESTUDO.MEAN, 
+                    counties.2010.NORDESTE.E_ANOSESTUDO.MEAN,
+                    counties.2010.SUDESTE.E_ANOSESTUDO.MEAN,
+                    counties.2010.SUL.E_ANOSESTUDO.MEAN,
+                    counties.2010.CENTRO_OESTE.E_ANOSESTUDO.MEAN)
+
+E_ANOSESTUDO.2010.MEDIAN <- c(counties.2010.NORTE.E_ANOSESTUDO.MEDIAN, 
+                      counties.2010.NORDESTE.E_ANOSESTUDO.MEDIAN,
+                      counties.2010.SUDESTE.E_ANOSESTUDO.MEDIAN,
+                      counties.2010.SUL.E_ANOSESTUDO.MEDIAN,
+                      counties.2010.CENTRO_OESTE.E_ANOSESTUDO.MEDIAN)
+
+E_ANOSESTUDO.2010.SD <- c(counties.2010.NORTE.E_ANOSESTUDO.SD, 
+                  counties.2010.NORDESTE.E_ANOSESTUDO.SD,
+                  counties.2010.SUDESTE.E_ANOSESTUDO.SD,
+                  counties.2010.SUL.E_ANOSESTUDO.SD,
+                  counties.2010.CENTRO_OESTE.E_ANOSESTUDO.SD)
+
+E_ANOSESTUDO.2010 <- data.frame(E_ANOSESTUDO.2010.MEAN, E_ANOSESTUDO.2010.MEDIAN, E_ANOSESTUDO.2010.SD)
+rownames(E_ANOSESTUDO.2010) <- c_regions
+
 # Grouped Boxplot
 p <- ggplot(E_ANOSESTUDO_BY_REGION.df, aes(x = GROUP_BY_REGION, y=E_ANOSESTUDO_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
 
@@ -326,6 +661,142 @@ GINI_BY_REGION <- c(counties.1991.NORTE.GINI, counties.2000.NORTE.GINI, counties
                     counties.1991.CENTRO_OESTE.GINI, counties.2000.CENTRO_OESTE.GINI, counties.2010.CENTRO_OESTE.GINI)
 
 GINI_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, GINI_BY_REGION)
+
+# Mean, Median and Standard Deviation
+counties.1991.NORTE.GINI.MEAN <- mean(counties.1991.NORTE.GINI)
+counties.1991.NORTE.GINI.MEDIAN <- median(counties.1991.NORTE.GINI)
+counties.1991.NORTE.GINI.SD <- sd(counties.1991.NORTE.GINI)
+
+counties.1991.NORDESTE.GINI.MEAN <- mean(counties.1991.NORDESTE.GINI)
+counties.1991.NORDESTE.GINI.MEDIAN <- median(counties.1991.NORDESTE.GINI)
+counties.1991.NORDESTE.GINI.SD <- sd(counties.1991.NORDESTE.GINI)
+
+counties.1991.SUDESTE.GINI.MEAN <- mean(counties.1991.SUDESTE.GINI)
+counties.1991.SUDESTE.GINI.MEDIAN <- median(counties.1991.SUDESTE.GINI)
+counties.1991.SUDESTE.GINI.SD <- sd(counties.1991.SUDESTE.GINI)
+
+counties.1991.SUL.GINI.MEAN <- mean(counties.1991.SUL.GINI)
+counties.1991.SUL.GINI.MEDIAN <- median(counties.1991.SUL.GINI)
+counties.1991.SUL.GINI.SD <- sd(counties.1991.SUL.GINI)
+
+counties.1991.CENTRO_OESTE.GINI.MEAN <- mean(counties.1991.CENTRO_OESTE.GINI)
+counties.1991.CENTRO_OESTE.GINI.MEDIAN <- median(counties.1991.CENTRO_OESTE.GINI)
+counties.1991.CENTRO_OESTE.GINI.SD <- sd(counties.1991.CENTRO_OESTE.GINI)
+
+counties.2000.NORTE.GINI.MEAN <- mean(counties.2000.NORTE.GINI)
+counties.2000.NORTE.GINI.MEDIAN <- median(counties.2000.NORTE.GINI)
+counties.2000.NORTE.GINI.SD <- sd(counties.2000.NORTE.GINI)
+
+counties.2000.NORDESTE.GINI.MEAN <- mean(counties.2000.NORDESTE.GINI)
+counties.2000.NORDESTE.GINI.MEDIAN <- median(counties.2000.NORDESTE.GINI)
+counties.2000.NORDESTE.GINI.SD <- sd(counties.2000.NORDESTE.GINI)
+
+counties.2000.SUDESTE.GINI.MEAN <- mean(counties.2000.SUDESTE.GINI)
+counties.2000.SUDESTE.GINI.MEDIAN <- median(counties.2000.SUDESTE.GINI)
+counties.2000.SUDESTE.GINI.SD <- sd(counties.2000.SUDESTE.GINI)
+
+counties.2000.SUL.GINI.MEAN <- mean(counties.2000.SUL.GINI)
+counties.2000.SUL.GINI.MEDIAN <- median(counties.2000.SUL.GINI)
+counties.2000.SUL.GINI.SD <- sd(counties.2000.SUL.GINI)
+
+counties.2000.CENTRO_OESTE.GINI.MEAN <- mean(counties.2000.CENTRO_OESTE.GINI)
+counties.2000.CENTRO_OESTE.GINI.MEDIAN <- median(counties.2000.CENTRO_OESTE.GINI)
+counties.2000.CENTRO_OESTE.GINI.SD <- sd(counties.2000.CENTRO_OESTE.GINI)
+
+counties.2010.NORTE.GINI.MEAN <- mean(counties.2010.NORTE.GINI)
+counties.2010.NORTE.GINI.MEDIAN <- median(counties.2010.NORTE.GINI)
+counties.2010.NORTE.GINI.SD <- sd(counties.2010.NORTE.GINI)
+
+counties.2010.NORDESTE.GINI.MEAN <- mean(counties.2010.NORDESTE.GINI)
+counties.2010.NORDESTE.GINI.MEDIAN <- median(counties.2010.NORDESTE.GINI)
+counties.2010.NORDESTE.GINI.SD <- sd(counties.2010.NORDESTE.GINI)
+
+counties.2010.SUDESTE.GINI.MEAN <- mean(counties.2010.SUDESTE.GINI)
+counties.2010.SUDESTE.GINI.MEDIAN <- median(counties.2010.SUDESTE.GINI)
+counties.2010.SUDESTE.GINI.SD <- sd(counties.2010.SUDESTE.GINI)
+
+counties.2010.SUL.GINI.MEAN <- mean(counties.2010.SUL.GINI)
+counties.2010.SUL.GINI.MEDIAN <- median(counties.2010.SUL.GINI)
+counties.2010.SUL.GINI.SD <- sd(counties.2010.SUL.GINI)
+
+counties.2010.CENTRO_OESTE.GINI.MEAN <- mean(counties.2010.CENTRO_OESTE.GINI)
+counties.2010.CENTRO_OESTE.GINI.MEDIAN <- median(counties.2010.CENTRO_OESTE.GINI)
+counties.2010.CENTRO_OESTE.GINI.SD <- sd(counties.2010.CENTRO_OESTE.GINI)
+
+counties.1991.GINI.MEAN <- mean(counties.1991$GINI)
+counties.1991.GINI.MEDIAN <- median(counties.1991$GINI)
+counties.1991.GINI.SD <- sd(counties.1991$GINI)
+
+counties.2000.GINI.MEAN <- mean(counties.2000$GINI)
+counties.2000.GINI.MEDIAN <- median(counties.2000$GINI)
+counties.2000.GINI.SD <- sd(counties.2000$GINI)
+
+counties.2010.GINI.MEAN <- mean(counties.2010$GINI)
+counties.2010.GINI.MEDIAN <- median(counties.2010$GINI)
+counties.2010.GINI.SD <- sd(counties.2010$GINI)
+
+GINI.1991.MEAN <- c(counties.1991.NORTE.GINI.MEAN, 
+                            counties.1991.NORDESTE.GINI.MEAN,
+                            counties.1991.SUDESTE.GINI.MEAN,
+                            counties.1991.SUL.GINI.MEAN,
+                            counties.1991.CENTRO_OESTE.GINI.MEAN)
+
+GINI.1991.MEDIAN <- c(counties.1991.NORTE.GINI.MEDIAN, 
+                              counties.1991.NORDESTE.GINI.MEDIAN,
+                              counties.1991.SUDESTE.GINI.MEDIAN,
+                              counties.1991.SUL.GINI.MEDIAN,
+                              counties.1991.CENTRO_OESTE.GINI.MEDIAN)
+
+GINI.1991.SD <- c(counties.1991.NORTE.GINI.SD, 
+                          counties.1991.NORDESTE.GINI.SD,
+                          counties.1991.SUDESTE.GINI.SD,
+                          counties.1991.SUL.GINI.SD,
+                          counties.1991.CENTRO_OESTE.GINI.SD)
+
+GINI.1991 <- data.frame(GINI.1991.MEAN, GINI.1991.MEDIAN, GINI.1991.SD)
+rownames(GINI.1991) <- c_regions
+
+GINI.2000.MEAN <- c(counties.2000.NORTE.GINI.MEAN, 
+                            counties.2000.NORDESTE.GINI.MEAN,
+                            counties.2000.SUDESTE.GINI.MEAN,
+                            counties.2000.SUL.GINI.MEAN,
+                            counties.2000.CENTRO_OESTE.GINI.MEAN)
+
+GINI.2000.MEDIAN <- c(counties.2000.NORTE.GINI.MEDIAN, 
+                              counties.2000.NORDESTE.GINI.MEDIAN,
+                              counties.2000.SUDESTE.GINI.MEDIAN,
+                              counties.2000.SUL.GINI.MEDIAN,
+                              counties.2000.CENTRO_OESTE.GINI.MEDIAN)
+
+GINI.2000.SD <- c(counties.2000.NORTE.GINI.SD, 
+                          counties.2000.NORDESTE.GINI.SD,
+                          counties.2000.SUDESTE.GINI.SD,
+                          counties.2000.SUL.GINI.SD,
+                          counties.2000.CENTRO_OESTE.GINI.SD)
+
+GINI.2000 <- data.frame(GINI.2000.MEAN, GINI.2000.MEDIAN, GINI.2000.SD)
+rownames(GINI.2000) <- c_regions
+
+GINI.2010.MEAN <- c(counties.2010.NORTE.GINI.MEAN, 
+                            counties.2010.NORDESTE.GINI.MEAN,
+                            counties.2010.SUDESTE.GINI.MEAN,
+                            counties.2010.SUL.GINI.MEAN,
+                            counties.2010.CENTRO_OESTE.GINI.MEAN)
+
+GINI.2010.MEDIAN <- c(counties.2010.NORTE.GINI.MEDIAN, 
+                              counties.2010.NORDESTE.GINI.MEDIAN,
+                              counties.2010.SUDESTE.GINI.MEDIAN,
+                              counties.2010.SUL.GINI.MEDIAN,
+                              counties.2010.CENTRO_OESTE.GINI.MEDIAN)
+
+GINI.2010.SD <- c(counties.2010.NORTE.GINI.SD, 
+                          counties.2010.NORDESTE.GINI.SD,
+                          counties.2010.SUDESTE.GINI.SD,
+                          counties.2010.SUL.GINI.SD,
+                          counties.2010.CENTRO_OESTE.GINI.SD)
+
+GINI.2010 <- data.frame(GINI.2010.MEAN, GINI.2010.MEDIAN, GINI.2010.SD)
+rownames(GINI.2010) <- c_regions
 
 # Grouped Boxplot
 p <- ggplot(GINI_BY_REGION.df, aes(x = GROUP_BY_REGION, y=GINI_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
@@ -364,7 +835,148 @@ IDHM_BY_REGION <- c(counties.1991.NORTE.IDHM, counties.2000.NORTE.IDHM, counties
 
 IDHM_BY_REGION.df <- data.frame(GROUP_BY_REGION, GROUP_BY_YEAR, IDHM_BY_REGION)
 
+# Mean, Median and Standard Deviation
+counties.1991.NORTE.IDHM.MEAN <- mean(counties.1991.NORTE.IDHM)
+counties.1991.NORTE.IDHM.MEDIAN <- median(counties.1991.NORTE.IDHM)
+counties.1991.NORTE.IDHM.SD <- sd(counties.1991.NORTE.IDHM)
+
+counties.1991.NORDESTE.IDHM.MEAN <- mean(counties.1991.NORDESTE.IDHM)
+counties.1991.NORDESTE.IDHM.MEDIAN <- median(counties.1991.NORDESTE.IDHM)
+counties.1991.NORDESTE.IDHM.SD <- sd(counties.1991.NORDESTE.IDHM)
+
+counties.1991.SUDESTE.IDHM.MEAN <- mean(counties.1991.SUDESTE.IDHM)
+counties.1991.SUDESTE.IDHM.MEDIAN <- median(counties.1991.SUDESTE.IDHM)
+counties.1991.SUDESTE.IDHM.SD <- sd(counties.1991.SUDESTE.IDHM)
+
+counties.1991.SUL.IDHM.MEAN <- mean(counties.1991.SUL.IDHM)
+counties.1991.SUL.IDHM.MEDIAN <- median(counties.1991.SUL.IDHM)
+counties.1991.SUL.IDHM.SD <- sd(counties.1991.SUL.IDHM)
+
+counties.1991.CENTRO_OESTE.IDHM.MEAN <- mean(counties.1991.CENTRO_OESTE.IDHM)
+counties.1991.CENTRO_OESTE.IDHM.MEDIAN <- median(counties.1991.CENTRO_OESTE.IDHM)
+counties.1991.CENTRO_OESTE.IDHM.SD <- sd(counties.1991.CENTRO_OESTE.IDHM)
+
+counties.2000.NORTE.IDHM.MEAN <- mean(counties.2000.NORTE.IDHM)
+counties.2000.NORTE.IDHM.MEDIAN <- median(counties.2000.NORTE.IDHM)
+counties.2000.NORTE.IDHM.SD <- sd(counties.2000.NORTE.IDHM)
+
+counties.2000.NORDESTE.IDHM.MEAN <- mean(counties.2000.NORDESTE.IDHM)
+counties.2000.NORDESTE.IDHM.MEDIAN <- median(counties.2000.NORDESTE.IDHM)
+counties.2000.NORDESTE.IDHM.SD <- sd(counties.2000.NORDESTE.IDHM)
+
+counties.2000.SUDESTE.IDHM.MEAN <- mean(counties.2000.SUDESTE.IDHM)
+counties.2000.SUDESTE.IDHM.MEDIAN <- median(counties.2000.SUDESTE.IDHM)
+counties.2000.SUDESTE.IDHM.SD <- sd(counties.2000.SUDESTE.IDHM)
+
+counties.2000.SUL.IDHM.MEAN <- mean(counties.2000.SUL.IDHM)
+counties.2000.SUL.IDHM.MEDIAN <- median(counties.2000.SUL.IDHM)
+counties.2000.SUL.IDHM.SD <- sd(counties.2000.SUL.IDHM)
+
+counties.2000.CENTRO_OESTE.IDHM.MEAN <- mean(counties.2000.CENTRO_OESTE.IDHM)
+counties.2000.CENTRO_OESTE.IDHM.MEDIAN <- median(counties.2000.CENTRO_OESTE.IDHM)
+counties.2000.CENTRO_OESTE.IDHM.SD <- sd(counties.2000.CENTRO_OESTE.IDHM)
+
+counties.2010.NORTE.IDHM.MEAN <- mean(counties.2010.NORTE.IDHM)
+counties.2010.NORTE.IDHM.MEDIAN <- median(counties.2010.NORTE.IDHM)
+counties.2010.NORTE.IDHM.SD <- sd(counties.2010.NORTE.IDHM)
+
+counties.2010.NORDESTE.IDHM.MEAN <- mean(counties.2010.NORDESTE.IDHM)
+counties.2010.NORDESTE.IDHM.MEDIAN <- median(counties.2010.NORDESTE.IDHM)
+counties.2010.NORDESTE.IDHM.SD <- sd(counties.2010.NORDESTE.IDHM)
+
+counties.2010.SUDESTE.IDHM.MEAN <- mean(counties.2010.SUDESTE.IDHM)
+counties.2010.SUDESTE.IDHM.MEDIAN <- median(counties.2010.SUDESTE.IDHM)
+counties.2010.SUDESTE.IDHM.SD <- sd(counties.2010.SUDESTE.IDHM)
+
+counties.2010.SUL.IDHM.MEAN <- mean(counties.2010.SUL.IDHM)
+counties.2010.SUL.IDHM.MEDIAN <- median(counties.2010.SUL.IDHM)
+counties.2010.SUL.IDHM.SD <- sd(counties.2010.SUL.IDHM)
+
+counties.2010.CENTRO_OESTE.IDHM.MEAN <- mean(counties.2010.CENTRO_OESTE.IDHM)
+counties.2010.CENTRO_OESTE.IDHM.MEDIAN <- median(counties.2010.CENTRO_OESTE.IDHM)
+counties.2010.CENTRO_OESTE.IDHM.SD <- sd(counties.2010.CENTRO_OESTE.IDHM)
+
+counties.1991.IDHM.MEAN <- mean(counties.1991$IDHM)
+counties.1991.IDHM.MEDIAN <- median(counties.1991$IDHM)
+counties.1991.IDHM.SD <- sd(counties.1991$IDHM)
+
+counties.2000.IDHM.MEAN <- mean(counties.2000$IDHM)
+counties.2000.IDHM.MEDIAN <- median(counties.2000$IDHM)
+counties.2000.IDHM.SD <- sd(counties.2000$IDHM)
+
+counties.2010.IDHM.MEAN <- mean(counties.2010$IDHM)
+counties.2010.IDHM.MEDIAN <- median(counties.2010$IDHM)
+counties.2010.IDHM.SD <- sd(counties.2010$IDHM)
+
+IDHM.1991.MEAN <- c(counties.1991.NORTE.IDHM.MEAN, 
+                    counties.1991.NORDESTE.IDHM.MEAN,
+                    counties.1991.SUDESTE.IDHM.MEAN,
+                    counties.1991.SUL.IDHM.MEAN,
+                    counties.1991.CENTRO_OESTE.IDHM.MEAN)
+
+IDHM.1991.MEDIAN <- c(counties.1991.NORTE.IDHM.MEDIAN, 
+                      counties.1991.NORDESTE.IDHM.MEDIAN,
+                      counties.1991.SUDESTE.IDHM.MEDIAN,
+                      counties.1991.SUL.IDHM.MEDIAN,
+                      counties.1991.CENTRO_OESTE.IDHM.MEDIAN)
+
+IDHM.1991.SD <- c(counties.1991.NORTE.IDHM.SD, 
+                  counties.1991.NORDESTE.IDHM.SD,
+                  counties.1991.SUDESTE.IDHM.SD,
+                  counties.1991.SUL.IDHM.SD,
+                  counties.1991.CENTRO_OESTE.IDHM.SD)
+
+IDHM.1991 <- data.frame(IDHM.1991.MEAN, IDHM.1991.MEDIAN, IDHM.1991.SD)
+rownames(IDHM.1991) <- c_regions
+
+IDHM.2000.MEAN <- c(counties.2000.NORTE.IDHM.MEAN, 
+                    counties.2000.NORDESTE.IDHM.MEAN,
+                    counties.2000.SUDESTE.IDHM.MEAN,
+                    counties.2000.SUL.IDHM.MEAN,
+                    counties.2000.CENTRO_OESTE.IDHM.MEAN)
+
+IDHM.2000.MEDIAN <- c(counties.2000.NORTE.IDHM.MEDIAN, 
+                      counties.2000.NORDESTE.IDHM.MEDIAN,
+                      counties.2000.SUDESTE.IDHM.MEDIAN,
+                      counties.2000.SUL.IDHM.MEDIAN,
+                      counties.2000.CENTRO_OESTE.IDHM.MEDIAN)
+
+IDHM.2000.SD <- c(counties.2000.NORTE.IDHM.SD, 
+                  counties.2000.NORDESTE.IDHM.SD,
+                  counties.2000.SUDESTE.IDHM.SD,
+                  counties.2000.SUL.IDHM.SD,
+                  counties.2000.CENTRO_OESTE.IDHM.SD)
+
+IDHM.2000 <- data.frame(IDHM.2000.MEAN, IDHM.2000.MEDIAN, IDHM.2000.SD)
+rownames(IDHM.2000) <- c_regions
+
+IDHM.2010.MEAN <- c(counties.2010.NORTE.IDHM.MEAN, 
+                    counties.2010.NORDESTE.IDHM.MEAN,
+                    counties.2010.SUDESTE.IDHM.MEAN,
+                    counties.2010.SUL.IDHM.MEAN,
+                    counties.2010.CENTRO_OESTE.IDHM.MEAN)
+
+IDHM.2010.MEDIAN <- c(counties.2010.NORTE.IDHM.MEDIAN, 
+                      counties.2010.NORDESTE.IDHM.MEDIAN,
+                      counties.2010.SUDESTE.IDHM.MEDIAN,
+                      counties.2010.SUL.IDHM.MEDIAN,
+                      counties.2010.CENTRO_OESTE.IDHM.MEDIAN)
+
+IDHM.2010.SD <- c(counties.2010.NORTE.IDHM.SD, 
+                  counties.2010.NORDESTE.IDHM.SD,
+                  counties.2010.SUDESTE.IDHM.SD,
+                  counties.2010.SUL.IDHM.SD,
+                  counties.2010.CENTRO_OESTE.IDHM.SD)
+
+IDHM.2010 <- data.frame(IDHM.2010.MEAN, IDHM.2010.MEDIAN, IDHM.2010.SD)
+rownames(IDHM.2010) <- c_regions
+
 # Grouped Boxplot
 p <- ggplot(IDHM_BY_REGION.df, aes(x = GROUP_BY_REGION, y=IDHM_BY_REGION, fill = GROUP_BY_YEAR)) + geom_boxplot()
 
 p + ggtitle("Índice de Desenvolvimento Humano Municipal por Região") + xlab(NULL) + ylab(NULL) + labs(fill="Anos") + theme(plot.title = element_text(hjust = 0.5))
+
+getStatisticalData = function(df, parameter){
+  eval(substitute(parameter), df)
+  
+}
