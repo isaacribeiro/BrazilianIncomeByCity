@@ -59,6 +59,9 @@ Data extracted from [Atlas Brasil](http://www.atlasbrasil.org.br/2013/pt/downloa
 * Municipal Human Development Index
 
 ![IDHM](/images/IDHM_heatmap.jpg)
+
 ![IDHM_E](/images/IDHM_E_heatmap.jpg)
+
 ![IDHM_L](/images/IDHM_L_heatmap.jpg)
+
 ![IDHM_R](/images/IDHM_R_heatmap.jpg)
